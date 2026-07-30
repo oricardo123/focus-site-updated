@@ -3744,3 +3744,22 @@ body[data-page^="locations"] .locations-menu .nav-dropdown-trigger {
     font-size: clamp(2.2rem, 12vw, 3.4rem);
   }
 }
+
+
+/* Consistent external-link icon (prevents emoji rendering on mobile) */
+.external-link-icon {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+@media (max-width: 720px) {
+  .external-link-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
