@@ -3763,3 +3763,87 @@ body[data-page^="locations"] .locations-menu .nav-dropdown-trigger {
     height: 14px;
   }
 }
+
+
+/* =========================================================
+   V26: programme groups and age / level navigation
+   ========================================================= */
+
+.nav-dropdown-programs {
+  min-width: 520px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 12px;
+}
+
+.nav-program-group {
+  min-width: 0;
+}
+
+.nav-program-group + .nav-program-group {
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-dropdown-programs .nav-program-heading {
+  min-height: 48px;
+  color: var(--white);
+  font-family: var(--display);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.nav-dropdown-programs .nav-program-heading::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  margin-right: 10px;
+  background: currentColor;
+}
+
+.program-detail-card[id] {
+  scroll-margin-top: calc(var(--header-height) + 28px);
+}
+
+.program-detail-grid-kids {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 1120px) {
+  .programs-menu.is-open .nav-dropdown {
+    max-height: 720px;
+  }
+
+  .nav-dropdown-programs {
+    display: block;
+    min-width: 0;
+    padding: 0;
+  }
+
+  .nav-program-group + .nav-program-group {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .nav-dropdown-programs .nav-program-heading {
+    min-height: 52px;
+    padding-left: 18px;
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 0.92rem;
+  }
+
+  .nav-dropdown-programs .nav-program-heading::before {
+    width: 14px;
+  }
+
+  .program-detail-grid-kids {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .program-detail-grid-kids {
+    grid-template-columns: 1fr;
+  }
+}
