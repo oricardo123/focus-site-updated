@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+<rect width="800" height="1000" fill="#d8d8d2"/>
+<rect x="35" y="35" width="730" height="930" fill="none" stroke="#aaa9a2"/>
+<path d="M280 340 L340 275 L400 315 L460 275 L520 340 L475 410 L455 755 L345 755 L325 410 Z" fill="none" stroke="#8f8f89" stroke-width="8"/>
+<text x="400" y="860" fill="#676762" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" letter-spacing="4">ADICIONAR FOTOGRAFIA</text>
+</svg>
