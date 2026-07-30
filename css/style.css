@@ -3361,3 +3361,150 @@ body[data-page="products"] .products-menu .nav-dropdown-trigger {
     width: 76px;
   }
 }
+
+/* =========================================================
+   V23: responsive schedule cards
+   Desktop keeps the full weekly grid. Tablet and mobile use
+   readable day cards, with no horizontal scrolling required.
+   ========================================================= */
+
+.schedule-mobile-list {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .schedule-table-scroll,
+  .schedule-swipe-note {
+    display: none;
+  }
+
+  .schedule-mobile-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    padding-top: 18px;
+  }
+
+  .schedule-day-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(5, 5, 5, 0.22);
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .schedule-day-card h4 {
+    margin: 0;
+    padding: 13px 16px;
+    color: var(--white);
+    background: var(--black);
+    font-family: var(--body);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .schedule-day-sessions {
+    display: grid;
+  }
+
+  .schedule-mobile-session {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    align-items: stretch;
+    border-top: 1px solid rgba(5, 5, 5, 0.16);
+  }
+
+  .schedule-mobile-session:first-child {
+    border-top: 0;
+  }
+
+  .schedule-mobile-session time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+    border-right: 1px solid rgba(5, 5, 5, 0.16);
+    color: var(--black);
+    background: rgba(255, 255, 255, 0.32);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  .schedule-mobile-session-names {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    padding: 13px 15px;
+  }
+
+  .schedule-mobile-session-names span {
+    color: var(--black);
+    font-size: 0.72rem;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: 0.035em;
+    overflow-wrap: anywhere;
+    text-transform: uppercase;
+  }
+
+  .schedule-mobile-session-names span + span {
+    padding-top: 7px;
+    border-top: 1px solid rgba(5, 5, 5, 0.15);
+  }
+}
+
+@media (max-width: 620px) {
+  .schedule-section .section-shell {
+    padding-inline: 18px;
+  }
+
+  .schedule-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-toolbar h2 {
+    max-width: 100%;
+    font-size: clamp(2.65rem, 13vw, 4rem);
+  }
+
+  .schedule-board {
+    gap: 54px;
+  }
+
+  .schedule-mat-heading {
+    min-height: 0;
+    align-items: center;
+  }
+
+  .schedule-mat-heading h3 {
+    font-size: clamp(2.35rem, 12vw, 3.25rem);
+  }
+
+  .schedule-mobile-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-top: 14px;
+  }
+
+  .schedule-mobile-session {
+    grid-template-columns: 68px minmax(0, 1fr);
+  }
+
+  .schedule-mobile-session time {
+    padding: 14px 8px;
+    font-size: 0.72rem;
+  }
+
+  .schedule-mobile-session-names {
+    padding: 12px 14px;
+  }
+
+  .schedule-mobile-session-names span {
+    font-size: 0.68rem;
+  }
+}
