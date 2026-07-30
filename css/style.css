@@ -4114,3 +4114,29 @@ body[data-page^="locations"] .locations-menu .nav-dropdown-trigger {
     font-size: clamp(2.5rem, 12vw, 3.8rem);
   }
 }
+
+
+/* Footer social icons use SVG so mobile browsers cannot render emoji arrows. */
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  text-decoration: none;
+}
+
+.footer-social-link .external-link-icon {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 720px) {
+  .footer-social-link {
+    gap: 7px;
+  }
+
+  .footer-social-link .external-link-icon {
+    width: 13px;
+    height: 13px;
+  }
+}
