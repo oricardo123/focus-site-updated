@@ -2917,3 +2917,447 @@ body[data-page="products"] .products-menu .nav-dropdown-trigger {
     padding-bottom: 28px;
   }
 }
+
+/* =========================================================
+   V20: stable mobile footer layout
+   ========================================================= */
+@media (max-width: 720px) {
+  .site-footer {
+    overflow: hidden;
+  }
+
+  .footer-single-row {
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-top: 38px;
+    padding-bottom: 104px;
+  }
+
+  .footer-single-row > * {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .footer-identity {
+    height: auto;
+    display: block;
+    padding: 0 0 30px;
+  }
+
+  .footer-logo-link {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer-logo {
+    width: 158px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .footer-detail,
+  .footer-detail:nth-child(4) {
+    width: 100%;
+    padding: 22px 0;
+    border-top: 1px solid var(--line-light);
+    border-left: 0;
+  }
+
+  .footer-detail > span {
+    margin-bottom: 8px;
+    font-size: 0.62rem;
+  }
+
+  .footer-detail address,
+  .footer-detail a {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .footer-social-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 20px;
+  }
+
+  .floating-whatsapp {
+    right: 14px;
+    bottom: 14px;
+    min-height: 48px;
+    max-width: calc(100vw - 28px);
+    padding: 0 17px;
+    gap: 0;
+    white-space: nowrap;
+  }
+
+  .floating-whatsapp span:first-child {
+    display: none;
+  }
+
+  .floating-whatsapp span:last-child {
+    display: inline;
+  }
+}
+
+/* =========================================================
+   V21: final responsive footer layout
+   Desktop: one row
+   Tablet: logo + two-column information grid
+   Mobile: one clean column
+   ========================================================= */
+
+@media (min-width: 1181px) {
+  .footer-single-row {
+    display: grid;
+    grid-template-columns:
+      minmax(150px, 0.8fr)
+      minmax(190px, 1.15fr)
+      minmax(135px, 0.72fr)
+      minmax(215px, 1.2fr)
+      minmax(125px, 0.72fr);
+    align-items: center;
+    gap: clamp(20px, 2vw, 38px);
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .site-footer {
+    overflow: hidden;
+  }
+
+  .footer-single-row {
+    width: 100%;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 0;
+    padding-top: 40px;
+    padding-bottom: 116px;
+  }
+
+  .footer-single-row > * {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .footer-identity {
+    grid-column: 1 / -1;
+    height: auto;
+    display: block;
+    padding: 0 0 30px;
+  }
+
+  .footer-logo-link {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer-logo {
+    width: 168px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .footer-detail,
+  .footer-detail:nth-child(4) {
+    width: 100%;
+    padding: 22px 0;
+    border-top: 1px solid var(--line-light);
+    border-left: 0;
+  }
+
+  .footer-detail:nth-child(3),
+  .footer-detail:nth-child(5) {
+    padding-left: clamp(24px, 4vw, 48px);
+    border-left: 1px solid var(--line-light);
+  }
+
+  .footer-detail address,
+  .footer-detail a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .footer-social-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 20px;
+  }
+
+  .floating-whatsapp {
+    right: 14px;
+    bottom: 14px;
+    max-width: calc(100vw - 28px);
+  }
+}
+
+@media (max-width: 720px) {
+  .footer-single-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 36px;
+    padding-bottom: 96px;
+  }
+
+  .footer-identity {
+    padding-bottom: 26px;
+  }
+
+  .footer-logo {
+    width: 156px;
+  }
+
+  .footer-detail,
+  .footer-detail:nth-child(3),
+  .footer-detail:nth-child(4),
+  .footer-detail:nth-child(5) {
+    padding: 20px 0;
+    border-top: 1px solid var(--line-light);
+    border-left: 0;
+  }
+
+  .footer-detail > span {
+    margin-bottom: 8px;
+  }
+
+  .footer-detail address,
+  .footer-detail a {
+    display: inline-block;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .footer-social-links {
+    gap: 10px 18px;
+  }
+
+  .floating-whatsapp {
+    min-height: 48px;
+    padding: 0 16px;
+    font-size: 0.62rem;
+    white-space: nowrap;
+  }
+}
+
+/* =========================================================
+   V22: official class schedule
+   ========================================================= */
+
+.schedule-section {
+  padding-top: clamp(72px, 8vw, 120px);
+  padding-bottom: clamp(90px, 10vw, 150px);
+}
+
+.schedule-board {
+  margin-top: clamp(44px, 6vw, 82px);
+  display: grid;
+  gap: clamp(54px, 7vw, 96px);
+}
+
+.schedule-mat {
+  min-width: 0;
+}
+
+.schedule-mat-heading {
+  min-height: 74px;
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  padding: 0 0 18px;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.schedule-mat-heading h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 4vw, 4.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.schedule-mat-number {
+  margin-bottom: 4px;
+  color: var(--grey-dark);
+  font-family: var(--display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.schedule-swipe-note {
+  display: none;
+  margin: 0 0 3px auto;
+  color: var(--grey-dark);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.schedule-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--black) transparent;
+}
+
+.schedule-table-scroll:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 5px;
+}
+
+.schedule-table {
+  width: 100%;
+  min-width: 1040px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.schedule-table th,
+.schedule-table td {
+  height: 82px;
+  padding: 10px 8px;
+  border: 1px solid rgba(5, 5, 5, 0.26);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.schedule-table thead th {
+  height: 46px;
+  padding: 9px 8px;
+  color: var(--white);
+  background: var(--black);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.schedule-table thead .schedule-time-heading {
+  width: 88px;
+}
+
+.schedule-table tbody th {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  width: 88px;
+  color: var(--black);
+  background: var(--paper);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.schedule-table td:empty {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.schedule-session {
+  display: flex;
+  min-height: 26px;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.schedule-session-secondary {
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px solid rgba(5, 5, 5, 0.22);
+}
+
+.schedule-table-compact th,
+.schedule-table-compact td {
+  height: 72px;
+}
+
+@media (max-width: 1180px) {
+  .schedule-swipe-note {
+    display: block;
+  }
+
+  .schedule-table-scroll {
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 720px) {
+  .schedule-section {
+    padding-top: 58px;
+    padding-bottom: 90px;
+  }
+
+  .schedule-toolbar {
+    gap: 22px;
+  }
+
+  .schedule-toolbar h2 {
+    font-size: clamp(2.9rem, 14vw, 4.4rem);
+  }
+
+  .schedule-toolbar > p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .schedule-board {
+    margin-top: 42px;
+    gap: 64px;
+  }
+
+  .schedule-mat-heading {
+    min-height: 62px;
+    gap: 12px;
+    padding-bottom: 14px;
+  }
+
+  .schedule-mat-heading h3 {
+    font-size: 2.8rem;
+  }
+
+  .schedule-swipe-note {
+    max-width: 150px;
+    text-align: right;
+    line-height: 1.35;
+  }
+
+  .schedule-table {
+    min-width: 900px;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    height: 76px;
+  }
+
+  .schedule-table thead .schedule-time-heading,
+  .schedule-table tbody th {
+    width: 76px;
+  }
+}
