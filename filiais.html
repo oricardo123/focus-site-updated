@@ -4,14 +4,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Conheça as filiais e localizações da Focus Jiu-Jitsu." name="description"/>
+<meta content="Filiais Focus Jiu-Jitsu em Portugal, Espanha e nos Netherlands." name="description"/>
 <meta content="#050505" name="theme-color"/>
 <title>Filiais | Focus Jiu-Jitsu Headquarters</title>
 <link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="css/style.css?v=20260730-21" rel="stylesheet"/>
+<link href="css/style.css?v=20260730-24" rel="stylesheet"/>
 </head>
 <body class="internal-page" data-page="locations">
 <a class="skip-link" data-en="Skip to content" data-pt="Saltar para o conteúdo" href="#locations-main">Saltar para o conteúdo</a>
@@ -62,7 +62,21 @@
 <a data-en="Rashguards" data-pt="Rashguards" href="produtos.html#rashguards">Rashguards</a>
 </div>
 </div>
-<a data-en="Locations" data-pt="Filiais" href="filiais.html">Filiais</a>
+<div class="nav-item nav-item-dropdown locations-menu" data-nav-dropdown="">
+<div class="nav-academy-control">
+<button aria-controls="locations-dropdown" aria-expanded="false" class="nav-dropdown-trigger" type="button">
+<span class="nav-trigger-label" data-en="Locations" data-pt="Filiais">Filiais</span>
+<span aria-hidden="true" class="nav-toggle-symbol"></span>
+<span class="sr-only" data-en="Open Locations menu" data-pt="Abrir menu Filiais">Abrir menu Filiais</span>
+</button>
+</div>
+<div class="nav-dropdown nav-dropdown-compact" id="locations-dropdown">
+<a data-en="All locations" data-pt="Todas as filiais" href="filiais.html">Todas as filiais</a>
+<a data-en="Portugal" data-pt="Portugal" href="filiais-portugal.html">Portugal</a>
+<a data-en="Spain" data-pt="Espanha" href="filiais-espanha.html">Espanha</a>
+<a data-en="Netherlands" data-pt="Netherlands" href="filiais-netherlands.html">Netherlands</a>
+</div>
+</div>
 <a data-en="Contact" data-pt="Contacto" href="index.html#footer-contact">Contacto</a>
 </nav>
 <div class="header-actions">
@@ -83,7 +97,46 @@
 <span class="sr-only" data-en="Open menu" data-pt="Abrir menu">Abrir menu</span>
 </button>
 </header>
-<main id="locations-main"><section class="internal-hero section-dark locations-hero"><div class="section-shell internal-hero-grid"><div class="reveal"><p class="eyebrow" data-en="LOCATIONS" data-pt="FILIAIS">FILIAIS</p><h1 data-en="The Focus family." data-pt="A família Focus.">A família Focus.</h1></div><p class="internal-hero-copy reveal" data-en="Discover the academies and teams that are part of the Focus Jiu-Jitsu network." data-pt="Descobre as academias e equipas que fazem parte da rede Focus Jiu-Jitsu.">Descobre as academias e equipas que fazem parte da rede Focus Jiu-Jitsu.</p></div></section><section class="locations-section section-light"><div class="section-shell"><div class="section-heading-row reveal"><div><p class="eyebrow" data-en="FOCUS NETWORK" data-pt="REDE FOCUS">REDE FOCUS</p><h2 data-en="Find a location." data-pt="Encontra uma filial.">Encontra uma filial.</h2></div><p data-en="This page is ready for the address, contacts, schedule and link for each location." data-pt="Esta página está preparada para receber a morada, contactos, horários e ligação de cada filial.">Esta página está preparada para receber a morada, contactos, horários e ligação de cada filial.</p></div><div class="locations-placeholder reveal"><span data-en="Add approved locations" data-pt="Adicionar filiais aprovadas">Adicionar filiais aprovadas</span></div></div></section></main>
+<main id="locations-main">
+<section class="internal-hero section-dark locations-hero">
+<div class="section-shell internal-hero-grid">
+<div class="reveal">
+<p class="eyebrow" data-en="LOCATIONS" data-pt="FILIAIS">FILIAIS</p>
+<h1 data-en="The Focus family." data-pt="A família Focus.">A família Focus.</h1>
+</div>
+<p class="internal-hero-copy reveal" data-en="Find a Focus Jiu-Jitsu academy in Portugal, Spain or the Netherlands." data-pt="Encontra uma academia Focus Jiu-Jitsu em Portugal, Espanha ou nos Netherlands.">Encontra uma academia Focus Jiu-Jitsu em Portugal, Espanha ou nos Netherlands.</p>
+</div>
+</section>
+<section class="locations-directory section-light">
+<div class="section-shell">
+<div class="section-heading-row reveal">
+<div>
+<p class="eyebrow" data-en="FOCUS NETWORK" data-pt="REDE FOCUS">REDE FOCUS</p>
+<h2 data-en="Choose a country." data-pt="Escolhe um país.">Escolhe um país.</h2>
+</div>
+<p data-en="Explore the Focus Jiu-Jitsu academies currently confirmed through public team and federation sources." data-pt="Explora as academias Focus Jiu-Jitsu atualmente confirmadas através de fontes públicas da equipa e das federações.">Explora as academias Focus Jiu-Jitsu atualmente confirmadas através de fontes públicas da equipa e das federações.</p>
+</div>
+<div class="country-grid reveal">
+<a class="country-card" href="filiais-portugal.html">
+<span class="country-card-number">01</span>
+<span class="country-card-name">Portugal</span>
+<span class="country-card-link" data-en="View locations" data-pt="Ver filiais">Ver filiais</span>
+</a>
+<a class="country-card" href="filiais-espanha.html">
+<span class="country-card-number">02</span>
+<span class="country-card-name" data-en="Spain" data-pt="Espanha">Espanha</span>
+<span class="country-card-link" data-en="View locations" data-pt="Ver filiais">Ver filiais</span>
+</a>
+<a class="country-card" href="filiais-netherlands.html">
+<span class="country-card-number">03</span>
+<span class="country-card-name">Netherlands</span>
+<span class="country-card-link" data-en="View locations" data-pt="Ver filiais">Ver filiais</span>
+</a>
+</div>
+<p class="locations-verification-note reveal" data-en="Locations and contact details may change. Confirm schedules directly with each academy before visiting." data-pt="As localizações e os contactos podem sofrer alterações. Confirma os horários diretamente com cada academia antes de visitar.">As localizações e os contactos podem sofrer alterações. Confirma os horários diretamente com cada academia antes de visitar.</p>
+</div>
+</section>
+</main>
 <footer class="site-footer" id="footer-contact">
 <div class="footer-single-row section-shell">
 <div class="footer-identity">
