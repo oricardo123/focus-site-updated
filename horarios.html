@@ -1,1352 +1,344 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="pt">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta
-      content="Horários das aulas da Focus Jiu-Jitsu Headquarters em Matosinhos."
-      name="description"
-    />
-    <meta content="#050505" name="theme-color" />
-    <title>Horários | Focus Jiu-Jitsu Headquarters</title>
-    <link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml" />
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@500;600;700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link href="css/style.css?v=20260730-28" rel="stylesheet" />
-  </head>
-  <body class="internal-page" data-page="schedule">
-    <a
-      class="skip-link"
-      data-en="Skip to content"
-      data-pt="Saltar para o conteúdo"
-      href="#schedule-main"
-      >Saltar para o conteúdo</a
-    >
-    <header class="site-header" id="top">
-      <nav
-        aria-label="Navegação principal"
-        class="main-nav"
-        id="main-navigation"
-      >
-        <div
-          class="nav-item nav-item-dropdown academy-menu"
-          data-nav-dropdown=""
-        >
-          <div class="nav-academy-control">
-            <button
-              aria-controls="academy-dropdown"
-              aria-expanded="false"
-              class="nav-dropdown-trigger"
-              type="button"
-            >
-              <span
-                class="nav-trigger-label"
-                data-en="The Academy"
-                data-pt="A Academia"
-                >A Academia</span
-              >
-              <span aria-hidden="true" class="nav-toggle-symbol"></span>
-              <span
-                class="sr-only"
-                data-en="Open The Academy menu"
-                data-pt="Abrir menu A Academia"
-                >Abrir menu A Academia</span
-              >
-            </button>
-          </div>
-          <div class="nav-dropdown" id="academy-dropdown">
-            <a
-              data-en="Our philosophy"
-              data-pt="A nossa filosofia"
-              href="index.html#academy"
-              >A nossa filosofia</a
-            >
-            <a data-en="Team" data-pt="Equipa" href="equipa.html">Equipa</a>
-            <a
-              data-en="Facilities"
-              data-pt="Instalações"
-              href="instalacoes.html"
-              >Instalações</a
-            >
-            <a
-              data-en="Visit Focus Jiu-Jitsu HQ"
-              data-pt="Visitar Focus Jiu-Jitsu HQ"
-              href="visitar.html"
-              >Visitar Focus Jiu-Jitsu HQ</a
-            >
-            <a
-              data-en="History &amp; Achievements"
-              data-pt="História &amp; Conquistas"
-              href="historia-conquistas.html"
-              >História &amp; Conquistas</a
-            >
-          </div>
-        </div>
-        <div
-          class="nav-item nav-item-dropdown programs-menu"
-          data-nav-dropdown=""
-        >
-          <div class="nav-academy-control">
-            <button
-              aria-controls="programs-dropdown"
-              aria-expanded="false"
-              class="nav-dropdown-trigger"
-              type="button"
-            >
-              <span
-                class="nav-trigger-label"
-                data-en="Programs"
-                data-pt="Programas"
-                >Programas</span
-              >
-              <span aria-hidden="true" class="nav-toggle-symbol"></span>
-              <span
-                class="sr-only"
-                data-en="Open Programs menu"
-                data-pt="Abrir menu Programas"
-                >Abrir menu Programas</span
-              >
-            </button>
-          </div>
-          <div
-            class="nav-dropdown nav-dropdown-programs"
-            id="programs-dropdown"
-          >
-            <div class="nav-program-group">
-              <a
-                class="nav-program-heading"
-                data-en="Adults"
-                data-pt="Adultos"
-                href="adultos.html"
-                >Adultos</a
-              >
-              <a
-                data-en="Beginners"
-                data-pt="Iniciantes"
-                href="adultos.html#iniciantes"
-                >Iniciantes</a
-              >
-              <a
-                data-en="Intermediate"
-                data-pt="Intermédios"
-                href="adultos.html#intermedios"
-                >Intermédios</a
-              >
-              <a
-                data-en="Advanced"
-                data-pt="Avançados"
-                href="adultos.html#avancados"
-                >Avançados</a
-              >
-              <a
-                data-en="Competition"
-                data-pt="Competição"
-                href="adultos.html#competicao"
-                >Competição</a
-              >
-            </div>
-            <div class="nav-program-group">
-              <a
-                class="nav-program-heading"
-                data-en="Kids"
-                data-pt="Kids"
-                href="kids.html"
-                >Kids</a
-              >
-              <a
-                data-en="Kids 1 · 4–6 years"
-                data-pt="Kids 1 · 4–6 anos"
-                href="kids.html#kids-1"
-                >Kids 1 · 4–6 anos</a
-              >
-              <a
-                data-en="Kids 2 · 7–9 years"
-                data-pt="Kids 2 · 7–9 anos"
-                href="kids.html#kids-2"
-                >Kids 2 · 7–9 anos</a
-              >
-              <a
-                data-en="Kids 3 · 10–13 years"
-                data-pt="Kids 3 · 10–13 anos"
-                href="kids.html#kids-3"
-                >Kids 3 · 10–13 anos</a
-              >
-            </div>
-          </div>
-        </div>
-        <a data-en="Schedule" data-pt="Horários" href="horarios.html"
-          >Horários</a
-        >
-        <div
-          class="nav-item nav-item-dropdown products-menu"
-          data-nav-dropdown=""
-        >
-          <div class="nav-academy-control">
-            <button
-              aria-controls="products-dropdown"
-              aria-expanded="false"
-              class="nav-dropdown-trigger"
-              type="button"
-            >
-              <span
-                class="nav-trigger-label"
-                data-en="Products"
-                data-pt="Produtos"
-                >Produtos</span
-              >
-              <span aria-hidden="true" class="nav-toggle-symbol"></span>
-              <span
-                class="sr-only"
-                data-en="Open Products menu"
-                data-pt="Abrir menu Produtos"
-                >Abrir menu Produtos</span
-              >
-            </button>
-          </div>
-          <div class="nav-dropdown" id="products-dropdown">
-            <a
-              data-en="All products"
-              data-pt="Todos os produtos"
-              href="produtos.html"
-              >Todos os produtos</a
-            >
-            <a data-en="Gis" data-pt="Kimonos" href="produtos.html#kimonos"
-              >Kimonos</a
-            >
-            <a
-              data-en="T-Shirts"
-              data-pt="T-Shirts"
-              href="produtos.html#tshirts"
-              >T-Shirts</a
-            >
-            <a
-              data-en="Rashguards"
-              data-pt="Rashguards"
-              href="produtos.html#rashguards"
-              >Rashguards</a
-            >
-          </div>
-        </div>
-        <div
-          class="nav-item nav-item-dropdown locations-menu"
-          data-nav-dropdown=""
-        >
-          <div class="nav-academy-control">
-            <button
-              aria-controls="locations-dropdown"
-              aria-expanded="false"
-              class="nav-dropdown-trigger"
-              type="button"
-            >
-              <span
-                class="nav-trigger-label"
-                data-en="Locations"
-                data-pt="Filiais"
-                >Filiais</span
-              >
-              <span aria-hidden="true" class="nav-toggle-symbol"></span>
-              <span
-                class="sr-only"
-                data-en="Open Locations menu"
-                data-pt="Abrir menu Filiais"
-                >Abrir menu Filiais</span
-              >
-            </button>
-          </div>
-          <div
-            class="nav-dropdown nav-dropdown-compact"
-            id="locations-dropdown"
-          >
-            <a
-              data-en="All locations"
-              data-pt="Todas as filiais"
-              href="filiais.html"
-              >Todas as filiais</a
-            >
-            <a
-              data-en="Portugal"
-              data-pt="Portugal"
-              href="filiais-portugal.html"
-              >Portugal</a
-            >
-            <a data-en="Spain" data-pt="Espanha" href="filiais-espanha.html"
-              >Espanha</a
-            >
-            <a
-              data-en="Netherlands"
-              data-pt="Netherlands"
-              href="filiais-netherlands.html"
-              >Netherlands</a
-            >
-          </div>
-        </div>
-        <a data-en="Contact" data-pt="Contacto" href="index.html#footer-contact"
-          >Contacto</a
-        >
-      </nav>
-      <div class="header-actions">
-        <a
-          aria-label="Abrir Focus Jiu Jitsu Online"
-          class="online-portal-link"
-          href="https://site.focusjiujitsu.pt/"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <span class="online-label-full">Focus Jiu Jitsu Online</span>
-          <span class="online-label-short">Focus Online</span>
-          <svg
-            class="external-link-icon"
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <path d="M7 17L17 7"></path>
-            <path d="M9 7H17V15"></path>
-          </svg>
-        </a>
-        <div aria-label="Escolher idioma" class="language-switch">
-          <button
-            aria-pressed="true"
-            class="language-button is-active"
-            data-language="pt"
-            type="button"
-          >
-            PT
-          </button>
-          <span aria-hidden="true">/</span>
-          <button
-            aria-pressed="false"
-            class="language-button"
-            data-language="en"
-            type="button"
-          >
-            EN
-          </button>
-        </div>
-      </div>
-      <button
-        aria-controls="main-navigation"
-        aria-expanded="false"
-        class="menu-button"
-        type="button"
-      >
-        <span></span>
-        <span></span>
-        <span class="sr-only" data-en="Open menu" data-pt="Abrir menu"
-          >Abrir menu</span
-        >
-      </button>
-    </header>
-    <main id="schedule-main">
-      <section class="schedule-section section-light" id="weekly-schedule">
-        <div class="section-shell">
-          <div class="schedule-toolbar reveal">
-            <div>
-              <p
-                class="eyebrow"
-                data-en="WEEKLY PROGRAM"
-                data-pt="PROGRAMA SEMANAL"
-              >
-                PROGRAMA SEMANAL
-              </p>
-              <h2 data-en="Focus Jiu-Jitsu Schedule" data-pt="Horários Focus Jiu Jitsu">
-                Horários Focus Jiu Jitsu
-              </h2>
-            </div>
-          </div>
-          <div class="schedule-board reveal">
-            <section aria-labelledby="mat-1-title" class="schedule-mat">
-              <div class="schedule-mat-heading">
-                <span class="schedule-mat-number">01</span>
-                <h3 id="mat-1-title">MAT 1</h3>
-                <span
-                  class="schedule-swipe-note"
-                  data-en="Swipe to see all days →"
-                  data-pt="Desliza para veres todos os dias →"
-                  >Desliza para veres todos os dias →</span
-                >
-              </div>
-              <div
-                aria-label="Horário do Mat 1"
-                class="schedule-table-scroll"
-                tabindex="0"
-              >
-                <table class="schedule-table">
-                  <thead>
-                    <tr>
-                      <th class="schedule-time-heading" scope="col">
-                        <span data-en="Time" data-pt="Hora">Hora</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Monday" data-pt="Segunda">Segunda</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Tuesday" data-pt="Terça">Terça</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Wednesday" data-pt="Quarta">Quarta</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Thursday" data-pt="Quinta">Quinta</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Friday" data-pt="Sexta">Sexta</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Saturday" data-pt="Sábado">Sábado</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Sunday" data-pt="Domingo">Domingo</span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">07:30</th>
-                      <td></td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">09:30</th>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Advanced"
-                          data-pt="Avançados"
-                          >Avançados</span
-                        >
-                      </td>
-                      <td></td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Advanced"
-                          data-pt="Avançados"
-                          >Avançados</span
-                        >
-                      </td>
-                      <td></td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Advanced"
-                          data-pt="Avançados"
-                          >Avançados</span
-                        >
-                      </td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">10:00</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">11:00</th>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">17:00</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">18:00</th>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Beginners"
-                          data-pt="Iniciados"
-                          >Iniciados</span
-                        ><span
-                          class="schedule-session schedule-session-secondary"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td></td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Beginners"
-                          data-pt="Iniciados"
-                          >Iniciados</span
-                        ><span
-                          class="schedule-session schedule-session-secondary"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td></td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Beginners"
-                          data-pt="Iniciados"
-                          >Iniciados</span
-                        ><span
-                          class="schedule-session schedule-session-secondary"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">19:00</th>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Beginners"
-                          data-pt="Iniciados"
-                          >Iniciados</span
-                        ><span
-                          class="schedule-session schedule-session-secondary"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Advanced"
-                          data-pt="Avançados"
-                          >Avançados</span
-                        ><span
-                          class="schedule-session schedule-session-secondary"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Beginners"
-                          data-pt="Iniciados"
-                          >Iniciados</span
-                        ><span
-                          class="schedule-session schedule-session-secondary"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Advanced"
-                          data-pt="Avançados"
-                          >Avançados</span
-                        ><span
-                          class="schedule-session schedule-session-secondary"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Beginners"
-                          data-pt="Iniciados"
-                          >Iniciados</span
-                        ><span
-                          class="schedule-session schedule-session-secondary"
-                          data-en="All levels"
-                          data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">19:30</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div
-                aria-label="MAT 1 — horário mobile"
-                class="schedule-mobile-list"
-              >
-                <article class="schedule-day-card">
-                  <h4>
-                    <span data-en="Monday" data-pt="Segunda">Segunda</span>
-                  </h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>09:30</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Advanced" data-pt="Avançados"
-                          >Avançados</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>11:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>18:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Beginners" data-pt="Iniciados"
-                          >Iniciados</span
-                        ><span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>19:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Beginners" data-pt="Iniciados"
-                          >Iniciados</span
-                        ><span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="schedule-day-card">
-                  <h4><span data-en="Tuesday" data-pt="Terça">Terça</span></h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>07:30</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>11:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>19:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Advanced" data-pt="Avançados"
-                          >Avançados</span
-                        ><span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="schedule-day-card">
-                  <h4>
-                    <span data-en="Wednesday" data-pt="Quarta">Quarta</span>
-                  </h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>07:30</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>09:30</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Advanced" data-pt="Avançados"
-                          >Avançados</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>11:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>18:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Beginners" data-pt="Iniciados"
-                          >Iniciados</span
-                        ><span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>19:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Beginners" data-pt="Iniciados"
-                          >Iniciados</span
-                        ><span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="schedule-day-card">
-                  <h4>
-                    <span data-en="Thursday" data-pt="Quinta">Quinta</span>
-                  </h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>07:30</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>11:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>19:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Advanced" data-pt="Avançados"
-                          >Avançados</span
-                        ><span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="schedule-day-card">
-                  <h4><span data-en="Friday" data-pt="Sexta">Sexta</span></h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>09:30</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Advanced" data-pt="Avançados"
-                          >Avançados</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>11:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>18:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Beginners" data-pt="Iniciados"
-                          >Iniciados</span
-                        ><span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>19:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Beginners" data-pt="Iniciados"
-                          >Iniciados</span
-                        ><span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="schedule-day-card">
-                  <h4>
-                    <span data-en="Saturday" data-pt="Sábado">Sábado</span>
-                  </h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>11:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="schedule-day-card">
-                  <h4>
-                    <span data-en="Sunday" data-pt="Domingo">Domingo</span>
-                  </h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>11:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="All levels" data-pt="Todos os níveis"
-                          >Todos os níveis</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </div>
-            </section>
-            <section aria-labelledby="mat-2-title" class="schedule-mat">
-              <div class="schedule-mat-heading">
-                <span class="schedule-mat-number">02</span>
-                <h3 id="mat-2-title">MAT 2</h3>
-              </div>
-              <div
-                aria-label="Horário do Mat 2"
-                class="schedule-table-scroll"
-                tabindex="0"
-              >
-                <table class="schedule-table schedule-table-compact">
-                  <thead>
-                    <tr>
-                      <th class="schedule-time-heading" scope="col">
-                        <span data-en="Time" data-pt="Hora">Hora</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Monday" data-pt="Segunda">Segunda</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Tuesday" data-pt="Terça">Terça</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Wednesday" data-pt="Quarta">Quarta</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Thursday" data-pt="Quinta">Quinta</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Friday" data-pt="Sexta">Sexta</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Saturday" data-pt="Sábado">Sábado</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Sunday" data-pt="Domingo">Domingo</span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">18:00</th>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Kids 2"
-                          data-pt="Kids 2"
-                          >Kids 2</span
-                        >
-                      </td>
-                      <td></td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Kids 2"
-                          data-pt="Kids 2"
-                          >Kids 2</span
-                        >
-                      </td>
-                      <td></td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Kids 2"
-                          data-pt="Kids 2"
-                          >Kids 2</span
-                        >
-                      </td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">19:00</th>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Kids 3"
-                          data-pt="Kids 3"
-                          >Kids 3</span
-                        >
-                      </td>
-                      <td></td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Kids 3"
-                          data-pt="Kids 3"
-                          >Kids 3</span
-                        >
-                      </td>
-                      <td></td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Kids 3"
-                          data-pt="Kids 3"
-                          >Kids 3</span
-                        >
-                      </td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div
-                aria-label="MAT 2 — horário mobile"
-                class="schedule-mobile-list"
-              >
-                <article class="schedule-day-card">
-                  <h4>
-                    <span data-en="Monday" data-pt="Segunda">Segunda</span>
-                  </h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>18:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Kids 2" data-pt="Kids 2">Kids 2</span>
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>19:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Kids 3" data-pt="Kids 3">Kids 3</span>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="schedule-day-card">
-                  <h4>
-                    <span data-en="Wednesday" data-pt="Quarta">Quarta</span>
-                  </h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>18:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Kids 2" data-pt="Kids 2">Kids 2</span>
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>19:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Kids 3" data-pt="Kids 3">Kids 3</span>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="schedule-day-card">
-                  <h4><span data-en="Friday" data-pt="Sexta">Sexta</span></h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>18:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Kids 2" data-pt="Kids 2">Kids 2</span>
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>19:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Kids 3" data-pt="Kids 3">Kids 3</span>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </div>
-            </section>
-            <section aria-labelledby="mat-3-title" class="schedule-mat">
-              <div class="schedule-mat-heading">
-                <span class="schedule-mat-number">03</span>
-                <h3 id="mat-3-title">MAT 3</h3>
-              </div>
-              <div
-                aria-label="Horário do Mat 3"
-                class="schedule-table-scroll"
-                tabindex="0"
-              >
-                <table class="schedule-table schedule-table-compact">
-                  <thead>
-                    <tr>
-                      <th class="schedule-time-heading" scope="col">
-                        <span data-en="Time" data-pt="Hora">Hora</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Monday" data-pt="Segunda">Segunda</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Tuesday" data-pt="Terça">Terça</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Wednesday" data-pt="Quarta">Quarta</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Thursday" data-pt="Quinta">Quinta</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Friday" data-pt="Sexta">Sexta</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Saturday" data-pt="Sábado">Sábado</span>
-                      </th>
-                      <th scope="col">
-                        <span data-en="Sunday" data-pt="Domingo">Domingo</span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">17:00</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">18:00</th>
-                      <td></td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Kids 2"
-                          data-pt="Kids 2"
-                          >Kids 2</span
-                        >
-                      </td>
-                      <td></td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Kids 2"
-                          data-pt="Kids 2"
-                          >Kids 2</span
-                        >
-                      </td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">19:00</th>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Women"
-                          data-pt="Feminino"
-                          >Feminino</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Kids 3"
-                          data-pt="Kids 3"
-                          >Kids 3</span
-                        >
-                      </td>
-                      <td></td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Kids 3"
-                          data-pt="Kids 3"
-                          >Kids 3</span
-                        >
-                      </td>
-                      <td>
-                        <span
-                          class="schedule-session"
-                          data-en="Women"
-                          data-pt="Feminino"
-                          >Feminino</span
-                        >
-                      </td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div
-                aria-label="MAT 3 — horário mobile"
-                class="schedule-mobile-list"
-              >
-                <article class="schedule-day-card">
-                  <h4>
-                    <span data-en="Monday" data-pt="Segunda">Segunda</span>
-                  </h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>19:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Women" data-pt="Feminino">Feminino</span>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="schedule-day-card">
-                  <h4><span data-en="Tuesday" data-pt="Terça">Terça</span></h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>18:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Kids 2" data-pt="Kids 2">Kids 2</span>
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>19:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Kids 3" data-pt="Kids 3">Kids 3</span>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="schedule-day-card">
-                  <h4>
-                    <span data-en="Thursday" data-pt="Quinta">Quinta</span>
-                  </h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>18:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Kids 2" data-pt="Kids 2">Kids 2</span>
-                      </div>
-                    </div>
-                    <div class="schedule-mobile-session">
-                      <time>19:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Kids 3" data-pt="Kids 3">Kids 3</span>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="schedule-day-card">
-                  <h4><span data-en="Friday" data-pt="Sexta">Sexta</span></h4>
-                  <div class="schedule-day-sessions">
-                    <div class="schedule-mobile-session">
-                      <time>19:00</time>
-                      <div class="schedule-mobile-session-names">
-                        <span data-en="Women" data-pt="Feminino">Feminino</span>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </div>
-            </section>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="site-footer" id="footer-contact">
-      <div class="footer-single-row section-shell">
-        <div class="footer-identity">
-          <a
-            aria-label="Focus Jiu-Jitsu Headquarters"
-            class="footer-logo-link"
-            href="index.html"
-          >
-            <img
-              alt="Focus Jiu-Jitsu"
-              class="footer-logo"
-              src="assets/images/focus-logo.png"
-            />
-          </a>
-        </div>
-        <div class="footer-detail">
-          <span data-en="Address" data-pt="Morada">Morada</span>
-          <address>
-            Rua Dr. Afonso Cordeiro, 711<br />4450-007 Matosinhos
-          </address>
-        </div>
-        <div class="footer-detail">
-          <span data-en="Phone" data-pt="Telefone">Telefone</span>
-          <a href="tel:+351932665662">+351 932 665 662</a>
-        </div>
-        <div class="footer-detail">
-          <span>Email</span>
-          <a href="mailto:focusjiujitsuhq@gmail.com"
-            >focusjiujitsuhq@gmail.com</a
-          >
-        </div>
-        <div class="footer-detail footer-social-detail">
-          <span data-en="Social" data-pt="Redes">Redes</span>
-          <div class="footer-social-links">
-            <a
-              class="footer-social-link"
-              href="https://www.instagram.com/focusjiujitsuhq/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <span>Instagram</span>
-              <svg
-                class="external-link-icon"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path d="M7 17L17 7"></path>
-                <path d="M9 7H17V15"></path>
-              </svg>
-            </a>
-            <a
-              class="footer-social-link"
-              href="https://www.youtube.com/results?search_query=Focus+Jiu+Jitsu+HQ"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <span>YouTube</span>
-              <svg
-                class="external-link-icon"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path d="M7 17L17 7"></path>
-                <path d="M9 7H17V15"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <a
-      aria-label="Marcar aula experimental gratuita no WhatsApp"
-      class="floating-whatsapp whatsapp-link"
-      data-whatsapp=""
-      href="https://wa.me/351932665662?text=Ol%C3%A1%21%20Gostaria%20de%20marcar%20uma%20aula%20experimental%20na%20Focus%20Jiu-Jitsu%20HQ"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <span aria-hidden="true">↗</span>
-      <span data-en="Trial class" data-pt="Aula experimental"
-        >Aula experimental</span
-      >
-    </a>
-    <script src="js/main.js?v=20260730-19"></script>
-  </body>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Horários das aulas da Focus Jiu-Jitsu Headquarters em Matosinhos." name="description"/>
+<meta content="#050505" name="theme-color"/>
+<title>Horários | Focus Jiu-Jitsu Headquarters</title>
+<link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css?v=20260731-31" rel="stylesheet"/>
+</head>
+<body class="internal-page" data-page="schedule">
+<a class="skip-link" data-en="Skip to content" data-pt="Saltar para o conteúdo" href="#schedule-main">Saltar para o conteúdo</a>
+<header class="site-header" id="top">
+<nav aria-label="Navegação principal" class="main-nav" id="main-navigation">
+<div class="nav-item nav-item-dropdown academy-menu" data-nav-dropdown="">
+<div class="nav-academy-control">
+<button aria-controls="academy-dropdown" aria-expanded="false" class="nav-dropdown-trigger" type="button">
+<span class="nav-trigger-label" data-en="The Academy" data-pt="A Academia">A Academia</span>
+<span aria-hidden="true" class="nav-toggle-symbol"></span>
+<span class="sr-only" data-en="Open The Academy menu" data-pt="Abrir menu A Academia">Abrir menu A Academia</span>
+</button>
+</div>
+<div class="nav-dropdown" id="academy-dropdown">
+<a data-en="Our philosophy" data-pt="A nossa filosofia" href="index.html#academy">A nossa filosofia</a>
+<a data-en="Team" data-pt="Equipa" href="equipa.html">Equipa</a>
+<a data-en="Facilities" data-pt="Instalações" href="instalacoes.html">Instalações</a>
+<a data-en="Visit Focus Jiu-Jitsu HQ" data-pt="Visitar Focus Jiu-Jitsu HQ" href="visitar.html">Visitar Focus Jiu-Jitsu HQ</a>
+<a data-en="History &amp; Achievements" data-pt="História &amp; Conquistas" href="historia-conquistas.html">História &amp; Conquistas</a>
+</div>
+</div>
+<div class="nav-item nav-item-dropdown programs-menu" data-nav-dropdown="">
+<div class="nav-academy-control">
+<button aria-controls="programs-dropdown" aria-expanded="false" class="nav-dropdown-trigger" type="button">
+<span class="nav-trigger-label" data-en="Programs" data-pt="Programas">Programas</span>
+<span aria-hidden="true" class="nav-toggle-symbol"></span>
+<span class="sr-only" data-en="Open Programs menu" data-pt="Abrir menu Programas">Abrir menu Programas</span>
+</button>
+</div>
+<div class="nav-dropdown nav-dropdown-programs" id="programs-dropdown">
+<div class="nav-program-group">
+<a class="nav-program-heading" data-en="Adults" data-pt="Adultos" href="adultos.html">Adultos</a>
+<a data-en="Beginners" data-pt="Iniciantes" href="adultos.html#iniciantes">Iniciantes</a>
+<a data-en="Intermediate" data-pt="Intermédios" href="adultos.html#intermedios">Intermédios</a>
+<a data-en="Advanced" data-pt="Avançados" href="adultos.html#avancados">Avançados</a>
+<a data-en="Competition" data-pt="Competição" href="adultos.html#competicao">Competição</a>
+</div>
+<div class="nav-program-group">
+<a class="nav-program-heading" data-en="Kids" data-pt="Kids" href="kids.html">Kids</a>
+<a data-en="Kids 1 · 4–6 years" data-pt="Kids 1 · 4–6 anos" href="kids.html#kids-1">Kids 1 · 4–6 anos</a>
+<a data-en="Kids 2 · 7–9 years" data-pt="Kids 2 · 7–9 anos" href="kids.html#kids-2">Kids 2 · 7–9 anos</a>
+<a data-en="Kids 3 · 10–13 years" data-pt="Kids 3 · 10–13 anos" href="kids.html#kids-3">Kids 3 · 10–13 anos</a>
+</div>
+</div>
+</div>
+<a data-en="Schedule" data-pt="Horários" href="horarios.html">Horários</a>
+<div class="nav-item nav-item-dropdown products-menu" data-nav-dropdown="">
+<div class="nav-academy-control">
+<button aria-controls="products-dropdown" aria-expanded="false" class="nav-dropdown-trigger" type="button">
+<span class="nav-trigger-label" data-en="Products" data-pt="Produtos">Produtos</span>
+<span aria-hidden="true" class="nav-toggle-symbol"></span>
+<span class="sr-only" data-en="Open Products menu" data-pt="Abrir menu Produtos">Abrir menu Produtos</span>
+</button>
+</div>
+<div class="nav-dropdown" id="products-dropdown">
+<a data-en="All products" data-pt="Todos os produtos" href="produtos.html">Todos os produtos</a>
+<a data-en="Gis" data-pt="Kimonos" href="produtos.html#kimonos">Kimonos</a>
+<a data-en="T-Shirts" data-pt="T-Shirts" href="produtos.html#tshirts">T-Shirts</a>
+<a data-en="Rashguards" data-pt="Rashguards" href="produtos.html#rashguards">Rashguards</a>
+</div>
+</div>
+<div class="nav-item nav-item-dropdown locations-menu" data-nav-dropdown="">
+<div class="nav-academy-control">
+<button aria-controls="locations-dropdown" aria-expanded="false" class="nav-dropdown-trigger" type="button">
+<span class="nav-trigger-label" data-en="Locations" data-pt="Filiais">Filiais</span>
+<span aria-hidden="true" class="nav-toggle-symbol"></span>
+<span class="sr-only" data-en="Open Locations menu" data-pt="Abrir menu Filiais">Abrir menu Filiais</span>
+</button>
+</div>
+<div class="nav-dropdown nav-dropdown-compact" id="locations-dropdown">
+<a data-en="All locations" data-pt="Todas as filiais" href="filiais.html">Todas as filiais</a>
+<a data-en="Portugal" data-pt="Portugal" href="filiais-portugal.html">Portugal</a>
+<a data-en="Spain" data-pt="Espanha" href="filiais-espanha.html">Espanha</a>
+<a data-en="Netherlands" data-pt="Netherlands" href="filiais-netherlands.html">Netherlands</a>
+</div>
+</div>
+<a data-en="Contact" data-pt="Contacto" href="index.html#footer-contact">Contacto</a>
+</nav>
+<div class="header-actions">
+<a aria-label="Abrir Focus Jiu Jitsu Online" class="online-portal-link" href="https://site.focusjiujitsu.pt/" rel="noopener noreferrer" target="_blank">
+<span class="online-label-full">Focus Jiu Jitsu Online</span>
+<span class="online-label-short">Focus Online</span>
+<svg aria-hidden="true" class="external-link-icon" fill="none" viewbox="0 0 24 24"><path d="M7 17L17 7"></path><path d="M9 7H17V15"></path></svg>
+</a>
+<div aria-label="Escolher idioma" class="language-switch">
+<button aria-pressed="true" class="language-button is-active" data-language="pt" type="button">PT</button>
+<span aria-hidden="true">/</span>
+<button aria-pressed="false" class="language-button" data-language="en" type="button">EN</button>
+</div>
+</div>
+<button aria-controls="main-navigation" aria-expanded="false" class="menu-button" type="button">
+<span></span>
+<span></span>
+<span class="sr-only" data-en="Open menu" data-pt="Abrir menu">Abrir menu</span>
+</button>
+</header>
+<main id="schedule-main">
+<section class="internal-hero section-dark schedule-hero">
+<div class="section-shell internal-hero-grid">
+<div class="reveal">
+<p class="eyebrow" data-en="SCHEDULE" data-pt="HORÁRIOS">HORÁRIOS</p>
+<h1 data-en="Focus schedule." data-pt="Horário Focus.">Horário Focus.</h1>
+</div>
+<p class="internal-hero-copy reveal" data-en="View adult, Kids and women’s classes organised by mat and day of the week." data-pt="Consulta as aulas de adultos, Kids e feminino, organizadas por tatami e por dia da semana.">Consulta as aulas de adultos, Kids e feminino, organizadas por tatami e por dia da semana.</p>
+</div>
+</section>
+<section class="schedule-section section-light direct-content-section" id="weekly-schedule">
+<div class="section-shell">
+
+<div class="schedule-board reveal">
+<section aria-labelledby="mat-1-title" class="schedule-mat">
+<div class="schedule-mat-heading">
+<span class="schedule-mat-number">01</span>
+<h3 id="mat-1-title">MAT 1</h3>
+<span class="schedule-swipe-note" data-en="Swipe to see all days →" data-pt="Desliza para veres todos os dias →">Desliza para veres todos os dias →</span>
+</div>
+<div aria-label="Horário do Mat 1" class="schedule-table-scroll" tabindex="0">
+<table class="schedule-table">
+<thead>
+<tr>
+<th class="schedule-time-heading" scope="col"><span data-en="Time" data-pt="Hora">Hora</span></th>
+<th scope="col"><span data-en="Monday" data-pt="Segunda">Segunda</span></th>
+<th scope="col"><span data-en="Tuesday" data-pt="Terça">Terça</span></th>
+<th scope="col"><span data-en="Wednesday" data-pt="Quarta">Quarta</span></th>
+<th scope="col"><span data-en="Thursday" data-pt="Quinta">Quinta</span></th>
+<th scope="col"><span data-en="Friday" data-pt="Sexta">Sexta</span></th>
+<th scope="col"><span data-en="Saturday" data-pt="Sábado">Sábado</span></th>
+<th scope="col"><span data-en="Sunday" data-pt="Domingo">Domingo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">07:30</th>
+<td></td>
+<td><span class="schedule-session" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td><span class="schedule-session" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td><span class="schedule-session" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td></td><td></td><td></td>
+</tr>
+<tr>
+<th scope="row">09:30</th>
+<td><span class="schedule-session" data-en="Advanced" data-pt="Avançados">Avançados</span></td>
+<td></td>
+<td><span class="schedule-session" data-en="Advanced" data-pt="Avançados">Avançados</span></td>
+<td></td>
+<td><span class="schedule-session" data-en="Advanced" data-pt="Avançados">Avançados</span></td>
+<td></td><td></td>
+</tr>
+<tr>
+<th scope="row">10:00</th>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+<th scope="row">11:00</th>
+<td><span class="schedule-session" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td><span class="schedule-session" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td><span class="schedule-session" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td><span class="schedule-session" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td><span class="schedule-session" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td><span class="schedule-session" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td><span class="schedule-session" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+</tr>
+<tr>
+<th scope="row">17:00</th>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+<th scope="row">18:00</th>
+<td><span class="schedule-session" data-en="Beginners" data-pt="Iniciados">Iniciados</span><span class="schedule-session schedule-session-secondary" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td></td>
+<td><span class="schedule-session" data-en="Beginners" data-pt="Iniciados">Iniciados</span><span class="schedule-session schedule-session-secondary" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td></td>
+<td><span class="schedule-session" data-en="Beginners" data-pt="Iniciados">Iniciados</span><span class="schedule-session schedule-session-secondary" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td></td><td></td>
+</tr>
+<tr>
+<th scope="row">19:00</th>
+<td><span class="schedule-session" data-en="Beginners" data-pt="Iniciados">Iniciados</span><span class="schedule-session schedule-session-secondary" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td><span class="schedule-session" data-en="Advanced" data-pt="Avançados">Avançados</span><span class="schedule-session schedule-session-secondary" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td><span class="schedule-session" data-en="Beginners" data-pt="Iniciados">Iniciados</span><span class="schedule-session schedule-session-secondary" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td><span class="schedule-session" data-en="Advanced" data-pt="Avançados">Avançados</span><span class="schedule-session schedule-session-secondary" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td><span class="schedule-session" data-en="Beginners" data-pt="Iniciados">Iniciados</span><span class="schedule-session schedule-session-secondary" data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></td>
+<td></td><td></td>
+</tr>
+<tr>
+<th scope="row">19:30</th>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+</tbody>
+</table>
+</div><div aria-label="MAT 1 — horário mobile" class="schedule-mobile-list"><article class="schedule-day-card"><h4><span data-en="Monday" data-pt="Segunda">Segunda</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>09:30</time><div class="schedule-mobile-session-names"><span data-en="Advanced" data-pt="Avançados">Avançados</span></div></div><div class="schedule-mobile-session"><time>11:00</time><div class="schedule-mobile-session-names"><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div><div class="schedule-mobile-session"><time>18:00</time><div class="schedule-mobile-session-names"><span data-en="Beginners" data-pt="Iniciados">Iniciados</span><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div><div class="schedule-mobile-session"><time>19:00</time><div class="schedule-mobile-session-names"><span data-en="Beginners" data-pt="Iniciados">Iniciados</span><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div></div></article><article class="schedule-day-card"><h4><span data-en="Tuesday" data-pt="Terça">Terça</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>07:30</time><div class="schedule-mobile-session-names"><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div><div class="schedule-mobile-session"><time>11:00</time><div class="schedule-mobile-session-names"><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div><div class="schedule-mobile-session"><time>19:00</time><div class="schedule-mobile-session-names"><span data-en="Advanced" data-pt="Avançados">Avançados</span><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div></div></article><article class="schedule-day-card"><h4><span data-en="Wednesday" data-pt="Quarta">Quarta</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>07:30</time><div class="schedule-mobile-session-names"><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div><div class="schedule-mobile-session"><time>09:30</time><div class="schedule-mobile-session-names"><span data-en="Advanced" data-pt="Avançados">Avançados</span></div></div><div class="schedule-mobile-session"><time>11:00</time><div class="schedule-mobile-session-names"><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div><div class="schedule-mobile-session"><time>18:00</time><div class="schedule-mobile-session-names"><span data-en="Beginners" data-pt="Iniciados">Iniciados</span><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div><div class="schedule-mobile-session"><time>19:00</time><div class="schedule-mobile-session-names"><span data-en="Beginners" data-pt="Iniciados">Iniciados</span><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div></div></article><article class="schedule-day-card"><h4><span data-en="Thursday" data-pt="Quinta">Quinta</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>07:30</time><div class="schedule-mobile-session-names"><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div><div class="schedule-mobile-session"><time>11:00</time><div class="schedule-mobile-session-names"><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div><div class="schedule-mobile-session"><time>19:00</time><div class="schedule-mobile-session-names"><span data-en="Advanced" data-pt="Avançados">Avançados</span><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div></div></article><article class="schedule-day-card"><h4><span data-en="Friday" data-pt="Sexta">Sexta</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>09:30</time><div class="schedule-mobile-session-names"><span data-en="Advanced" data-pt="Avançados">Avançados</span></div></div><div class="schedule-mobile-session"><time>11:00</time><div class="schedule-mobile-session-names"><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div><div class="schedule-mobile-session"><time>18:00</time><div class="schedule-mobile-session-names"><span data-en="Beginners" data-pt="Iniciados">Iniciados</span><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div><div class="schedule-mobile-session"><time>19:00</time><div class="schedule-mobile-session-names"><span data-en="Beginners" data-pt="Iniciados">Iniciados</span><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div></div></article><article class="schedule-day-card"><h4><span data-en="Saturday" data-pt="Sábado">Sábado</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>11:00</time><div class="schedule-mobile-session-names"><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div></div></article><article class="schedule-day-card"><h4><span data-en="Sunday" data-pt="Domingo">Domingo</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>11:00</time><div class="schedule-mobile-session-names"><span data-en="All levels" data-pt="Todos os níveis">Todos os níveis</span></div></div></div></article></div>
+</section>
+<section aria-labelledby="mat-2-title" class="schedule-mat">
+<div class="schedule-mat-heading">
+<span class="schedule-mat-number">02</span>
+<h3 id="mat-2-title">MAT 2</h3>
+</div>
+<div aria-label="Horário do Mat 2" class="schedule-table-scroll" tabindex="0">
+<table class="schedule-table schedule-table-compact">
+<thead>
+<tr>
+<th class="schedule-time-heading" scope="col"><span data-en="Time" data-pt="Hora">Hora</span></th>
+<th scope="col"><span data-en="Monday" data-pt="Segunda">Segunda</span></th>
+<th scope="col"><span data-en="Tuesday" data-pt="Terça">Terça</span></th>
+<th scope="col"><span data-en="Wednesday" data-pt="Quarta">Quarta</span></th>
+<th scope="col"><span data-en="Thursday" data-pt="Quinta">Quinta</span></th>
+<th scope="col"><span data-en="Friday" data-pt="Sexta">Sexta</span></th>
+<th scope="col"><span data-en="Saturday" data-pt="Sábado">Sábado</span></th>
+<th scope="col"><span data-en="Sunday" data-pt="Domingo">Domingo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">18:00</th>
+<td><span class="schedule-session" data-en="Kids 2" data-pt="Kids 2">Kids 2</span></td>
+<td></td>
+<td><span class="schedule-session" data-en="Kids 2" data-pt="Kids 2">Kids 2</span></td>
+<td></td>
+<td><span class="schedule-session" data-en="Kids 2" data-pt="Kids 2">Kids 2</span></td>
+<td></td><td></td>
+</tr>
+<tr>
+<th scope="row">19:00</th>
+<td><span class="schedule-session" data-en="Kids 3" data-pt="Kids 3">Kids 3</span></td>
+<td></td>
+<td><span class="schedule-session" data-en="Kids 3" data-pt="Kids 3">Kids 3</span></td>
+<td></td>
+<td><span class="schedule-session" data-en="Kids 3" data-pt="Kids 3">Kids 3</span></td>
+<td></td><td></td>
+</tr>
+</tbody>
+</table>
+</div><div aria-label="MAT 2 — horário mobile" class="schedule-mobile-list"><article class="schedule-day-card"><h4><span data-en="Monday" data-pt="Segunda">Segunda</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>18:00</time><div class="schedule-mobile-session-names"><span data-en="Kids 2" data-pt="Kids 2">Kids 2</span></div></div><div class="schedule-mobile-session"><time>19:00</time><div class="schedule-mobile-session-names"><span data-en="Kids 3" data-pt="Kids 3">Kids 3</span></div></div></div></article><article class="schedule-day-card"><h4><span data-en="Wednesday" data-pt="Quarta">Quarta</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>18:00</time><div class="schedule-mobile-session-names"><span data-en="Kids 2" data-pt="Kids 2">Kids 2</span></div></div><div class="schedule-mobile-session"><time>19:00</time><div class="schedule-mobile-session-names"><span data-en="Kids 3" data-pt="Kids 3">Kids 3</span></div></div></div></article><article class="schedule-day-card"><h4><span data-en="Friday" data-pt="Sexta">Sexta</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>18:00</time><div class="schedule-mobile-session-names"><span data-en="Kids 2" data-pt="Kids 2">Kids 2</span></div></div><div class="schedule-mobile-session"><time>19:00</time><div class="schedule-mobile-session-names"><span data-en="Kids 3" data-pt="Kids 3">Kids 3</span></div></div></div></article></div>
+</section>
+<section aria-labelledby="mat-3-title" class="schedule-mat">
+<div class="schedule-mat-heading">
+<span class="schedule-mat-number">03</span>
+<h3 id="mat-3-title">MAT 3</h3>
+</div>
+<div aria-label="Horário do Mat 3" class="schedule-table-scroll" tabindex="0">
+<table class="schedule-table schedule-table-compact">
+<thead>
+<tr>
+<th class="schedule-time-heading" scope="col"><span data-en="Time" data-pt="Hora">Hora</span></th>
+<th scope="col"><span data-en="Monday" data-pt="Segunda">Segunda</span></th>
+<th scope="col"><span data-en="Tuesday" data-pt="Terça">Terça</span></th>
+<th scope="col"><span data-en="Wednesday" data-pt="Quarta">Quarta</span></th>
+<th scope="col"><span data-en="Thursday" data-pt="Quinta">Quinta</span></th>
+<th scope="col"><span data-en="Friday" data-pt="Sexta">Sexta</span></th>
+<th scope="col"><span data-en="Saturday" data-pt="Sábado">Sábado</span></th>
+<th scope="col"><span data-en="Sunday" data-pt="Domingo">Domingo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">17:00</th>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+<th scope="row">18:00</th>
+<td></td>
+<td><span class="schedule-session" data-en="Kids 2" data-pt="Kids 2">Kids 2</span></td>
+<td></td>
+<td><span class="schedule-session" data-en="Kids 2" data-pt="Kids 2">Kids 2</span></td>
+<td></td><td></td><td></td>
+</tr>
+<tr>
+<th scope="row">19:00</th>
+<td><span class="schedule-session" data-en="Women" data-pt="Feminino">Feminino</span></td>
+<td><span class="schedule-session" data-en="Kids 3" data-pt="Kids 3">Kids 3</span></td>
+<td></td>
+<td><span class="schedule-session" data-en="Kids 3" data-pt="Kids 3">Kids 3</span></td>
+<td><span class="schedule-session" data-en="Women" data-pt="Feminino">Feminino</span></td>
+<td></td><td></td>
+</tr>
+</tbody>
+</table>
+</div><div aria-label="MAT 3 — horário mobile" class="schedule-mobile-list"><article class="schedule-day-card"><h4><span data-en="Monday" data-pt="Segunda">Segunda</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>19:00</time><div class="schedule-mobile-session-names"><span data-en="Women" data-pt="Feminino">Feminino</span></div></div></div></article><article class="schedule-day-card"><h4><span data-en="Tuesday" data-pt="Terça">Terça</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>18:00</time><div class="schedule-mobile-session-names"><span data-en="Kids 2" data-pt="Kids 2">Kids 2</span></div></div><div class="schedule-mobile-session"><time>19:00</time><div class="schedule-mobile-session-names"><span data-en="Kids 3" data-pt="Kids 3">Kids 3</span></div></div></div></article><article class="schedule-day-card"><h4><span data-en="Thursday" data-pt="Quinta">Quinta</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>18:00</time><div class="schedule-mobile-session-names"><span data-en="Kids 2" data-pt="Kids 2">Kids 2</span></div></div><div class="schedule-mobile-session"><time>19:00</time><div class="schedule-mobile-session-names"><span data-en="Kids 3" data-pt="Kids 3">Kids 3</span></div></div></div></article><article class="schedule-day-card"><h4><span data-en="Friday" data-pt="Sexta">Sexta</span></h4><div class="schedule-day-sessions"><div class="schedule-mobile-session"><time>19:00</time><div class="schedule-mobile-session-names"><span data-en="Women" data-pt="Feminino">Feminino</span></div></div></div></article></div>
+</section>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer" id="footer-contact">
+<div class="footer-single-row section-shell">
+<div class="footer-identity">
+<a aria-label="Focus Jiu-Jitsu Headquarters" class="footer-logo-link" href="index.html">
+<img alt="Focus Jiu-Jitsu" class="footer-logo" src="assets/images/focus-logo.png"/>
+</a>
+</div>
+<div class="footer-detail">
+<span data-en="Address" data-pt="Morada">Morada</span>
+<address>Rua Dr. Afonso Cordeiro, 711<br/>4450-007 Matosinhos</address>
+</div>
+<div class="footer-detail">
+<span data-en="Phone" data-pt="Telefone">Telefone</span>
+<a href="tel:+351932665662">+351 932 665 662</a>
+</div>
+<div class="footer-detail">
+<span>Email</span>
+<a href="mailto:focusjiujitsuhq@gmail.com">focusjiujitsuhq@gmail.com</a>
+</div>
+<div class="footer-detail footer-social-detail">
+<span data-en="Social" data-pt="Redes">Redes</span>
+<div class="footer-social-links">
+<a class="footer-social-link" href="https://www.instagram.com/focusjiujitsuhq/" rel="noopener noreferrer" target="_blank">
+<span>Instagram</span>
+<svg aria-hidden="true" class="external-link-icon" fill="none" viewbox="0 0 24 24">
+<path d="M7 17L17 7"></path>
+<path d="M9 7H17V15"></path>
+</svg>
+</a>
+<a class="footer-social-link" href="https://www.youtube.com/results?search_query=Focus+Jiu+Jitsu+HQ" rel="noopener noreferrer" target="_blank">
+<span>YouTube</span>
+<svg aria-hidden="true" class="external-link-icon" fill="none" viewbox="0 0 24 24">
+<path d="M7 17L17 7"></path>
+<path d="M9 7H17V15"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<a aria-label="Marcar aula experimental gratuita no WhatsApp" class="floating-whatsapp whatsapp-link" data-whatsapp="" href="https://wa.me/351932665662?text=Ol%C3%A1%21%20Gostaria%20de%20marcar%20uma%20aula%20experimental%20na%20Focus%20Jiu-Jitsu%20HQ" rel="noopener noreferrer" target="_blank">
+<span aria-hidden="true">↗</span>
+<span data-en="Trial class" data-pt="Aula experimental">Aula experimental</span>
+</a>
+<script src="js/main.js?v=20260730-19"></script>
+</body>
 </html>
