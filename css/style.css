@@ -3899,7 +3899,7 @@ body[data-page^="locations"] .locations-menu .nav-dropdown-trigger {
   min-height: clamp(560px, 52vw, 760px);
   object-fit: cover;
   object-position: center top;
-  filter: grayscale(1);
+  filter: none;
 }
 
 .coach-feature-content {
@@ -3983,7 +3983,7 @@ body[data-page^="locations"] .locations-menu .nav-dropdown-trigger {
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  filter: grayscale(1);
+  filter: none;
   transition: transform 500ms ease;
 }
 
@@ -4710,4 +4710,33 @@ body[data-page="programs-adults"] .program-page-hero-combined {
 .nav-toggle-symbol {
   transform: scale(0.75);
   transform-origin: center;
+}
+
+
+/* V34: title-case dropdown labels and country flags. */
+.nav-country-link {
+  gap: 11px;
+}
+
+.nav-country-flag {
+  width: 18px;
+  height: 12px;
+  flex: 0 0 auto;
+  display: block;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 1px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 1120px) {
+  .nav-country-link {
+    justify-content: flex-start;
+    gap: 14px;
+  }
+
+  .nav-country-flag {
+    width: 22px;
+    height: 15px;
+  }
 }
