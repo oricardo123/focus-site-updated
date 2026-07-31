@@ -1,19 +1,3 @@
-// Keep the Adult Programs dropdown complete on every page.
-document.querySelectorAll('.nav-program-group').forEach((group) => {
-  const heading = group.querySelector('.nav-program-heading');
-  const headingHref = heading?.getAttribute('href') || '';
-
-  if (!headingHref.includes('adultos.html')) return;
-  if (group.querySelector('a[href="adultos.html#feminino"]')) return;
-
-  const womenLink = document.createElement('a');
-  womenLink.href = 'adultos.html#feminino';
-  womenLink.dataset.pt = 'Feminino';
-  womenLink.dataset.en = 'Women';
-  womenLink.textContent = 'Feminino';
-  group.append(womenLink);
-});
-
 const languageButtons = document.querySelectorAll('.language-button');
 const translatableElements = document.querySelectorAll('[data-pt][data-en]');
 const whatsappLinks = document.querySelectorAll('[data-whatsapp]');
@@ -25,6 +9,7 @@ const dropdownTriggers = document.querySelectorAll('.nav-dropdown-trigger');
 const header = document.querySelector('.site-header');
 const revealElements = document.querySelectorAll('.reveal');
 const sections = document.querySelectorAll('main section[id]');
+const primaryNavigationItems = document.querySelectorAll('[data-nav-section]');
 
 const whatsappUrls = {
   pt: 'https://wa.me/351932665662?text=Ol%C3%A1%21%20Gostaria%20de%20marcar%20uma%20aula%20experimental%20gratuita%20na%20Focus%20Jiu-Jitsu%20HQ',
@@ -73,6 +58,29 @@ function closeDropdowns(exceptItem = null) {
 
 function updateHeader() {
   header?.classList.toggle('is-scrolled', window.scrollY > 36);
+}
+
+function updateCurrentPrimaryNavigation() {
+  const page = document.body.dataset.page || '';
+  let currentSection = '';
+
+  if (page === 'home' && window.location.hash === '#academy') currentSection = 'academy';
+  else if (page === 'home' && window.location.hash === '#programs') currentSection = 'programs';
+  else if (page.startsWith('academy')) currentSection = 'academy';
+  else if (page.startsWith('programs')) currentSection = 'programs';
+  else if (page === 'schedule') currentSection = 'schedule';
+  else if (page === 'products') currentSection = 'products';
+  else if (page.startsWith('locations')) currentSection = 'locations';
+
+  primaryNavigationItems.forEach((item) => {
+    const isCurrent = item.dataset.navSection === currentSection;
+    item.classList.toggle('is-current', isCurrent);
+
+    const primaryLink = item.matches('a') ? item : item.querySelector('.nav-parent-link');
+    if (!primaryLink) return;
+    if (isCurrent) primaryLink.setAttribute('aria-current', 'page');
+    else primaryLink.removeAttribute('aria-current');
+  });
 }
 
 function updateActiveNavigation() {
@@ -167,6 +175,8 @@ document.querySelectorAll('[data-current-year]').forEach((element) => {
 
 setLanguage(localStorage.getItem('focus-language') || 'pt');
 updateHeader();
+updateCurrentPrimaryNavigation();
+window.addEventListener('hashchange', updateCurrentPrimaryNavigation);
 updateActiveNavigation();
 
 

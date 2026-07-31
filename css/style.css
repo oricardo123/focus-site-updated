@@ -5721,3 +5721,412 @@ body[data-page="programs-kids"] .program-page-hero-combined h1 {
     padding-top: 0;
   }
 }
+
+
+/* =========================================================
+   V47: consistent site architecture and split dropdown controls
+   ========================================================= */
+
+.nav-academy-control {
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+
+.nav-parent-link {
+  position: relative;
+  min-height: 42px;
+  padding: 8px 2px 8px 0;
+  display: inline-flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.76);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-family: var(--body);
+  font-size: 0.69rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color 180ms ease;
+}
+
+.nav-parent-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 2px;
+  height: 1px;
+  background: var(--white);
+  transition: right 180ms ease;
+}
+
+.nav-parent-link:hover,
+.nav-parent-link:focus-visible,
+.nav-item-dropdown.is-current .nav-parent-link,
+.nav-item-dropdown.is-open .nav-parent-link,
+.nav-direct-link.is-current {
+  color: var(--white);
+}
+
+.nav-parent-link:hover::after,
+.nav-parent-link:focus-visible::after,
+.nav-item-dropdown.is-current .nav-parent-link::after,
+.nav-item-dropdown.is-open .nav-parent-link::after,
+.nav-direct-link.is-current::after {
+  right: 0;
+}
+
+.nav-academy-control .nav-dropdown-trigger {
+  width: 28px;
+  min-width: 28px;
+  min-height: 42px;
+  padding: 0;
+  justify-content: center;
+  border: 0;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.nav-item-dropdown.is-current .nav-dropdown-trigger,
+.nav-item-dropdown.is-open .nav-dropdown-trigger,
+.nav-academy-control .nav-dropdown-trigger:hover,
+.nav-academy-control .nav-dropdown-trigger:focus-visible {
+  color: var(--white);
+}
+
+.nav-overview-link {
+  margin-bottom: 7px;
+  border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+  color: var(--white) !important;
+  font-size: 0.68rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+}
+
+/* Breadcrumbs provide context without competing with the page title. */
+.page-breadcrumb {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0 0 clamp(34px, 4vw, 58px);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.page-breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.page-breadcrumb a:hover,
+.page-breadcrumb a:focus-visible,
+.page-breadcrumb [aria-current="page"] {
+  color: var(--white);
+}
+
+.breadcrumb-separator {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.facilities-hero-copy .page-breadcrumb {
+  margin-bottom: clamp(28px, 3vw, 42px);
+}
+
+/* Overview pages */
+.hub-hero {
+  min-height: clamp(580px, 74svh, 740px);
+}
+
+.academy-hub-intro {
+  padding: clamp(90px, 11vw, 170px) 0;
+  scroll-margin-top: var(--header-height);
+}
+
+.academy-hub-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.72fr);
+  gap: clamp(54px, 9vw, 145px);
+  align-items: start;
+}
+
+.academy-hub-intro h2,
+.hub-directory-heading h2 {
+  max-width: 860px;
+  margin: 18px 0 0;
+  font-size: clamp(3.3rem, 6.5vw, 7rem);
+  line-height: 0.93;
+  letter-spacing: -0.04em;
+}
+
+.academy-hub-copy {
+  padding-top: 34px;
+  border-top: 1px solid var(--line-light);
+}
+
+.academy-hub-copy p {
+  max-width: 620px;
+  margin: 0;
+  color: #484844;
+  font-size: clamp(1rem, 1.16vw, 1.12rem);
+  line-height: 1.78;
+}
+
+.academy-hub-copy p + p {
+  margin-top: 24px;
+}
+
+.site-hub-directory {
+  padding: 0 0 clamp(100px, 12vw, 180px);
+}
+
+.hub-directory-heading {
+  max-width: 980px;
+  margin-bottom: clamp(52px, 7vw, 92px);
+}
+
+.hub-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line-light);
+  border-left: 1px solid var(--line-light);
+}
+
+.hub-card {
+  min-height: 390px;
+  padding: clamp(32px, 4vw, 58px);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+  color: var(--black);
+  text-decoration: none;
+  transition: background 220ms ease, color 220ms ease;
+}
+
+.hub-card:hover,
+.hub-card:focus-visible {
+  color: var(--white);
+  background: var(--black);
+}
+
+.hub-card > span {
+  color: var(--grey-dark);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.hub-card h3 {
+  margin: auto 0 20px;
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 4.2vw, 4.7rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.hub-card p {
+  max-width: 480px;
+  margin: 0;
+  color: #50504c;
+  line-height: 1.65;
+}
+
+.hub-card:hover p,
+.hub-card:focus-visible p {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.hub-card strong {
+  margin-top: 34px;
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.program-hub-section {
+  padding: clamp(88px, 11vw, 166px) 0 clamp(104px, 13vw, 190px);
+}
+
+.program-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line-light);
+  border-left: 1px solid var(--line-light);
+}
+
+.program-hub-card {
+  min-height: 680px;
+  padding: clamp(36px, 5vw, 72px);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+}
+
+.program-hub-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  color: var(--grey-dark);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.program-hub-card-top p {
+  margin: 0;
+}
+
+.program-hub-card h2 {
+  margin: auto 0 26px;
+  font-size: clamp(4rem, 7vw, 8rem);
+  line-height: 0.88;
+}
+
+.program-hub-card > p {
+  max-width: 580px;
+  margin: 0;
+  color: #474743;
+  font-size: clamp(1rem, 1.15vw, 1.1rem);
+  line-height: 1.7;
+}
+
+.program-hub-card ul {
+  margin: 38px 0 0;
+  padding: 22px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-top: 1px solid var(--line-light);
+  list-style: none;
+}
+
+.program-hub-card li {
+  padding: 9px 11px;
+  border: 1px solid var(--line-light);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.program-hub-button {
+  width: fit-content;
+  margin-top: 42px;
+  color: var(--white);
+  background: var(--black);
+}
+
+@media (max-width: 1120px) {
+  .nav-academy-control {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 64px;
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  .nav-academy-control .nav-parent-link {
+    width: auto;
+    min-width: 0;
+    min-height: 64px;
+    padding: 13px 0;
+    border-bottom: 0;
+    font-family: var(--display);
+    font-size: clamp(2rem, 7vw, 4rem);
+    letter-spacing: 0;
+  }
+
+  .nav-parent-link::after {
+    display: none;
+  }
+
+  .nav-academy-control .nav-dropdown-trigger {
+    width: 64px;
+    min-width: 64px;
+    min-height: 64px;
+    padding: 0;
+    border-left: 1px solid var(--line-dark);
+  }
+
+  .nav-item-dropdown.is-open .nav-dropdown {
+    max-height: 520px;
+  }
+
+  .programs-menu.is-open .nav-dropdown {
+    max-height: 820px;
+  }
+
+  .nav-overview-link {
+    margin-bottom: 0;
+    padding-left: 18px !important;
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .academy-hub-intro-grid,
+  .program-hub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .academy-hub-intro-grid {
+    gap: 42px;
+  }
+
+  .program-hub-card {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-breadcrumb {
+    margin-bottom: 30px;
+    gap: 7px;
+    font-size: 0.56rem;
+  }
+
+  .hub-hero {
+    min-height: auto;
+  }
+
+  .academy-hub-intro {
+    padding: 76px 0 92px;
+  }
+
+  .academy-hub-intro h2,
+  .hub-directory-heading h2 {
+    font-size: clamp(3rem, 14vw, 4.8rem);
+  }
+
+  .hub-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hub-card {
+    min-height: 330px;
+    padding: 30px 24px;
+  }
+
+  .program-hub-section {
+    padding: 72px 0 100px;
+  }
+
+  .program-hub-card {
+    min-height: 0;
+    padding: 34px 24px 42px;
+  }
+
+  .program-hub-card h2 {
+    margin-top: 90px;
+    font-size: clamp(4rem, 20vw, 6.2rem);
+  }
+}
