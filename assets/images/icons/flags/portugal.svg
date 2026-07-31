@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" role="img" aria-label="Portugal">
+  <rect width="12" height="20" fill="#046A38"/>
+  <rect x="12" width="18" height="20" fill="#DA291C"/>
+  <circle cx="12" cy="10" r="4.25" fill="#FFCD00"/>
+  <path d="M9.9 7.1h4.2v4.4c0 1.55-1.1 2.75-2.1 3.25-1-.5-2.1-1.7-2.1-3.25z" fill="#fff" stroke="#C8102E" stroke-width=".55"/>
+  <circle cx="12" cy="10.05" r="1.15" fill="#1A4D8F"/>
+</svg>
