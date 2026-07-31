@@ -4617,3 +4617,97 @@ body[data-page^="locations"] .locations-menu .nav-dropdown-trigger {
     margin-top: 26px;
   }
 }
+
+
+/* =========================================================
+   V33: unified programme introduction and compact transitions
+   ========================================================= */
+body[data-page="programs-kids"] .program-page-hero-combined,
+body[data-page="programs-adults"] .program-page-hero-combined {
+  min-height: auto;
+  padding: clamp(150px, 14vw, 210px) 0 clamp(64px, 7vw, 96px);
+  display: block;
+}
+
+.program-page-hero-combined-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.62fr);
+  gap: clamp(58px, 9vw, 145px);
+  align-items: end;
+}
+
+.program-page-hero-combined h1 {
+  max-width: 900px;
+}
+
+.program-page-hero-copy {
+  max-width: 560px;
+  padding-bottom: 8px;
+}
+
+.program-page-hero-lead {
+  margin: 0;
+  color: #f4f4f1;
+  font-size: clamp(1.12rem, 1.55vw, 1.38rem);
+  line-height: 1.55;
+}
+
+.program-page-hero-detail {
+  margin: clamp(24px, 3vw, 38px) 0 0;
+  padding-top: clamp(24px, 3vw, 36px);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--grey);
+  font-size: clamp(0.98rem, 1.15vw, 1.1rem);
+  line-height: 1.7;
+}
+
+.program-page-levels {
+  padding: clamp(42px, 5vw, 72px) 0 clamp(26px, 3vw, 42px);
+}
+
+.program-page-levels .program-detail-grid {
+  margin-top: 0;
+}
+
+@media (max-width: 820px) {
+  .program-page-hero-combined-grid {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .program-page-hero-copy {
+    max-width: 680px;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  body[data-page="programs-kids"] .program-page-hero-combined,
+  body[data-page="programs-adults"] .program-page-hero-combined {
+    padding: 132px 0 58px;
+  }
+
+  .program-page-hero-combined-grid {
+    gap: 32px;
+  }
+
+  .program-page-hero-lead {
+    font-size: 1.05rem;
+  }
+
+  .program-page-hero-detail {
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 0.96rem;
+  }
+
+  .program-page-levels {
+    padding: 30px 0 24px;
+  }
+}
+
+/* Keep dropdown plus/minus symbols at 75% of their original size. */
+.nav-toggle-symbol {
+  transform: scale(0.75);
+  transform-origin: center;
+}
