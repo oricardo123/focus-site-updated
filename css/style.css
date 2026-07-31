@@ -4581,3 +4581,39 @@ body[data-page^="locations"] .locations-menu .nav-dropdown-trigger {
     justify-content: flex-start;
   }
 }
+
+/* =========================================================
+   V32: clearer spacing in Adult and Kids programme CTAs
+   ========================================================= */
+.program-page-start h2 {
+  margin-bottom: clamp(26px, 3vw, 40px);
+}
+
+.program-page-start p:not(.eyebrow) {
+  margin-bottom: 0;
+}
+
+.program-page-start .button {
+  display: flex;
+  margin-top: clamp(36px, 4vw, 50px);
+}
+
+.program-page-start .program-schedule-link {
+  display: flex;
+  width: fit-content;
+  margin-top: clamp(28px, 3vw, 38px);
+}
+
+@media (max-width: 620px) {
+  .program-page-start h2 {
+    margin-bottom: 24px;
+  }
+
+  .program-page-start .button {
+    margin-top: 34px;
+  }
+
+  .program-page-start .program-schedule-link {
+    margin-top: 26px;
+  }
+}
