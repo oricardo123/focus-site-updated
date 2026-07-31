@@ -1,3 +1,19 @@
+// Keep the Adult Programs dropdown complete on every page.
+document.querySelectorAll('.nav-program-group').forEach((group) => {
+  const heading = group.querySelector('.nav-program-heading');
+  const headingHref = heading?.getAttribute('href') || '';
+
+  if (!headingHref.includes('adultos.html')) return;
+  if (group.querySelector('a[href="adultos.html#feminino"]')) return;
+
+  const womenLink = document.createElement('a');
+  womenLink.href = 'adultos.html#feminino';
+  womenLink.dataset.pt = 'Feminino';
+  womenLink.dataset.en = 'Women';
+  womenLink.textContent = 'Feminino';
+  group.append(womenLink);
+});
+
 const languageButtons = document.querySelectorAll('.language-button');
 const translatableElements = document.querySelectorAll('[data-pt][data-en]');
 const whatsappLinks = document.querySelectorAll('[data-whatsapp]');
