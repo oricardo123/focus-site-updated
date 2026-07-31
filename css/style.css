@@ -4832,3 +4832,507 @@ body[data-page="locations"] .country-card {
     padding: 28px 22px 30px;
   }
 }
+
+
+/* =========================================================
+   V42: Visit page — Matosinhos Sul and tourist training plans
+   ========================================================= */
+
+body[data-page="academy-visitar"] .visit-page-hero {
+  min-height: clamp(610px, 76svh, 760px);
+}
+
+.visit-information-section {
+  padding: clamp(76px, 9vw, 132px) 0;
+}
+
+.visit-information-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(420px, 1fr);
+  gap: clamp(70px, 10vw, 160px);
+  align-items: start;
+}
+
+.visit-information-heading h2,
+.tourist-plans-header h2 {
+  max-width: 760px;
+  margin: 18px 0 0;
+  font-family: var(--display);
+  font-size: clamp(3.4rem, 6.4vw, 7rem);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.visit-information-list {
+  border-top: 1px solid var(--line-light);
+}
+
+.visit-information-item {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: clamp(22px, 3vw, 42px);
+  padding: clamp(34px, 4vw, 52px) 0;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.visit-information-number {
+  color: var(--grey-dark);
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.visit-information-item h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(1.85rem, 2.6vw, 3rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.visit-information-item p {
+  max-width: 680px;
+  margin: 18px 0 0;
+  color: #454542;
+  font-size: clamp(0.98rem, 1.15vw, 1.08rem);
+  line-height: 1.75;
+}
+
+.tourist-plans-section {
+  padding: clamp(86px, 10vw, 148px) 0;
+}
+
+.tourist-plans-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.62fr);
+  gap: clamp(70px, 10vw, 150px);
+  align-items: end;
+}
+
+.tourist-plans-header > p {
+  max-width: 610px;
+  margin: 0 0 10px;
+  color: var(--grey);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.75;
+}
+
+.tourist-day-pass {
+  margin-top: clamp(54px, 7vw, 96px);
+  padding: clamp(34px, 4vw, 54px) 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: end;
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.tourist-plan-kicker {
+  color: var(--grey);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.tourist-day-pass h3 {
+  margin: 16px 0 0;
+  font-family: var(--display);
+  font-size: clamp(2.25rem, 4vw, 4.7rem);
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.tourist-day-pass p {
+  max-width: 650px;
+  margin: 20px 0 0;
+  color: var(--grey);
+  line-height: 1.7;
+}
+
+.tourist-day-pass strong {
+  font-family: var(--display);
+  font-size: clamp(4.8rem, 8vw, 9rem);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+}
+
+.tourist-price-layout {
+  margin-top: clamp(58px, 7vw, 94px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 54px);
+}
+
+.tourist-price-block {
+  min-width: 0;
+}
+
+.tourist-price-title {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.tourist-price-title span {
+  color: var(--grey);
+  font-family: var(--display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.tourist-price-title h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(2.1rem, 3vw, 3.7rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.tourist-table-scroll {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+}
+
+.tourist-price-table {
+  width: 100%;
+  min-width: 610px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.tourist-price-table th,
+.tourist-price-table td {
+  padding: 18px 14px;
+  border-bottom: 1px solid var(--line-dark);
+  text-align: right;
+  vertical-align: middle;
+}
+
+.tourist-price-table thead th {
+  color: var(--grey);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tourist-price-table th:first-child {
+  width: 46%;
+  padding-left: 0;
+  text-align: left;
+}
+
+.tourist-price-table td {
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 1.7vw, 1.75rem);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tourist-price-table tbody th {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.77rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.tourist-plans-footer {
+  margin-top: clamp(54px, 6vw, 84px);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  gap: 36px;
+  align-items: center;
+  border-top: 1px solid var(--line-dark);
+}
+
+.tourist-plans-footer p {
+  max-width: 700px;
+  margin: 0;
+  color: var(--grey);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.button-light {
+  flex: 0 0 auto;
+  color: var(--black);
+  background: var(--white);
+  border-color: var(--white);
+}
+
+.button-light:hover,
+.button-light:focus-visible {
+  color: var(--white);
+  background: transparent;
+}
+
+@media (max-width: 980px) {
+  .visit-information-grid,
+  .tourist-plans-header {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .visit-information-heading h2,
+  .tourist-plans-header h2 {
+    max-width: 840px;
+  }
+
+  .tourist-price-layout {
+    grid-template-columns: 1fr;
+    gap: 62px;
+  }
+
+  .tourist-price-table {
+    min-width: 700px;
+  }
+}
+
+@media (max-width: 680px) {
+  body[data-page="academy-visitar"] .visit-page-hero {
+    min-height: auto;
+  }
+
+  .visit-information-section,
+  .tourist-plans-section {
+    padding: 68px 0 78px;
+  }
+
+  .visit-information-grid,
+  .tourist-plans-header {
+    gap: 38px;
+  }
+
+  .visit-information-heading h2,
+  .tourist-plans-header h2 {
+    font-size: clamp(3rem, 15vw, 4.7rem);
+  }
+
+  .visit-information-item {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 18px;
+    padding: 30px 0;
+  }
+
+  .visit-information-item h3 {
+    font-size: 2rem;
+  }
+
+  .tourist-day-pass {
+    margin-top: 48px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: start;
+  }
+
+  .tourist-day-pass strong {
+    font-size: 5rem;
+  }
+
+  .tourist-price-layout {
+    margin-top: 54px;
+    gap: 54px;
+  }
+
+  .tourist-price-title h3 {
+    font-size: 2.45rem;
+  }
+
+  .tourist-price-table {
+    min-width: 610px;
+  }
+
+  .tourist-plans-footer {
+    margin-top: 48px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .tourist-plans-footer .button {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* =========================================================
+   V43: Visit page — concise tourist information, no pricing
+   ========================================================= */
+
+.visit-concise-section {
+  padding: clamp(82px, 9vw, 132px) 0;
+}
+
+.visit-concise-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.55fr);
+  gap: clamp(64px, 9vw, 140px);
+  align-items: end;
+}
+
+.visit-concise-header h2 {
+  max-width: 760px;
+  margin: 18px 0 0;
+  font-family: var(--display);
+  font-size: clamp(3.5rem, 6.2vw, 6.8rem);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.visit-concise-header > p {
+  max-width: 560px;
+  margin: 0 0 8px;
+  color: #454542;
+  font-size: clamp(1rem, 1.15vw, 1.08rem);
+  line-height: 1.7;
+}
+
+.visit-concise-grid {
+  margin-top: clamp(52px, 6vw, 84px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+}
+
+.visit-concise-card {
+  min-width: 0;
+  padding: clamp(34px, 4vw, 54px) clamp(24px, 3vw, 48px) clamp(38px, 4.5vw, 60px);
+}
+
+.visit-concise-card:first-child {
+  padding-left: 0;
+}
+
+.visit-concise-card:last-child {
+  padding-right: 0;
+}
+
+.visit-concise-card + .visit-concise-card {
+  border-left: 1px solid var(--line-light);
+}
+
+.visit-concise-number {
+  display: block;
+  color: var(--grey-dark);
+  font-family: var(--display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.visit-concise-card h3 {
+  margin: 30px 0 0;
+  font-family: var(--display);
+  font-size: clamp(2rem, 2.8vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.visit-concise-card p {
+  max-width: 470px;
+  margin: 20px 0 0;
+  color: #454542;
+  font-size: clamp(0.96rem, 1.05vw, 1.04rem);
+  line-height: 1.68;
+}
+
+.visit-concise-cta {
+  padding-top: clamp(34px, 4vw, 52px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+}
+
+.visit-concise-cta p {
+  max-width: 640px;
+  margin: 0;
+  color: #454542;
+  line-height: 1.65;
+}
+
+.button-dark {
+  flex: 0 0 auto;
+  color: var(--white);
+  background: var(--black);
+  border-color: var(--black);
+}
+
+.button-dark:hover,
+.button-dark:focus-visible {
+  color: var(--black);
+  background: transparent;
+}
+
+@media (max-width: 900px) {
+  .visit-concise-header {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .visit-concise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-concise-card,
+  .visit-concise-card:first-child,
+  .visit-concise-card:last-child {
+    padding: 34px 0 38px;
+  }
+
+  .visit-concise-card + .visit-concise-card {
+    border-left: 0;
+    border-top: 1px solid var(--line-light);
+  }
+}
+
+@media (max-width: 680px) {
+  .visit-concise-section {
+    padding: 66px 0 78px;
+  }
+
+  .visit-concise-header h2 {
+    font-size: clamp(3rem, 15vw, 4.7rem);
+  }
+
+  .visit-concise-grid {
+    margin-top: 44px;
+  }
+
+  .visit-concise-card h3 {
+    margin-top: 22px;
+    font-size: 2.25rem;
+  }
+
+  .visit-concise-card p {
+    margin-top: 16px;
+  }
+
+  .visit-concise-cta {
+    padding-top: 34px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .visit-concise-cta .button {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
