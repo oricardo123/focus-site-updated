@@ -4474,3 +4474,11 @@ body[data-page="programs-adults"] .program-page-hero-combined {
     padding: 122px 0 56px;
   }
 }
+
+/* Visit page: align the title with the top of the contact column instead of
+   bottom-aligning it against the taller content block. */
+@media (min-width: 1121px) {
+  body[data-page="academy-visitar"] .visit-page-hero .internal-hero-grid {
+    align-items: start;
+  }
+}
