@@ -130,7 +130,29 @@
         }
 
         body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(-n + 2) {
+          position: relative;
           grid-column: span 3;
+          overflow: hidden;
+          border-color: rgba(5, 5, 5, 0.24);
+          background: linear-gradient(180deg, rgba(5, 5, 5, 0.045) 0%, rgba(5, 5, 5, 0.012) 38%, transparent 100%);
+          box-shadow: 0 14px 36px rgba(5, 5, 5, 0.06);
+        }
+
+        body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(-n + 2)::before {
+          content: '';
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 3px;
+          background: #111;
+        }
+
+        body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(-n + 2) .coach-rank {
+          color: #111;
+          font-weight: 700;
+          letter-spacing: 0.08em;
         }
 
         body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(n + 3) {
