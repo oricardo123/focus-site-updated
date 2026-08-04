@@ -78,10 +78,36 @@
 
     const leaderCards = queryAll('.team-leader-card', leadershipGrid).map(convertLeaderCard);
     const remainingCards = queryAll('.coach-card', coachesGrid);
+    const findCoachCard = (name) => remainingCards.find((card) => card.querySelector('h3')?.textContent.trim() === name);
+
+    const vascoCard = findCoachCard('Vasco Leal');
+    const vascoRank = vascoCard?.querySelector('.coach-rank');
+    if (vascoRank) {
+      vascoRank.dataset.pt = 'Faixa preta · Curso de treinador de Jiu-Jitsu';
+      vascoRank.dataset.en = 'Black belt · Jiu-Jitsu coach training';
+      vascoRank.textContent = vascoRank.dataset.pt;
+    }
+
+    const preferredOrder = [
+      'Henrique Soares',
+      'Vasco Leal',
+      'Francisco Rocha',
+      'Pedro Zogbi',
+      'Thallysson Vasconcelos',
+      'Ricardo Almeida'
+    ];
+
+    const orderedRemainingCards = preferredOrder
+      .map(findCoachCard)
+      .filter(Boolean);
+
+    remainingCards.forEach((card) => {
+      if (!orderedRemainingCards.includes(card)) orderedRemainingCards.push(card);
+    });
 
     const uniformGrid = document.createElement('div');
     uniformGrid.className = 'coaches-grid team-uniform-grid';
-    uniformGrid.append(...leaderCards, ...remainingCards);
+    uniformGrid.append(...leaderCards, ...orderedRemainingCards);
 
     leadershipGrid.replaceWith(uniformGrid);
     coachesGrid.remove();
