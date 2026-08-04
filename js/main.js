@@ -58,8 +58,84 @@
     });
   }
 
+  function prepareTeamGrid() {
+    if (document.body.dataset.page !== 'academy-equipa') return;
+
+    const sectionShell = document.querySelector('#equipa > .section-shell');
+    const leadershipGrid = sectionShell?.querySelector('.team-leadership-grid');
+    const coachesGrid = sectionShell?.querySelector('.team-ordered-grid, .coaches-grid');
+    if (!sectionShell || !leadershipGrid || !coachesGrid) return;
+
+    const convertLeaderCard = (card) => {
+      card.className = 'coach-card reveal';
+
+      const photo = card.querySelector('.team-leader-photo');
+      const content = card.querySelector('.team-leader-content');
+      const kicker = card.querySelector('.coach-kicker');
+      const role = card.querySelector('.team-leader-role');
+      const achievements = card.querySelector('.team-leader-achievements');
+      const heading = card.querySelector('h2');
+
+      photo?.classList.replace('team-leader-photo', 'coach-card-photo');
+      content?.classList.replace('team-leader-content', 'coach-card-content');
+      kicker?.classList.replace('coach-kicker', 'coach-rank');
+      role?.classList.replace('team-leader-role', 'coach-role');
+      achievements?.classList.remove('team-leader-achievements');
+
+      if (heading) {
+        const replacementHeading = document.createElement('h3');
+        replacementHeading.innerHTML = heading.innerHTML;
+        heading.replaceWith(replacementHeading);
+      }
+
+      return card;
+    };
+
+    const leaderCards = queryAll('.team-leader-card', leadershipGrid).map(convertLeaderCard);
+    const remainingCards = queryAll('.coach-card', coachesGrid);
+
+    const uniformGrid = document.createElement('div');
+    uniformGrid.className = 'coaches-grid team-uniform-grid';
+    uniformGrid.append(...leaderCards, ...remainingCards);
+
+    leadershipGrid.replaceWith(uniformGrid);
+    coachesGrid.remove();
+
+    if (!document.getElementById('team-uniform-layout')) {
+      const style = document.createElement('style');
+      style.id = 'team-uniform-layout';
+      style.textContent = `
+        body[data-page="academy-equipa"] .team-uniform-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-auto-rows: 1fr;
+          gap: clamp(18px, 2.2vw, 32px);
+          align-items: stretch;
+        }
+
+        body[data-page="academy-equipa"] .team-uniform-grid .coach-card {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
+        body[data-page="academy-equipa"] .team-uniform-grid .coach-card-content {
+          flex: 1;
+        }
+
+        @media (max-width: 760px) {
+          body[data-page="academy-equipa"] .team-uniform-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `;
+      document.head.append(style);
+    }
+  }
+
   function initialiseWebsite() {
     prepareTrialClassLinks();
+    prepareTeamGrid();
 
     const elements = {
       header: document.querySelector(SELECTORS.header),
