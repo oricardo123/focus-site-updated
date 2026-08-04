@@ -92,8 +92,7 @@
       style.textContent = `
         body[data-page="academy-equipa"] .team-uniform-grid {
           display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          grid-auto-rows: 1fr;
+          grid-template-columns: repeat(6, minmax(0, 1fr));
           gap: clamp(18px, 2.2vw, 32px);
           align-items: stretch;
         }
@@ -104,8 +103,26 @@
           height: 100%;
         }
 
+        body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(-n + 2) {
+          grid-column: span 3;
+        }
+
+        body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(n + 3) {
+          grid-column: span 2;
+        }
+
         body[data-page="academy-equipa"] .team-uniform-grid .coach-card-content {
           flex: 1;
+        }
+
+        @media (max-width: 980px) {
+          body[data-page="academy-equipa"] .team-uniform-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          body[data-page="academy-equipa"] .team-uniform-grid .coach-card {
+            grid-column: span 1;
+          }
         }
 
         @media (max-width: 760px) {
