@@ -24,7 +24,6 @@
 
   const DESKTOP_BREAKPOINT = 1120;
   const HEADER_SCROLL_THRESHOLD = 36;
-
   const queryAll = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
 
   function readStoredLanguage() {
@@ -39,20 +38,18 @@
     try {
       localStorage.setItem('focus-language', language);
     } catch {
-      // The website remains fully usable when storage is unavailable.
+      // The website remains usable when storage is unavailable.
     }
   }
 
   function restoreVisitFocusLinks() {
-    const academyLinks = queryAll('.academy-menu .nav-dropdown a');
-
-    academyLinks.forEach((link) => {
-      const isTrialClassReplacement =
+    queryAll('.academy-menu .nav-dropdown a').forEach((link) => {
+      const replacedByTrialLink =
         link.dataset.pt === 'Marcar Aula Experimental' ||
         link.dataset.en === 'Book a Trial Class' ||
         link.href.includes('wa.me/351932665662');
 
-      if (!isTrialClassReplacement) return;
+      if (!replacedByTrialLink) return;
 
       link.classList.remove('whatsapp-link');
       delete link.dataset.whatsapp;
@@ -65,6 +62,27 @@
     });
   }
 
+  function createLuanaCard() {
+    const card = document.createElement('article');
+    card.className = 'coach-card reveal';
+    card.innerHTML = `
+      <div class="coach-card-photo">
+        <img
+          alt="Luana Oliveira"
+          loading="lazy"
+          src="assets/images/team/luana-oliveira.jpg"
+          onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.classList.add('is-placeholder');"
+        />
+      </div>
+      <div class="coach-card-content">
+        <p class="coach-rank" data-en="Black belt" data-pt="Faixa preta">Faixa preta</p>
+        <h3>Luana Oliveira</h3>
+        <p class="coach-role" data-en="Instructor" data-pt="Professora">Professora</p>
+      </div>
+    `;
+    return card;
+  }
+
   function prepareTeamGrid() {
     if (document.body.dataset.page !== 'academy-equipa') return;
 
@@ -74,21 +92,15 @@
     if (!sectionShell || !leadershipGrid || !coachesGrid) return;
 
     const convertLeaderCard = (card) => {
-      card.className = 'coach-card reveal';
+      card.className = 'coach-card leadership-card reveal';
 
-      const photo = card.querySelector('.team-leader-photo');
-      const content = card.querySelector('.team-leader-content');
-      const kicker = card.querySelector('.coach-kicker');
-      const role = card.querySelector('.team-leader-role');
-      const achievements = card.querySelector('.team-leader-achievements');
+      card.querySelector('.team-leader-photo')?.classList.replace('team-leader-photo', 'coach-card-photo');
+      card.querySelector('.team-leader-content')?.classList.replace('team-leader-content', 'coach-card-content');
+      card.querySelector('.coach-kicker')?.classList.replace('coach-kicker', 'coach-rank');
+      card.querySelector('.team-leader-role')?.classList.replace('team-leader-role', 'coach-role');
+      card.querySelector('.team-leader-achievements')?.classList.remove('team-leader-achievements');
+
       const heading = card.querySelector('h2');
-
-      photo?.classList.replace('team-leader-photo', 'coach-card-photo');
-      content?.classList.replace('team-leader-content', 'coach-card-content');
-      kicker?.classList.replace('coach-kicker', 'coach-rank');
-      role?.classList.replace('team-leader-role', 'coach-role');
-      achievements?.classList.remove('team-leader-achievements');
-
       if (heading) {
         const replacementHeading = document.createElement('h3');
         replacementHeading.innerHTML = heading.innerHTML;
@@ -100,10 +112,13 @@
 
     const leaderCards = queryAll('.team-leader-card', leadershipGrid).map(convertLeaderCard);
     const remainingCards = queryAll('.coach-card', coachesGrid);
-    const findCoachCard = (name) => remainingCards.find((card) => card.querySelector('h3')?.textContent.trim() === name);
+    const findCoachCard = (name) => remainingCards.find(
+      (card) => card.querySelector('h3')?.textContent.trim() === name
+    );
 
-    const vascoCard = findCoachCard('Vasco Leal');
-    const vascoRank = vascoCard?.querySelector('.coach-rank');
+    if (!findCoachCard('Luana Oliveira')) remainingCards.push(createLuanaCard());
+
+    const vascoRank = findCoachCard('Vasco Leal')?.querySelector('.coach-rank');
     if (vascoRank) {
       vascoRank.dataset.pt = 'Faixa preta · Curso de treinador de Jiu-Jitsu';
       vascoRank.dataset.en = 'Black belt · Jiu-Jitsu coach training';
@@ -113,16 +128,14 @@
     const preferredOrder = [
       'Henrique Soares',
       'Vasco Leal',
+      'Luana Oliveira',
       'Francisco Rocha',
       'Pedro Zogbi',
       'Thallysson Vasconcelos',
       'Ricardo Almeida'
     ];
 
-    const orderedRemainingCards = preferredOrder
-      .map(findCoachCard)
-      .filter(Boolean);
-
+    const orderedRemainingCards = preferredOrder.map(findCoachCard).filter(Boolean);
     remainingCards.forEach((card) => {
       if (!orderedRemainingCards.includes(card)) orderedRemainingCards.push(card);
     });
@@ -134,75 +147,123 @@
     leadershipGrid.replaceWith(uniformGrid);
     coachesGrid.remove();
 
-    if (!document.getElementById('team-uniform-layout')) {
-      const style = document.createElement('style');
-      style.id = 'team-uniform-layout';
-      style.textContent = `
+    if (document.getElementById('team-uniform-layout')) return;
+
+    const style = document.createElement('style');
+    style.id = 'team-uniform-layout';
+    style.textContent = `
+      body[data-page="academy-equipa"] .team-uniform-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: clamp(20px, 2.2vw, 34px);
+        align-items: stretch;
+      }
+
+      body[data-page="academy-equipa"] .team-uniform-grid .coach-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      body[data-page="academy-equipa"] .team-uniform-grid .leadership-card {
+        position: relative;
+        grid-column: span 3;
+        overflow: hidden;
+        color: #fff;
+        border: 1px solid #181818;
+        background: #0b0b0b;
+        box-shadow: 0 22px 60px rgba(5, 5, 5, 0.16);
+      }
+
+      body[data-page="academy-equipa"] .team-uniform-grid .leadership-card::before {
+        content: '';
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #fff 0 20%, rgba(255, 255, 255, 0.22) 20% 100%);
+      }
+
+      body[data-page="academy-equipa"] .leadership-card .coach-card-photo {
+        position: relative;
+        overflow: hidden;
+        background: #111;
+      }
+
+      body[data-page="academy-equipa"] .leadership-card .coach-card-photo::after {
+        content: '';
+        position: absolute;
+        inset: auto 0 0;
+        height: 32%;
+        pointer-events: none;
+        background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.2));
+      }
+
+      body[data-page="academy-equipa"] .leadership-card .coach-card-photo img {
+        filter: saturate(0.94) contrast(1.03);
+      }
+
+      body[data-page="academy-equipa"] .leadership-card .coach-card-content {
+        background: #0b0b0b;
+      }
+
+      body[data-page="academy-equipa"] .leadership-card h3 {
+        color: #fff;
+        font-size: clamp(1.75rem, 2.35vw, 2.55rem);
+      }
+
+      body[data-page="academy-equipa"] .leadership-card .coach-rank {
+        display: inline-flex;
+        width: fit-content;
+        padding: 0.38rem 0.62rem;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        font-weight: 700;
+        letter-spacing: 0.1em;
+      }
+
+      body[data-page="academy-equipa"] .leadership-card .coach-role {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      body[data-page="academy-equipa"] .leadership-card p:not(.coach-rank):not(.coach-role),
+      body[data-page="academy-equipa"] .leadership-card li {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(n + 3) {
+        grid-column: span 2;
+      }
+
+      body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(n + 3):last-child:nth-child(3n) {
+        grid-column: 3 / span 2;
+      }
+
+      body[data-page="academy-equipa"] .team-uniform-grid .coach-card-content {
+        flex: 1;
+      }
+
+      @media (max-width: 980px) {
         body[data-page="academy-equipa"] .team-uniform-grid {
-          display: grid;
-          grid-template-columns: repeat(6, minmax(0, 1fr));
-          gap: clamp(18px, 2.2vw, 32px);
-          align-items: stretch;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        body[data-page="academy-equipa"] .team-uniform-grid .coach-card {
-          display: flex;
-          flex-direction: column;
-          height: 100%;
+        body[data-page="academy-equipa"] .team-uniform-grid .coach-card,
+        body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(n + 3):last-child:nth-child(3n) {
+          grid-column: span 1;
         }
+      }
 
-        body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(-n + 2) {
-          position: relative;
-          grid-column: span 3;
-          overflow: hidden;
-          border-color: rgba(5, 5, 5, 0.24);
-          background: linear-gradient(180deg, rgba(5, 5, 5, 0.045) 0%, rgba(5, 5, 5, 0.012) 38%, transparent 100%);
-          box-shadow: 0 14px 36px rgba(5, 5, 5, 0.06);
+      @media (max-width: 760px) {
+        body[data-page="academy-equipa"] .team-uniform-grid {
+          grid-template-columns: 1fr;
         }
-
-        body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(-n + 2)::before {
-          content: '';
-          position: absolute;
-          z-index: 2;
-          top: 0;
-          right: 0;
-          left: 0;
-          height: 3px;
-          background: #111;
-        }
-
-        body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(-n + 2) .coach-rank {
-          color: #111;
-          font-weight: 700;
-          letter-spacing: 0.08em;
-        }
-
-        body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(n + 3) {
-          grid-column: span 2;
-        }
-
-        body[data-page="academy-equipa"] .team-uniform-grid .coach-card-content {
-          flex: 1;
-        }
-
-        @media (max-width: 980px) {
-          body[data-page="academy-equipa"] .team-uniform-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-          }
-
-          body[data-page="academy-equipa"] .team-uniform-grid .coach-card {
-            grid-column: span 1;
-          }
-        }
-
-        @media (max-width: 760px) {
-          body[data-page="academy-equipa"] .team-uniform-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-      `;
-      document.head.append(style);
-    }
+      }
+    `;
+    document.head.append(style);
   }
 
   function initialiseWebsite() {
