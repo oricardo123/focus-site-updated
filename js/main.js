@@ -43,21 +43,6 @@
     }
   }
 
-  function prepareTrialClassLinks() {
-    const visitLinks = queryAll('.academy-menu .nav-dropdown a[href="visitar.html"]');
-
-    visitLinks.forEach((link) => {
-      link.classList.add('whatsapp-link');
-      link.dataset.whatsapp = '';
-      link.dataset.pt = 'Marcar Aula Experimental';
-      link.dataset.en = 'Book a Trial Class';
-      link.href = WHATSAPP_URLS.pt;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      link.textContent = link.dataset.pt;
-    });
-  }
-
   function prepareTeamGrid() {
     if (document.body.dataset.page !== 'academy-equipa') return;
 
@@ -134,7 +119,6 @@
   }
 
   function initialiseWebsite() {
-    prepareTrialClassLinks();
     prepareTeamGrid();
 
     const elements = {
