@@ -1,0 +1,445 @@
+/* =========================================================
+   V54 — Team hierarchy, history content and facilities media
+   ========================================================= */
+.team-leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(22px, 3vw, 42px);
+  margin-bottom: clamp(82px, 10vw, 142px);
+}
+
+.team-leader-card {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--white);
+  background: var(--black);
+}
+
+.team-leader-photo {
+  overflow: hidden;
+  background: var(--black-soft);
+}
+
+.team-leader-photo img {
+  display: block;
+  width: 100%;
+  height: clamp(300px, 34vw, 470px);
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 500ms ease;
+}
+
+.team-leader-card:hover .team-leader-photo img:not(.is-placeholder) {
+  transform: scale(1.02);
+}
+
+.team-leader-content {
+  padding: clamp(28px, 3.4vw, 48px);
+  border-top: 1px solid var(--line-dark);
+}
+
+.team-leader-content .coach-kicker {
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.team-leader-content h2 {
+  max-width: 620px;
+  margin: 0;
+  font-size: clamp(2.8rem, 4.8vw, 5.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+}
+
+.team-leader-role {
+  margin: 22px 0 0;
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.team-leader-content > p:last-child {
+  max-width: 590px;
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.75;
+}
+
+.team-leader-achievements {
+  margin: 28px 0 0;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--line-dark);
+  list-style: none;
+}
+
+.team-leader-achievements li {
+  position: relative;
+  padding: 8px 0 8px 18px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.team-leader-achievements li::before {
+  content: "";
+  position: absolute;
+  top: 1.05em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--white);
+}
+
+.team-rank-group + .team-rank-group {
+  margin-top: clamp(86px, 11vw, 154px);
+  padding-top: clamp(72px, 9vw, 118px);
+  border-top: 1px solid var(--line-light);
+}
+
+.team-rank-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.62fr) minmax(0, 1.38fr);
+  gap: clamp(30px, 7vw, 110px);
+  align-items: end;
+  margin-bottom: clamp(44px, 6vw, 76px);
+}
+
+.team-rank-heading .eyebrow {
+  margin: 0;
+}
+
+.team-rank-heading h2 {
+  max-width: 780px;
+  margin: 0;
+  font-size: clamp(2.8rem, 5.2vw, 5.8rem);
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+
+.coaches-grid-ranked {
+  align-items: start;
+}
+
+.history-story {
+  padding: clamp(92px, 11vw, 160px) 0;
+}
+
+.history-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(360px, 1.15fr);
+  gap: clamp(58px, 10vw, 150px);
+  align-items: start;
+}
+
+.history-story-heading h2,
+.history-achievements-heading h2,
+.history-cta h2 {
+  margin: 16px 0 0;
+  font-size: clamp(3.2rem, 6vw, 6.7rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+}
+
+.history-story-copy {
+  max-width: 690px;
+  padding-top: 16px;
+}
+
+.history-story-copy p {
+  margin: 0;
+  color: #41413e;
+  font-size: clamp(1rem, 1.18vw, 1.12rem);
+  line-height: 1.82;
+}
+
+.history-story-copy p + p {
+  margin-top: 28px;
+}
+
+.history-achievements {
+  padding: clamp(96px, 12vw, 176px) 0;
+}
+
+.history-achievements-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.55fr);
+  gap: clamp(52px, 9vw, 140px);
+  align-items: end;
+  margin-bottom: clamp(58px, 8vw, 100px);
+}
+
+.history-achievements-heading .eyebrow,
+.history-achievements-heading h2 {
+  grid-column: 1;
+}
+
+.history-achievements-heading > p:last-child {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: end;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.75;
+}
+
+.history-achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+}
+
+.history-achievement-card {
+  min-height: 320px;
+  padding: clamp(30px, 4vw, 58px);
+  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.history-achievement-card > span {
+  display: block;
+  margin-bottom: clamp(58px, 7vw, 92px);
+  color: rgba(255, 255, 255, 0.44);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.history-achievement-card h3 {
+  max-width: 520px;
+  margin: 0;
+  font-size: clamp(2rem, 3.5vw, 3.7rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+}
+
+.history-achievement-card p {
+  max-width: 560px;
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.72;
+}
+
+.history-cta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: clamp(78px, 10vw, 138px);
+  padding-top: clamp(48px, 6vw, 76px);
+  border-top: 1px solid var(--line-dark);
+}
+
+.history-cta h2 {
+  max-width: 780px;
+  font-size: clamp(3rem, 5.4vw, 6rem);
+}
+
+.facilities-media {
+  padding: clamp(100px, 12vw, 178px) 0 clamp(96px, 11vw, 160px);
+}
+
+.facilities-media-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.55fr);
+  gap: clamp(48px, 8vw, 130px);
+  align-items: end;
+  margin-bottom: clamp(56px, 8vw, 100px);
+}
+
+.facilities-media-heading .eyebrow,
+.facilities-media-heading h2 {
+  grid-column: 1;
+}
+
+.facilities-media-heading h2 {
+  max-width: 900px;
+  margin: 16px 0 0;
+  font-size: clamp(3.2rem, 6.2vw, 6.9rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+}
+
+.facilities-media-heading > p:last-child {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.67);
+  line-height: 1.76;
+}
+
+.facilities-tour-player {
+  margin-bottom: clamp(64px, 8vw, 112px);
+}
+
+.facilities-tour-player video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #111;
+  object-fit: cover;
+}
+
+.facilities-tour-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 0 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.facilities-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 42px);
+}
+
+.facilities-gallery-card {
+  min-width: 0;
+  margin: 0;
+}
+
+.facilities-gallery-card-wide {
+  grid-column: span 2;
+}
+
+.facilities-gallery-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: saturate(0.82);
+}
+
+.facilities-gallery-card-wide img {
+  aspect-ratio: 16 / 8;
+}
+
+.facilities-gallery-card figcaption {
+  padding-top: 16px;
+  color: rgba(255, 255, 255, 0.63);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1000px) {
+  .team-leadership-grid,
+  .history-story-grid,
+  .history-achievements-heading,
+  .facilities-media-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .history-achievements-heading > p:last-child,
+  .facilities-media-heading > p:last-child {
+    grid-column: 1;
+    grid-row: auto;
+    max-width: 720px;
+  }
+
+  .team-rank-heading {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 720px) {
+  .team-leadership-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 90px;
+  }
+
+  .team-leader-photo img {
+    height: 112vw;
+    max-height: 520px;
+  }
+
+  .team-leader-content {
+    padding: 28px 22px 36px;
+  }
+
+  .team-leader-content h2 {
+    font-size: clamp(3rem, 14vw, 4.8rem);
+  }
+
+  .team-rank-group + .team-rank-group {
+    margin-top: 80px;
+    padding-top: 66px;
+  }
+
+  .team-rank-heading h2 {
+    font-size: clamp(3rem, 13vw, 4.5rem);
+  }
+
+  .history-story,
+  .history-achievements,
+  .facilities-media {
+    padding: 82px 0 96px;
+  }
+
+  .history-story-grid {
+    gap: 38px;
+  }
+
+  .history-story-heading h2,
+  .history-achievements-heading h2,
+  .facilities-media-heading h2 {
+    font-size: clamp(3rem, 14vw, 4.8rem);
+  }
+
+  .history-achievements-grid,
+  .facilities-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .history-achievement-card {
+    min-height: 0;
+  }
+
+  .history-achievement-card > span {
+    margin-bottom: 44px;
+  }
+
+  .history-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .facilities-gallery-card-wide {
+    grid-column: auto;
+  }
+
+  .facilities-gallery-card-wide img,
+  .facilities-gallery-card img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .facilities-tour-caption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.button-light {
+  color: var(--black);
+  background: var(--white);
+  border-color: var(--white);
+}
+
+.button-light:hover,
+.button-light:focus-visible {
+  color: var(--white);
+  background: transparent;
+}
