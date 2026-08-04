@@ -170,68 +170,104 @@
         grid-column: span 3;
         overflow: hidden;
         color: #fff;
-        border: 1px solid #181818;
+        border: 1px solid #1c1c1c;
         background: #0b0b0b;
-        box-shadow: 0 22px 60px rgba(5, 5, 5, 0.16);
+        box-shadow: 0 18px 48px rgba(5, 5, 5, 0.14);
       }
 
       body[data-page="academy-equipa"] .team-uniform-grid .leadership-card::before {
-        content: '';
-        position: absolute;
-        z-index: 3;
-        top: 0;
-        right: 0;
-        left: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #fff 0 20%, rgba(255, 255, 255, 0.22) 20% 100%);
+        display: none;
+        content: none;
       }
 
       body[data-page="academy-equipa"] .leadership-card .coach-card-photo {
         position: relative;
         overflow: hidden;
+        border: 0;
         background: #111;
       }
 
+      body[data-page="academy-equipa"] .leadership-card .coach-card-photo::before,
       body[data-page="academy-equipa"] .leadership-card .coach-card-photo::after {
-        content: '';
-        position: absolute;
-        inset: auto 0 0;
-        height: 32%;
-        pointer-events: none;
-        background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.2));
+        display: none;
+        content: none;
       }
 
       body[data-page="academy-equipa"] .leadership-card .coach-card-photo img {
-        filter: saturate(0.94) contrast(1.03);
+        display: block;
+        width: 100%;
+        border: 0;
+        outline: 0;
+        filter: saturate(0.96) contrast(1.02);
       }
 
       body[data-page="academy-equipa"] .leadership-card .coach-card-content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 0;
+        padding: clamp(20px, 2.2vw, 30px);
         background: #0b0b0b;
       }
 
       body[data-page="academy-equipa"] .leadership-card h3 {
+        margin: 14px 0 10px;
         color: #fff;
-        font-size: clamp(1.75rem, 2.35vw, 2.55rem);
+        font-size: clamp(1.7rem, 2.15vw, 2.35rem);
+        font-weight: 600;
+        line-height: 1.08;
+        letter-spacing: -0.025em;
+        word-spacing: 0;
+        text-transform: none;
       }
 
       body[data-page="academy-equipa"] .leadership-card .coach-rank {
         display: inline-flex;
         width: fit-content;
-        padding: 0.38rem 0.62rem;
-        color: #fff;
-        border: 1px solid rgba(255, 255, 255, 0.28);
-        font-weight: 700;
-        letter-spacing: 0.1em;
+        margin: 0;
+        padding: 0.42rem 0.64rem;
+        color: rgba(255, 255, 255, 0.94);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        font-size: 0.7rem;
+        font-weight: 650;
+        line-height: 1;
+        letter-spacing: 0.045em;
       }
 
       body[data-page="academy-equipa"] .leadership-card .coach-role {
-        color: #fff;
+        margin: 0 0 14px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.78rem;
         font-weight: 600;
+        line-height: 1.35;
+        letter-spacing: 0.025em;
       }
 
-      body[data-page="academy-equipa"] .leadership-card p:not(.coach-rank):not(.coach-role),
-      body[data-page="academy-equipa"] .leadership-card li {
+      body[data-page="academy-equipa"] .leadership-card p:not(.coach-rank):not(.coach-role) {
+        margin: 0;
         color: rgba(255, 255, 255, 0.72);
+        font-size: 0.98rem;
+        line-height: 1.58;
+        letter-spacing: 0;
+      }
+
+      body[data-page="academy-equipa"] .leadership-card ul {
+        display: grid;
+        gap: 0.58rem;
+        margin: 0.65rem 0 0;
+        padding-left: 1.15rem;
+      }
+
+      body[data-page="academy-equipa"] .leadership-card li {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 0.94rem;
+        line-height: 1.45;
+        letter-spacing: 0;
+      }
+
+      body[data-page="academy-equipa"] .leadership-card li::marker {
+        color: rgba(255, 255, 255, 0.42);
       }
 
       body[data-page="academy-equipa"] .team-uniform-grid .coach-card:nth-child(n + 3) {
