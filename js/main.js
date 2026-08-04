@@ -43,6 +43,28 @@
     }
   }
 
+  function restoreVisitFocusLinks() {
+    const academyLinks = queryAll('.academy-menu .nav-dropdown a');
+
+    academyLinks.forEach((link) => {
+      const isTrialClassReplacement =
+        link.dataset.pt === 'Marcar Aula Experimental' ||
+        link.dataset.en === 'Book a Trial Class' ||
+        link.href.includes('wa.me/351932665662');
+
+      if (!isTrialClassReplacement) return;
+
+      link.classList.remove('whatsapp-link');
+      delete link.dataset.whatsapp;
+      link.dataset.pt = 'Visitar Focus Jiu-Jitsu HQ';
+      link.dataset.en = 'Visit Focus Jiu-Jitsu HQ';
+      link.href = 'visitar.html';
+      link.removeAttribute('target');
+      link.removeAttribute('rel');
+      link.textContent = link.dataset.pt;
+    });
+  }
+
   function prepareTeamGrid() {
     if (document.body.dataset.page !== 'academy-equipa') return;
 
@@ -184,6 +206,7 @@
   }
 
   function initialiseWebsite() {
+    restoreVisitFocusLinks();
     prepareTeamGrid();
 
     const elements = {
