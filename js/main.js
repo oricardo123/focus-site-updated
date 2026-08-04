@@ -18,8 +18,8 @@
   };
 
   const WHATSAPP_URLS = {
-    pt: 'https://wa.me/351932665662?text=Ol%C3%A1%21%20Gostaria%20de%20marcar%20uma%20aula%20experimental%20gratuita%20na%20Focus%20Jiu-Jitsu%20HQ',
-    en: 'https://wa.me/351932665662?text=Hello%21%20I%20would%20like%20to%20book%20a%20free%20trial%20class%20at%20Focus%20Jiu-Jitsu%20HQ'
+    pt: 'https://wa.me/351932665662?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20uma%20aula%20experimental.',
+    en: 'https://wa.me/351932665662?text=Hello%2C%20I%20would%20like%20to%20book%20a%20trial%20class.'
   };
 
   const DESKTOP_BREAKPOINT = 1120;
@@ -43,7 +43,24 @@
     }
   }
 
+  function prepareTrialClassLinks() {
+    const visitLinks = queryAll('.academy-menu .nav-dropdown a[href="visitar.html"]');
+
+    visitLinks.forEach((link) => {
+      link.classList.add('whatsapp-link');
+      link.dataset.whatsapp = '';
+      link.dataset.pt = 'Marcar Aula Experimental';
+      link.dataset.en = 'Book a Trial Class';
+      link.href = WHATSAPP_URLS.pt;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = link.dataset.pt;
+    });
+  }
+
   function initialiseWebsite() {
+    prepareTrialClassLinks();
+
     const elements = {
       header: document.querySelector(SELECTORS.header),
       menuButton: document.querySelector(SELECTORS.menuButton),
