@@ -9,8 +9,169 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="css/style.css?v=20260806-60" rel="stylesheet"/>
-<link href="css/equipa.css?v=20260806-60" rel="stylesheet"/>
+<link href="css/style.css?v=20260801-50" rel="stylesheet"/>
+<style id="team-card-alignment">
+body[data-page="academy-equipa"] #equipa .team-uniform-grid {
+  align-items: stretch;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card {
+  min-width: 0;
+  overflow: hidden;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-photo {
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  object-fit: cover;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-photo img.is-placeholder {
+  object-fit: contain;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .leadership-card .coach-card-photo {
+  aspect-ratio: 3 / 2;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content {
+  display: grid !important;
+  flex: 1;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 3.25rem 5.6rem 2.4rem minmax(0, 1fr);
+  align-content: stretch;
+  gap: 0 !important;
+  min-width: 0;
+  padding: clamp(24px, 2vw, 30px) !important;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content > .coach-rank {
+  grid-row: 1;
+  align-self: start;
+  min-width: 0;
+  margin: 0 !important;
+  line-height: 1.35;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content > h3 {
+  grid-row: 2;
+  align-self: start;
+  min-width: 0;
+  margin: 0 !important;
+  font-size: clamp(2.4rem, 3.35vw, 3.65rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content > .coach-role {
+  grid-row: 3;
+  align-self: start;
+  min-height: 1.35rem;
+  margin: 0 !important;
+  line-height: 1.35;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content::after {
+  content: "";
+  grid-row: 4;
+  align-self: start;
+  width: 100%;
+  height: 1px;
+  background: rgba(5, 5, 5, 0.18);
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content > ul,
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content > p:not(.coach-rank):not(.coach-role) {
+  position: relative;
+  z-index: 1;
+  grid-row: 4;
+  align-self: start;
+  min-width: 0;
+  margin: 0 !important;
+  padding-top: 24px;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content > ul {
+  display: grid;
+  gap: 0.72rem;
+  padding-left: 1.15rem;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content > ul li {
+  margin: 0;
+  line-height: 1.5;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .leadership-card .coach-card-content {
+  grid-template-rows: 3.25rem 4.6rem 2.75rem minmax(0, 1fr);
+  min-height: 330px;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .leadership-card .coach-card-content > h3 {
+  font-size: clamp(1.9rem, 2.35vw, 2.55rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .leadership-card .coach-card-content::after {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .leadership-card .coach-card-content > ul,
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .leadership-card .coach-card-content > p:not(.coach-rank):not(.coach-role) {
+  padding-top: 24px;
+}
+
+body[data-page="academy-equipa"] #equipa .team-uniform-grid .leadership-card .coach-card-content > ul {
+  gap: 0.72rem;
+}
+
+@media (max-width: 980px) {
+  body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content {
+    grid-template-rows: 3.25rem 5rem 2.4rem minmax(0, 1fr);
+  }
+
+  body[data-page="academy-equipa"] #equipa .team-uniform-grid .leadership-card .coach-card-content {
+    grid-template-rows: 3.25rem 4.35rem 2.75rem minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-photo,
+  body[data-page="academy-equipa"] #equipa .team-uniform-grid .leadership-card .coach-card-photo {
+    aspect-ratio: 4 / 5;
+  }
+
+  body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content,
+  body[data-page="academy-equipa"] #equipa .team-uniform-grid .leadership-card .coach-card-content {
+    grid-template-rows: auto auto auto minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content > .coach-rank {
+    margin-bottom: 20px !important;
+  }
+
+  body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content > h3 {
+    margin-bottom: 14px !important;
+  }
+
+  body[data-page="academy-equipa"] #equipa .team-uniform-grid .coach-card-content > .coach-role {
+    margin-bottom: 18px !important;
+  }
+}
+</style>
 <meta content="Conheça os professores e atletas que lideram os programas da Focus Jiu-Jitsu Headquarters." name="description"/>
 <title>Equipa | Focus Jiu-Jitsu Headquarters</title>
 </head>
@@ -120,116 +281,124 @@
 <p class="internal-hero-copy reveal" data-en="Meet the instructors and athletes leading the Adults, Kids, Women’s and Competition programs, combining coaching experience with national and international results." data-pt="Conhece os professores e atletas que lideram os programas de Adultos, Kids, Feminino e Competição, reunindo experiência de ensino e resultados nacionais e internacionais.">Conhece os professores e atletas que lideram os programas de Adultos, Kids, Feminino e Competição, reunindo experiência de ensino e resultados nacionais e internacionais.</p>
 </div>
 </section>
-<section class="ux-team-section" id="equipa">
+<section class="coaches-section section-light direct-content-section" id="equipa">
 <div class="section-shell">
-<div class="ux-team-intro reveal">
-<div>
-<p class="eyebrow" data-en="LEADERSHIP & COACHING" data-pt="LIDERANÇA & ENSINO">LIDERANÇA & ENSINO</p>
-<h2 data-en="Experience that sets the standard." data-pt="Experiência que define o padrão.">Experiência que define o padrão.</h2>
+<div class="team-leadership-grid">
+<article class="team-leader-card reveal">
+<div class="team-leader-photo">
+<img alt="Manoel Neto" loading="eager" src="assets/images/team/manoel-neto.jpg"/>
 </div>
-<p data-en="A coaching team built around technical rigour, clear teaching and the long-term development of every athlete." data-pt="Uma equipa técnica construída em torno do rigor, da clareza no ensino e da evolução sustentada de cada atleta.">Uma equipa técnica construída em torno do rigor, da clareza no ensino e da evolução sustentada de cada atleta.</p>
-</div>
-<div class="ux-team-leaders">
-<article class="ux-team-leader reveal">
-<div class="ux-team-leader-media">
-<img alt="Manoel Neto" loading="eager" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';" src="assets/images/team/manoel-neto.jpg"/>
-</div>
-<div class="ux-team-leader-body">
-<p class="ux-team-label" data-en="TEAM LEADER" data-pt="LÍDER DA EQUIPA">LÍDER DA EQUIPA</p>
-<h3>Manoel Neto</h3>
-<p class="ux-team-leader-role" data-en="Focus Jiu-Jitsu Team Leader" data-pt="Líder da Equipa Focus Jiu-Jitsu">Líder da Equipa Focus Jiu-Jitsu</p>
-<p class="ux-team-leader-summary" data-en="Responsible for the direction, culture and development of the team, with technical rigour and every student’s progress at the centre of the academy." data-pt="Responsável pela direção, cultura e desenvolvimento da equipa, mantendo o rigor técnico e a evolução de cada aluno no centro da academia.">Responsável pela direção, cultura e desenvolvimento da equipa, mantendo o rigor técnico e a evolução de cada aluno no centro da academia.</p>
+<div class="team-leader-content">
+<p class="coach-kicker" data-en="TEAM LEADER" data-pt="LÍDER DA EQUIPA">LÍDER DA EQUIPA</p>
+<h2>Manoel Neto</h2>
+<p class="team-leader-role" data-en="Focus Jiu-Jitsu Team Leader" data-pt="Líder da Equipa Focus Jiu-Jitsu">Líder da Equipa Focus Jiu-Jitsu</p>
+<p data-en="Responsible for the direction, culture and development of the team, keeping technical rigour, discipline and the progress of every student at the centre of Focus Jiu-Jitsu." data-pt="Responsável pela direção, cultura e desenvolvimento da equipa, mantendo o rigor técnico, a disciplina e a evolução de cada aluno no centro da Focus Jiu-Jitsu.">Responsável pela direção, cultura e desenvolvimento da equipa, mantendo o rigor técnico, a disciplina e a evolução de cada aluno no centro da Focus Jiu-Jitsu.</p>
 </div>
 </article>
-<article class="ux-team-leader reveal">
-<div class="ux-team-leader-media">
-<img alt="Pedro Paquito Ramalho" loading="eager" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';" src="assets/images/team/pedro-paquito-ramalho.jpg"/>
+<article class="team-leader-card reveal">
+<div class="team-leader-photo">
+<img alt="Pedro Paquito Ramalho" loading="eager" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.classList.add('is-placeholder');" src="assets/images/team/pedro-paquito-ramalho.jpg"/>
 </div>
-<div class="ux-team-leader-body">
-<p class="ux-team-label" data-en="ADULTS PROGRAM" data-pt="PROGRAMA ADULTOS">PROGRAMA ADULTOS</p>
-<h3>Pedro “Paquito” Ramalho</h3>
-<p class="ux-team-leader-role" data-en="Head of the Adults Program" data-pt="Responsável Programa Adultos">Responsável Programa Adultos</p>
-<ul class="ux-team-leader-facts">
-<li data-en="3rd-degree black belt" data-pt="Faixa preta, 3.º grau">Faixa preta, 3.º grau</li>
-<li data-en="World Pro & JJIF World Champion" data-pt="Campeão World Pro e Mundial JJIF">Campeão World Pro e Mundial JJIF</li>
-<li data-en="Level 1 coach" data-pt="Treinador grau 1">Treinador grau 1</li>
+<div class="team-leader-content">
+<p class="coach-kicker" data-en="ADULTS PROGRAM" data-pt="PROGRAMA ADULTOS">PROGRAMA ADULTOS</p>
+<h2>Pedro “Paquito” Ramalho</h2>
+<p class="team-leader-role" data-en="Head of the Adults Program" data-pt="Responsável Programa Adultos">Responsável Programa Adultos</p>
+<ul class="team-leader-achievements">
+<li data-en="3rd-degree black belt and Level 1 coach" data-pt="Faixa preta, 3.º grau e treinador grau 1">Faixa preta, 3.º grau e treinador grau 1</li>
+<li data-en="World Pro and JJIF World Champion" data-pt="Campeão World Pro e Campeão Mundial JJIF">Campeão World Pro e Campeão Mundial JJIF</li>
+<li data-en="European and World Champion at coloured belts" data-pt="Campeão Europeu e Mundial em faixas coloridas">Campeão Europeu e Mundial em faixas coloridas</li>
 </ul>
 </div>
 </article>
 </div>
-<div class="ux-team-roster">
-<div class="ux-team-roster-head reveal">
-<div>
-<p class="eyebrow" data-en="COACHING TEAM" data-pt="EQUIPA TÉCNICA">EQUIPA TÉCNICA</p>
-<h2 data-en="The people on the mat." data-pt="As pessoas no tatami.">As pessoas no tatami.</h2>
+<div class="coaches-grid coaches-grid-ranked team-ordered-grid">
+<article class="coach-card reveal">
+<div class="coach-card-photo">
+<img alt="Henrique Soares" loading="lazy" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.classList.add('is-placeholder');" src="assets/images/team/henrique-soares.jpg"/>
 </div>
-<p data-en="Black belts first, followed by the remaining instructors in descending belt order." data-pt="Faixas pretas primeiro, seguidos pelos restantes professores em ordem decrescente de graduação.">Faixas pretas primeiro, seguidos pelos restantes professores em ordem decrescente de graduação.</p>
-</div>
-<div class="ux-team-grid">
-<article class="ux-team-person reveal">
-<div class="ux-team-person-media">
-<img alt="Henrique Soares" loading="lazy" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.closest('.ux-team-person').classList.add('ux-team-person--placeholder');" src="assets/images/team/henrique-soares.jpg"/>
-<div class="ux-team-person-caption">
-<p class="ux-team-person-meta" data-en="Black belt · Physical Education" data-pt="Faixa preta · Educação Física">Faixa preta · Educação Física</p>
+<div class="coach-card-content">
+<p class="coach-rank" data-en="Black belt · Degree in Physical Education" data-pt="Faixa preta · Formado em Educação Física">Faixa preta · Formado em Educação Física</p>
 <h3>Henrique Soares</h3>
-</div>
-</div>
-</article>
-<article class="ux-team-person reveal">
-<div class="ux-team-person-media">
-<img alt="Vasco Leal" loading="lazy" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.closest('.ux-team-person').classList.add('ux-team-person--placeholder');" src="assets/images/team/vasco-leal.jpg"/>
-<div class="ux-team-person-caption">
-<p class="ux-team-person-meta" data-en="Black belt · Jiu-Jitsu coach" data-pt="Faixa preta · Treinador de Jiu-Jitsu">Faixa preta · Treinador de Jiu-Jitsu</p>
-<h3>Vasco Leal</h3>
-</div>
+<ul>
+<li data-en="IBJJF Worlds bronze medallist at purple belt" data-pt="3.º lugar no Mundial IBJJF, faixa roxa">3.º lugar no Mundial IBJJF, faixa roxa</li>
+<li data-en="Abu Dhabi World Pro silver medallist" data-pt="2.º lugar no Abu Dhabi World Pro">2.º lugar no Abu Dhabi World Pro</li>
+<li data-en="IBJJF European and Brazilian bronze medallist" data-pt="3.º lugar no Europeu e Brasileiro IBJJF">3.º lugar no Europeu e Brasileiro IBJJF</li>
+<li data-en="Ten-time National Open and Portuguese Champion" data-pt="10x campeão Nacional Open e 10x campeão português">10x campeão Nacional Open e 10x campeão português</li>
+<li data-en="Three-time French Champion" data-pt="3x campeão francês">3x campeão francês</li>
+</ul>
 </div>
 </article>
-<article class="ux-team-person reveal">
-<div class="ux-team-person-media">
-<img alt="Luana Oliveira" loading="lazy" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.closest('.ux-team-person').classList.add('ux-team-person--placeholder');" src="assets/images/team/luana-oliveira.jpg"/>
-<div class="ux-team-person-caption">
-<p class="ux-team-person-meta" data-en="Black belt" data-pt="Faixa preta">Faixa preta</p>
-<h3>Luana Oliveira</h3>
+<article class="coach-card reveal">
+<div class="coach-card-photo">
+<img alt="Pedro Zogbi" loading="lazy" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.classList.add('is-placeholder');" src="assets/images/team/pedro-zogbi.jpg"/>
 </div>
-</div>
-</article>
-<article class="ux-team-person ux-team-person--francisco reveal">
-<div class="ux-team-person-media">
-<img alt="Francisco Rocha" loading="lazy" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.closest('.ux-team-person').classList.add('ux-team-person--placeholder');" src="assets/images/team/francisco-rocha.jpg"/>
-<div class="ux-team-person-caption">
-<p class="ux-team-person-meta" data-en="Brown belt · Kids Program" data-pt="Faixa castanha · Programa Kids">Faixa castanha · Programa Kids</p>
-<h3>Francisco Rocha</h3>
-</div>
-</div>
-</article>
-<article class="ux-team-person reveal">
-<div class="ux-team-person-media">
-<img alt="Pedro Zogbi" loading="lazy" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.closest('.ux-team-person').classList.add('ux-team-person--placeholder');" src="assets/images/team/pedro-zogbi.jpg"/>
-<div class="ux-team-person-caption">
-<p class="ux-team-person-meta" data-en="Brown belt" data-pt="Faixa castanha">Faixa castanha</p>
+<div class="coach-card-content">
+<p class="coach-rank" data-en="Brown belt" data-pt="Faixa castanha">Faixa castanha</p>
 <h3>Pedro Zogbi</h3>
-</div>
+<ul>
+<li data-en="Four-time National Champion" data-pt="4x campeão nacional">4x campeão nacional</li>
+<li data-en="Multiple Open titles" data-pt="Vários títulos em Opens">Vários títulos em Opens</li>
+<li data-en="AJP National Champion" data-pt="Campeão AJP National">Campeão AJP National</li>
+<li data-en="AJP Gi and No-Gi Champion" data-pt="Campeão AJP Gi e No-Gi">Campeão AJP Gi e No-Gi</li>
+</ul>
 </div>
 </article>
-<article class="ux-team-person reveal">
-<div class="ux-team-person-media">
-<img alt="Thallysson Vasconcelos" loading="lazy" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.closest('.ux-team-person').classList.add('ux-team-person--placeholder');" src="assets/images/team/thallyson-vasconcelos.jpg"/>
-<div class="ux-team-person-caption">
-<p class="ux-team-person-meta" data-en="Purple belt" data-pt="Faixa roxa">Faixa roxa</p>
+<article class="coach-card reveal">
+<div class="coach-card-photo">
+<img alt="Francisco Rocha" loading="lazy" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.classList.add('is-placeholder');" src="assets/images/team/francisco-rocha.jpg"/>
+</div>
+<div class="coach-card-content">
+<p class="coach-rank" data-en="Brown belt · Over 15 years in martial arts" data-pt="Faixa castanha · Mais de 15 anos em artes marciais">Faixa castanha · Mais de 15 anos em artes marciais</p>
+<h3>Francisco Rocha</h3>
+<p class="coach-role" data-en="Head of the Kids Program" data-pt="Responsável Programa Kids">Responsável Programa Kids</p>
+<ul>
+<li data-en="Multiple-time FPJJB National Champion" data-pt="Múltiplas vezes campeão nacional FPJJB">Múltiplas vezes campeão nacional FPJJB</li>
+<li data-en="IBJJF London Open Champion" data-pt="Campeão London Open IBJJF">Campeão London Open IBJJF</li>
+<li data-en="IBJJF Madrid Open Champion" data-pt="Campeão Madrid Open IBJJF">Campeão Madrid Open IBJJF</li>
+</ul>
+</div>
+</article>
+<article class="coach-card reveal">
+<div class="coach-card-photo">
+<img alt="Thallysson Vasconcelos" loading="lazy" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.classList.add('is-placeholder');" src="assets/images/team/thallyson-vasconcelos.jpg"/>
+</div>
+<div class="coach-card-content">
+<p class="coach-rank" data-en="Purple belt · Over 100 competitions" data-pt="Faixa roxa · Mais de 100 competições">Faixa roxa · Mais de 100 competições</p>
 <h3>Thallysson Vasconcelos</h3>
-</div>
+<ul>
+<li data-en="Portuguese National Champion" data-pt="Campeão nacional português">Campeão nacional português</li>
+<li data-en="Two-time NAGA Grappling Champion" data-pt="2x campeão NAGA Grappling">2x campeão NAGA Grappling</li>
+<li data-en="Two-time IBJJF European Champion" data-pt="2x campeão europeu IBJJF">2x campeão europeu IBJJF</li>
+<li data-en="Six-time ADCC Open Champion" data-pt="6x campeão ADCC Open">6x campeão ADCC Open</li>
+<li data-en="Two-time Brazilian Champion" data-pt="2x campeão brasileiro">2x campeão brasileiro</li>
+</ul>
 </div>
 </article>
-<article class="ux-team-person ux-team-person--ricardo reveal">
-<div class="ux-team-person-media">
-<img alt="Ricardo Almeida" loading="lazy" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.closest('.ux-team-person').classList.add('ux-team-person--placeholder');" src="assets/images/team/ricardo-almeida.jpg"/>
-<div class="ux-team-person-caption">
-<p class="ux-team-person-meta" data-en="Purple belt · Instructor and athlete" data-pt="Faixa roxa · Professor e atleta">Faixa roxa · Professor e atleta</p>
+<article class="coach-card reveal">
+<div class="coach-card-photo">
+<img alt="Vasco Leal" loading="lazy" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.classList.add('is-placeholder');" src="assets/images/team/vasco-leal.jpg"/>
+</div>
+<div class="coach-card-content">
+<p class="coach-rank" data-en="Purple belt · Jiu-Jitsu coach training" data-pt="Faixa roxa · Curso de treinador de Jiu-Jitsu">Faixa roxa · Curso de treinador de Jiu-Jitsu</p>
+<h3>Vasco Leal</h3>
+<ul>
+<li data-en="AJP National Pro Champion" data-pt="Campeão AJP National Pro">Campeão AJP National Pro</li>
+<li data-en="National Champion" data-pt="Campeão nacional">Campeão nacional</li>
+</ul>
+</div>
+</article>
+<article class="coach-card reveal">
+<div class="coach-card-photo">
+<img alt="Ricardo Almeida" loading="lazy" onerror="this.onerror=null;this.src='assets/images/team/team-placeholder.svg';this.classList.add('is-placeholder');" src="assets/images/team/ricardo-almeida.jpg"/>
+</div>
+<div class="coach-card-content">
+<p class="coach-rank" data-en="Purple belt · Instructor and competitor" data-pt="Faixa roxa · Professor e atleta de competição">Faixa roxa · Professor e atleta de competição</p>
 <h3>Ricardo Almeida</h3>
-</div>
+<ul>
+<li data-en="Multiple-time FPJJB National Champion" data-pt="Múltiplas vezes campeão nacional FPJJB">Múltiplas vezes campeão nacional FPJJB</li>
+</ul>
 </div>
 </article>
-</div>
 </div>
 </div>
 </section>
@@ -278,6 +447,6 @@
 <span aria-hidden="true">↗</span>
 <span data-en="Trial class" data-pt="Aula experimental">Aula experimental</span>
 </a>
-<script defer src="js/main.js?v=20260806-60"></script>
+<script defer src="js/main.js?v=20260805-59"></script>
 </body>
 </html>
