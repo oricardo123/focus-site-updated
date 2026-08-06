@@ -16,8 +16,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 35
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,20 +30,19 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
+        id: artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: .
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 35
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/github-script@v8
+        timeout-minutes: 32
+        env:
+          ARTIFACT_ID: ${{ steps.artifact.outputs.artifact_id }}
         with:
-          timeout: 1800000
+          github-token: ${{ github.token }}
+          script: |
+            const deploy = require('./.github/scripts/deploy-pages.cjs')
+            await deploy({ github, context, core })
