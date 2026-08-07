@@ -4482,3 +4482,312 @@ body[data-page="programs-adults"] .program-page-hero-combined {
     align-items: start;
   }
 }
+
+/* =========================================================
+   Team hierarchy — V31
+   Leadership pair + balanced instructor directory
+   Scoped to the Team page only.
+   ========================================================= */
+body[data-page="academy-equipa"] .team-section-heading {
+  margin-bottom: clamp(42px, 6vw, 76px);
+}
+
+body[data-page="academy-equipa"] .team-section-heading-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.58fr);
+  gap: clamp(40px, 7vw, 110px);
+  align-items: end;
+  margin-top: 16px;
+}
+
+body[data-page="academy-equipa"] .team-section-heading h2,
+body[data-page="academy-equipa"] .coaches-directory-heading h2 {
+  margin: 0;
+  max-width: 820px;
+  font-size: clamp(3.25rem, 6vw, 6.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+}
+
+body[data-page="academy-equipa"] .team-section-heading-grid > p,
+body[data-page="academy-equipa"] .coaches-directory-heading > div > p {
+  max-width: 520px;
+  margin: 0;
+  color: #4b4b48;
+  font-size: clamp(0.98rem, 1.15vw, 1.08rem);
+  line-height: 1.75;
+}
+
+body[data-page="academy-equipa"] .leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.4vw, 34px);
+  margin-bottom: clamp(100px, 12vw, 168px);
+}
+
+body[data-page="academy-equipa"] .leadership-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  background: var(--black);
+  color: var(--white);
+}
+
+body[data-page="academy-equipa"] .leadership-photo {
+  aspect-ratio: 4 / 4.65;
+  overflow: hidden;
+  background: var(--black-soft);
+}
+
+body[data-page="academy-equipa"] .leadership-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 650ms ease;
+}
+
+body[data-page="academy-equipa"] .leadership-card:hover .leadership-photo img:not(.is-placeholder) {
+  transform: scale(1.018);
+}
+
+body[data-page="academy-equipa"] .leadership-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: clamp(30px, 4vw, 56px);
+  border-top: 1px solid var(--line-dark);
+}
+
+body[data-page="academy-equipa"] .leadership-kicker {
+  margin: 0 0 15px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+body[data-page="academy-equipa"] .leadership-content h3 {
+  max-width: 680px;
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(3rem, 5vw, 5.9rem);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+body[data-page="academy-equipa"] .leadership-role {
+  margin: 25px 0 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+body[data-page="academy-equipa"] .leadership-copy {
+  max-width: 590px;
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.96rem;
+  line-height: 1.72;
+}
+
+body[data-page="academy-equipa"] .leadership-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 38px;
+}
+
+body[data-page="academy-equipa"] .leadership-highlights-achievements {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body[data-page="academy-equipa"] .leadership-highlights span {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  padding: 13px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+body[data-page="academy-equipa"] .coaches-directory-heading {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.32fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 94px);
+  align-items: start;
+  margin-bottom: clamp(58px, 8vw, 104px);
+  padding-top: clamp(48px, 6vw, 80px);
+  border-top: 1px solid var(--line-light);
+}
+
+body[data-page="academy-equipa"] .coaches-directory-heading .eyebrow {
+  margin-top: 8px;
+}
+
+body[data-page="academy-equipa"] .coaches-directory-heading h2 {
+  max-width: 900px;
+  font-size: clamp(3rem, 5.2vw, 5.8rem);
+}
+
+body[data-page="academy-equipa"] .coaches-directory-heading > div > p {
+  max-width: 650px;
+  margin-top: 26px;
+}
+
+body[data-page="academy-equipa"] .coaches-grid {
+  gap: clamp(66px, 7vw, 104px) clamp(22px, 3vw, 44px);
+}
+
+body[data-page="academy-equipa"] .coach-card-content {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+body[data-page="academy-equipa"] .coach-card .coach-rank {
+  min-height: 3.2em;
+}
+
+body[data-page="academy-equipa"] .coach-card .coach-role {
+  margin-top: 15px;
+}
+
+body[data-page="academy-equipa"] .coach-summary {
+  margin: 22px 0 0;
+  color: #555550;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+body[data-page="academy-equipa"] .coach-achievements-label {
+  margin: 28px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-light);
+  color: #8a8a84;
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+body[data-page="academy-equipa"] .coach-card ul {
+  margin-top: 10px;
+  padding-top: 0;
+  border-top: 0;
+}
+
+body[data-page="academy-equipa"] .coach-card li {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+@media (max-width: 1120px) {
+  body[data-page="academy-equipa"] .team-section-heading-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  body[data-page="academy-equipa"] .team-section-heading-grid > p {
+    max-width: 650px;
+  }
+
+  body[data-page="academy-equipa"] .leadership-content h3 {
+    font-size: clamp(3rem, 6.2vw, 5rem);
+  }
+
+  body[data-page="academy-equipa"] .leadership-highlights-achievements {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 820px) {
+  body[data-page="academy-equipa"] .leadership-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  body[data-page="academy-equipa"] .leadership-photo {
+    aspect-ratio: 4 / 4.7;
+  }
+
+  body[data-page="academy-equipa"] .leadership-highlights-achievements {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body[data-page="academy-equipa"] .coaches-directory-heading {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  body[data-page="academy-equipa"] .team-section-heading {
+    margin-bottom: 34px;
+  }
+
+  body[data-page="academy-equipa"] .team-section-heading h2,
+  body[data-page="academy-equipa"] .coaches-directory-heading h2 {
+    font-size: clamp(2.8rem, 13vw, 4.5rem);
+  }
+
+  body[data-page="academy-equipa"] .leadership-grid {
+    margin-bottom: 92px;
+  }
+
+  body[data-page="academy-equipa"] .leadership-content {
+    padding: 30px 22px 34px;
+  }
+
+  body[data-page="academy-equipa"] .leadership-content h3 {
+    font-size: clamp(3.15rem, 15vw, 5rem);
+  }
+
+  body[data-page="academy-equipa"] .leadership-copy {
+    margin-top: 24px;
+  }
+
+  body[data-page="academy-equipa"] .leadership-highlights,
+  body[data-page="academy-equipa"] .leadership-highlights-achievements {
+    grid-template-columns: 1fr;
+    padding-top: 30px;
+  }
+
+  body[data-page="academy-equipa"] .leadership-highlights span {
+    min-height: 52px;
+  }
+
+  body[data-page="academy-equipa"] .coaches-directory-heading {
+    margin-bottom: 48px;
+    padding-top: 42px;
+  }
+
+  body[data-page="academy-equipa"] .coaches-directory-heading .eyebrow {
+    margin-top: 0;
+  }
+
+  body[data-page="academy-equipa"] .coaches-directory-heading > div > p {
+    margin-top: 20px;
+  }
+
+  body[data-page="academy-equipa"] .coaches-grid {
+    gap: 66px;
+  }
+
+  body[data-page="academy-equipa"] .coach-card .coach-rank {
+    min-height: 0;
+  }
+}
