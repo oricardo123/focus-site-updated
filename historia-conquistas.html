@@ -14,7 +14,7 @@
 <link href="css/v54.css?v=20260804-54" rel="stylesheet"/>
 
 <style>
-/* História & Conquistas — layout editorial v2
+/* História & Conquistas — layout editorial v3
    CSS scoped to this page to avoid affecting other pages. */
 
 .history-v2 {
@@ -28,8 +28,8 @@
 
 .history-origin-grid {
   display: grid;
-  grid-template-columns: minmax(0, .72fr) minmax(360px, 1.28fr);
-  gap: clamp(56px, 10vw, 150px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(48px, 7vw, 104px);
   align-items: start;
 }
 
@@ -46,8 +46,13 @@
 }
 
 .history-origin-copy {
+  min-width: 0;
   max-width: 720px;
   padding-top: 12px;
+}
+
+.history-origin-heading {
+  min-width: 0;
 }
 
 .history-origin-copy p {
@@ -93,40 +98,64 @@
 
 .history-timeline-heading {
   max-width: 980px;
-  margin-bottom: clamp(68px, 9vw, 116px);
+  margin: 0 auto clamp(68px, 9vw, 116px);
+  text-align: center;
 }
 
-.history-timeline-list {
-  border-top: 1px solid var(--history-rule-dark);
-}
-
-.history-timeline-item {
+.history-timeline-grid {
   display: grid;
-  grid-template-columns: minmax(120px, .28fr) minmax(220px, .52fr) minmax(0, 1.2fr);
-  gap: clamp(26px, 5vw, 78px);
-  align-items: start;
-  padding: clamp(30px, 4vw, 52px) 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  border-top: 1px solid var(--history-rule-dark);
+  border-left: 1px solid var(--history-rule-dark);
+}
+
+.history-timeline-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  border-right: 1px solid var(--history-rule-dark);
   border-bottom: 1px solid var(--history-rule-dark);
+}
+
+.history-media-slot.history-timeline-card-media {
+  min-height: 0;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  border-bottom: 1px solid var(--history-rule-dark);
+}
+
+.history-media-slot.history-timeline-card-media img {
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+}
+
+.history-timeline-card-copy {
+  display: grid;
+  flex: 1;
+  grid-template-rows: auto minmax(3em, auto) 1fr;
+  gap: clamp(18px, 2.2vw, 28px);
+  padding: clamp(28px, 3.4vw, 48px);
 }
 
 .history-year {
   font-family: var(--display);
-  font-size: clamp(2.7rem, 5vw, 5.6rem);
+  font-size: clamp(2.8rem, 4.7vw, 5rem);
   line-height: .9;
   letter-spacing: -.04em;
 }
 
-.history-timeline-item h3 {
+.history-timeline-card h3 {
   margin: 0;
-  font-size: clamp(1.7rem, 2.7vw, 3rem);
-  line-height: .98;
+  font-size: clamp(1.55rem, 2.25vw, 2.55rem);
+  line-height: 1.02;
 }
 
-.history-timeline-item p {
-  max-width: 690px;
+.history-timeline-card p {
   margin: 0;
   color: rgba(255,255,255,.66);
-  line-height: 1.76;
+  font-size: clamp(.92rem, 1vw, 1rem);
+  line-height: 1.7;
 }
 
 .history-focus-name {
@@ -158,7 +187,8 @@
 
 .history-milestones-heading {
   max-width: 980px;
-  margin-bottom: clamp(62px, 9vw, 110px);
+  margin: 0 auto clamp(62px, 9vw, 110px);
+  text-align: center;
 }
 
 .history-milestones-grid {
@@ -233,22 +263,14 @@
 }
 
 .history-team-results-heading {
-  display: grid;
-  grid-template-columns: minmax(0,1fr) minmax(300px,.52fr);
-  gap: clamp(48px, 9vw, 140px);
-  align-items: end;
-  margin-bottom: clamp(58px, 8vw, 100px);
-}
-
-.history-team-results-heading .eyebrow,
-.history-team-results-heading h2 {
-  grid-column: 1;
+  max-width: 980px;
+  margin: 0 auto clamp(58px, 8vw, 100px);
+  text-align: center;
 }
 
 .history-team-results-heading > p:last-child {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  margin: 0;
+  max-width: 690px;
+  margin: 32px auto 0;
   color: rgba(255,255,255,.66);
   line-height: 1.76;
 }
@@ -296,11 +318,13 @@
 
 .history-network-heading {
   max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .history-network-heading > p:last-child {
   max-width: 690px;
-  margin: 36px 0 0;
+  margin: 36px auto 0;
   color: #41413e;
   line-height: 1.8;
 }
@@ -369,19 +393,22 @@
 }
 
 @media (max-width: 1000px) {
-  .history-origin-grid,
-  .history-team-results-heading {
-    grid-template-columns: 1fr;
-  }
-
-  .history-team-results-heading > p:last-child {
-    grid-column: 1;
-    grid-row: auto;
-    max-width: 720px;
+  .history-origin-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .history-results-grid {
     grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .history-timeline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .history-timeline-card-copy {
+    grid-template-rows: auto auto auto;
   }
 }
 
@@ -408,13 +435,8 @@
     text-align: left;
   }
 
-  .history-timeline-item {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .history-year {
-    margin-bottom: 8px;
+  .history-timeline-card-copy {
+    padding: 30px 22px 38px;
   }
 
   .history-milestones-grid,
@@ -474,6 +496,7 @@
   font-weight: 700;
   letter-spacing: .11em;
   line-height: 1.5;
+  overflow-wrap: anywhere;
   text-align: center;
   text-transform: uppercase;
   pointer-events: none;
@@ -493,13 +516,10 @@
 }
 
 .history-origin-media {
-  margin-top: clamp(52px, 7vw, 90px);
+  width: 100%;
+  min-width: 0;
+  margin: clamp(52px, 7vw, 90px) 0 0;
   aspect-ratio: 16 / 9;
-}
-
-.history-timeline-media {
-  margin-top: clamp(64px, 8vw, 104px);
-  aspect-ratio: 16 / 8;
 }
 
 .history-athlete-media {
@@ -515,13 +535,12 @@
 
 .history-results-media,
 .history-network-media {
-  margin-top: clamp(64px, 8vw, 104px);
+  margin: clamp(64px, 8vw, 104px) 0 0;
   aspect-ratio: 16 / 8;
 }
 
 @media (max-width: 760px) {
   .history-origin-media,
-  .history-timeline-media,
   .history-results-media,
   .history-network-media {
     aspect-ratio: 4 / 3;
@@ -704,103 +723,133 @@ Desde o início, o projeto foi construído em torno do ensino, da evolução té
 <h2 data-en="From Team Manoel Neto to Focus Jiu-Jitsu." data-pt="Da Team Manoel Neto à Focus Jiu-Jitsu.">Da Team Manoel Neto à Focus Jiu-Jitsu.</h2>
 </header>
 
-<div class="history-timeline-list">
+<div class="history-timeline-grid">
 
-<article class="history-timeline-item reveal">
+<article class="history-timeline-card reveal">
+<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Fotografia de 2001 · Chegada a Portugal · assets/images/history/2001-portugal.jpg">
+<img alt="Manoel Neto na chegada a Portugal em 2001" loading="lazy" src="assets/images/history/2001-portugal.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+<div class="history-timeline-card-copy">
 <div class="history-year">2001</div>
 <h3 data-en="Portugal" data-pt="Portugal">Portugal</h3>
 <p data-en="Manoel Neto settles in Northern Portugal and begins a new chapter in a country where Brazilian Jiu-Jitsu was still developing."
    data-pt="Manoel Neto estabelece-se no Norte de Portugal e inicia um novo capítulo num país onde o Brazilian Jiu-Jitsu ainda estava em desenvolvimento.">
 Manoel Neto estabelece-se no Norte de Portugal e inicia um novo capítulo num país onde o Brazilian Jiu-Jitsu ainda estava em desenvolvimento.
 </p>
+</div>
 </article>
 
-<article class="history-timeline-item reveal">
+<article class="history-timeline-card reveal">
+<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Fotografia de 2003 · Primeiros treinos · assets/images/history/2003-primeiros-treinos.jpg">
+<img alt="Primeiros treinos de Jiu-Jitsu no Norte de Portugal em 2003" loading="lazy" src="assets/images/history/2003-primeiros-treinos.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+<div class="history-timeline-card-copy">
 <div class="history-year">2003</div>
 <h3 data-en="The first classes" data-pt="Os primeiros treinos">Os primeiros treinos</h3>
 <p data-en="Manoel begins his path as an instructor in Northern Portugal."
    data-pt="Manoel inicia o seu percurso como professor no Norte de Portugal.">
 Manoel inicia o seu percurso como professor no Norte de Portugal.
 </p>
+</div>
 </article>
 
-<article class="history-timeline-item reveal">
+<article class="history-timeline-card reveal">
+<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Fotografia de 2006 · Team Manoel Neto · assets/images/history/2006-team-manoel-neto.jpg">
+<img alt="Team Manoel Neto em 2006" loading="lazy" src="assets/images/history/2006-team-manoel-neto.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+<div class="history-timeline-card-copy">
 <div class="history-year">2006</div>
 <h3>Team Manoel Neto</h3>
 <p data-en="The team takes on its first independent identity in the same year Manoel receives his black belt."
    data-pt="A equipa assume a sua primeira identidade própria, no mesmo ano em que Manoel recebe a faixa preta.">
 A equipa assume a sua primeira identidade própria, no mesmo ano em que Manoel recebe a faixa preta.
 </p>
+</div>
 </article>
 
-<article class="history-timeline-item reveal">
+<article class="history-timeline-card reveal">
+<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Fotografia de 2010–11 · Academia Workout · assets/images/history/2010-11-academia-workout.jpg">
+<img alt="Academia Workout em Matosinhos entre 2010 e 2011" loading="lazy" src="assets/images/history/2010-11-academia-workout.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+<div class="history-timeline-card-copy">
 <div class="history-year">2010–11</div>
 <h3 data-en="Academia Workout · Matosinhos" data-pt="Academia Workout · Matosinhos">Academia Workout · Matosinhos</h3>
 <p data-en="A new phase of growth begins in Matosinhos, creating a stronger base for training, athlete development and the expansion of the team."
    data-pt="Começa em Matosinhos uma nova fase de crescimento, criando uma base mais forte para o treino, a formação de atletas e a expansão da equipa.">
 Começa em Matosinhos uma nova fase de crescimento, criando uma base mais forte para o treino, a formação de atletas e a expansão da equipa.
 </p>
+</div>
 </article>
 
-<article class="history-timeline-item reveal">
+<article class="history-timeline-card reveal">
+<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Fotografia de 2015 · Paquito · assets/images/history/2015-paquito.jpg">
+<img alt="Pedro Paquito Ramalho no marco internacional de 2015" loading="lazy" src="assets/images/history/2015-paquito.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+<div class="history-timeline-card-copy">
 <div class="history-year">2015</div>
 <h3 data-en="A first major international milestone" data-pt="Um primeiro grande marco internacional">Um primeiro grande marco internacional</h3>
 <p data-en="Pedro “Paquito” Ramalho wins the IBJJF World Championship, the European Championship and the Abu Dhabi World Professional at purple belt, taking the team to a new international level."
    data-pt="Pedro “Paquito” Ramalho conquista o Mundial IBJJF, o Europeu e o Abu Dhabi World Professional enquanto faixa roxa, levando a equipa a um novo patamar internacional.">
 Pedro “Paquito” Ramalho conquista o Mundial IBJJF, o Europeu e o Abu Dhabi World Professional enquanto faixa roxa, levando a equipa a um novo patamar internacional.
 </p>
+</div>
 </article>
 
-<article class="history-timeline-item reveal">
+<article class="history-timeline-card reveal">
+<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Fotografia de 2016 · Nascimento da Focus · assets/images/history/2016-nasce-focus.jpg">
+<img alt="Nascimento oficial da Focus Jiu-Jitsu em 2016" loading="lazy" src="assets/images/history/2016-nasce-focus.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+<div class="history-timeline-card-copy">
 <div class="history-year">2016</div>
 <h3 data-en="Focus Jiu-Jitsu is born" data-pt="Nasce a Focus Jiu-Jitsu">Nasce a Focus Jiu-Jitsu</h3>
 <p data-en="On 23 June 2016, Team Manoel Neto officially becomes Focus Jiu-Jitsu. By then, the project had already grown to a network of 15 affiliated academies in Portugal."
    data-pt="A 23 de junho de 2016, a Team Manoel Neto passa oficialmente a chamar-se Focus Jiu-Jitsu. Nessa altura, o projeto já tinha crescido para uma rede de 15 academias afiliadas em Portugal.">
 A 23 de junho de 2016, a Team Manoel Neto passa oficialmente a chamar-se Focus Jiu-Jitsu. Nessa altura, o projeto já tinha crescido para uma rede de 15 academias afiliadas em Portugal.
 </p>
+</div>
 </article>
 
-<article class="history-timeline-item reveal">
+<article class="history-timeline-card reveal">
+<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Fotografia de 2021 · Nova geração · assets/images/history/2021-davi-focus.jpg">
+<img alt="Davi Vetoraci na Focus Jiu-Jitsu em 2021" loading="lazy" src="assets/images/history/2021-davi-focus.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+<div class="history-timeline-card-copy">
 <div class="history-year">2021</div>
 <h3 data-en="A new international generation" data-pt="Uma nova geração internacional">Uma nova geração internacional</h3>
 <p data-en="Davi Vetoraci moves to Portugal and joins Focus, continuing his development within the team and becoming one of its main international competitive references."
    data-pt="Davi Vetoraci muda-se para Portugal e integra a Focus, continuando a sua evolução dentro da equipa e tornando-se uma das suas principais referências competitivas internacionais.">
 Davi Vetoraci muda-se para Portugal e integra a Focus, continuando a sua evolução dentro da equipa e tornando-se uma das suas principais referências competitivas internacionais.
 </p>
+</div>
 </article>
 
-<article class="history-timeline-item reveal">
+<article class="history-timeline-card reveal">
+<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Fotografia de 2025 · Davi campeão europeu · assets/images/history/2025-davi-europeu.jpg">
+<img alt="Davi Vetoraci campeão europeu IBJJF de faixa preta em 2025" loading="lazy" src="assets/images/history/2025-davi-europeu.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+<div class="history-timeline-card-copy">
 <div class="history-year">2025</div>
 <h3 data-en="European black belt champion" data-pt="Campeão Europeu de faixa preta">Campeão Europeu de faixa preta</h3>
 <p data-en="Davi Vetoraci wins the IBJJF European Championship at adult black belt — his first major title as a black belt."
    data-pt="Davi Vetoraci conquista o Campeonato Europeu IBJJF Adulto de faixa preta — o seu primeiro major enquanto faixa preta.">
 Davi Vetoraci conquista o Campeonato Europeu IBJJF Adulto de faixa preta — o seu primeiro major enquanto faixa preta.
 </p>
+</div>
 </article>
 
-<article class="history-timeline-item reveal">
+<article class="history-timeline-card reveal">
+<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Fotografia de 2025–26 · Resultados da equipa · assets/images/history/2025-26-resultados-equipa.jpg">
+<img alt="Equipa Focus Jiu-Jitsu no Portugal Grand Slam de 2025 e 2026" loading="lazy" src="assets/images/history/2025-26-resultados-equipa.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+<div class="history-timeline-card-copy">
 <div class="history-year">2025–26</div>
 <h3 data-en="Team results" data-pt="Resultados por equipas">Resultados por equipas</h3>
 <p data-en="Focus reaches 1st place overall at the Portugal Grand Slam in consecutive editions, reinforcing the collective strength of the team."
    data-pt="A Focus alcança o 1.º lugar overall no Portugal Grand Slam em edições consecutivas, reforçando a força coletiva da equipa.">
 A Focus alcança o 1.º lugar overall no Portugal Grand Slam em edições consecutivas, reforçando a força coletiva da equipa.
 </p>
+</div>
 </article>
-
-</div>
-
-<figure class="history-media-slot history-timeline-media history-media-slot-dark" data-placeholder="Imagem histórica · Academia Workout / Team Manoel Neto / nascimento Focus · assets/images/history/workout-focus.jpg">
-<img alt="Academia Workout e evolução para Focus Jiu-Jitsu" loading="lazy" src="assets/images/history/workout-focus.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
-</figure>
-
-<div class="history-focus-name reveal">
-<span class="history-focus-word">FOCUS</span>
-<p data-en="A name chosen to represent a central characteristic of Manoel Neto’s approach and of the culture he wanted to pass on to the team: focus on the process, on training and on constant development."
-   data-pt="Um nome escolhido para representar uma característica central da abordagem de Manoel Neto e da cultura que procurava transmitir à equipa: foco no processo, no treino e na evolução constante.">
-Um nome escolhido para representar uma característica central da abordagem de Manoel Neto e da cultura que procurava transmitir à equipa: foco no processo, no treino e na evolução constante.
-</p>
-</div>
-</div>
 </section>
 
 <section class="history-milestones section-light" id="marcos-competitivos">

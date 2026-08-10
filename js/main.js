@@ -13,8 +13,7 @@
     translatableElements: '[data-pt][data-en]',
     whatsappLinks: '[data-whatsapp]',
     revealElements: '.reveal',
-    trackedSections: 'main section[id]',
-    productCards: '[data-product-card]'
+    trackedSections: 'main section[id]'
   };
 
   const WHATSAPP_URLS = {
@@ -230,58 +229,6 @@
       elements.revealElements.forEach((element) => observer.observe(element));
     }
 
-    function initialiseProductColourSelectors() {
-      queryAll(SELECTORS.productCards).forEach((card) => {
-        const productImage = card.querySelector('[data-product-image]');
-        const colourButtons = queryAll('[data-product-color]', card);
-        if (!productImage || colourButtons.length === 0) return;
-
-        const showFallback = () => {
-          const fallback = productImage.dataset.fallback;
-          if (!fallback) return;
-
-          const currentPath = new URL(productImage.src, window.location.href).pathname;
-          const fallbackPath = new URL(fallback, window.location.href).pathname;
-          if (currentPath === fallbackPath) return;
-
-          productImage.src = fallback;
-          productImage.classList.remove('is-changing');
-        };
-
-        productImage.addEventListener('error', showFallback);
-
-        colourButtons.forEach((button) => {
-          button.addEventListener('click', () => {
-            const nextImage = button.dataset.image;
-            const nextAlt = button.dataset.alt;
-            if (!nextImage) return;
-
-            colourButtons.forEach((otherButton) => {
-              const isSelected = otherButton === button;
-              otherButton.classList.toggle('is-active', isSelected);
-              otherButton.setAttribute('aria-pressed', String(isSelected));
-            });
-
-            productImage.classList.add('is-changing');
-            const preloadImage = new Image();
-
-            preloadImage.addEventListener('load', () => {
-              productImage.src = nextImage;
-              if (nextAlt) productImage.alt = nextAlt;
-              requestAnimationFrame(() => productImage.classList.remove('is-changing'));
-            });
-
-            preloadImage.addEventListener('error', () => {
-              showFallback();
-              if (nextAlt) productImage.alt = nextAlt;
-            });
-
-            preloadImage.src = nextImage;
-          });
-        });
-      });
-    }
-
     function initialiseCurrentYear() {
       queryAll('[data-current-year]').forEach((element) => {
         element.textContent = String(new Date().getFullYear());
@@ -303,7 +250,6 @@
     initialiseDropdowns();
     initialiseMobileMenu();
     initialiseRevealAnimations();
-    initialiseProductColourSelectors();
     initialiseCurrentYear();
 
     updateHeader();

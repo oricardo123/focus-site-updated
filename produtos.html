@@ -4,14 +4,128 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Coleção oficial Focus Jiu-Jitsu: kimonos, hoodies e rashguards." name="description"/>
+<meta content="Coleção oficial de kimonos Focus Jiu-Jitsu, disponíveis em branco e preto." name="description"/>
 <meta content="#050505" name="theme-color"/>
 <title>Produtos | Focus Jiu-Jitsu Headquarters</title>
 <link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="css/style.css?v=20260801-50" rel="stylesheet"/>
+<link href="css/style.css?v=20260810-51" rel="stylesheet"/>
+<style>
+/* Product galleries are scoped to this page so the remaining site stays unchanged. */
+.product-card[data-product-gallery] .product-image {
+  aspect-ratio: 2 / 3 !important;
+  background: #e3e3df;
+}
+
+.product-card[data-product-gallery] .product-image img {
+  display: block;
+  padding: 0 !important;
+  object-fit: cover !important;
+  object-position: 50% 50% !important;
+  transform: none !important;
+}
+
+.product-gallery-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  background: rgba(5, 5, 5, 0.78);
+  color: #fff;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+  visibility: hidden;
+}
+
+.product-gallery-arrow svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.product-gallery-arrow-prev {
+  left: 16px;
+}
+
+.product-gallery-arrow-next {
+  right: 16px;
+}
+
+.product-gallery-arrow:hover {
+  background: #fff;
+  color: #050505;
+  transform: translateY(-50%) scale(1.06);
+}
+
+.product-gallery-arrow:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.product-gallery-arrow[hidden],
+.product-gallery-counter[hidden] {
+  display: none;
+}
+
+.product-gallery-counter {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  z-index: 2;
+  min-width: 54px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(5, 5, 5, 0.76);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  transform: translateX(-50%);
+  visibility: hidden;
+}
+
+.product-card.is-gallery-ready .product-gallery-arrow,
+.product-card.is-gallery-ready .product-gallery-counter {
+  visibility: visible;
+}
+
+.product-card[data-product-gallery] .product-card-content {
+  padding-top: 18px;
+}
+
+@media (max-width: 620px) {
+  .product-gallery-arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .product-gallery-arrow-prev {
+    left: 10px;
+  }
+
+  .product-gallery-arrow-next {
+    right: 10px;
+  }
+
+  .product-gallery-counter {
+    bottom: 12px;
+  }
+}
+</style>
 </head>
 <body class="internal-page" data-page="products">
 <a class="skip-link" data-en="Skip to content" data-pt="Saltar para o conteúdo" href="#products-main">Saltar para o conteúdo</a>
@@ -70,8 +184,6 @@
 <div class="nav-dropdown" id="products-dropdown">
 <a class="nav-overview-link" data-en="All Products" data-pt="Todos Os Produtos" href="produtos.html">Todos Os Produtos</a>
 <a data-en="Gis" data-pt="Kimonos" href="produtos.html#kimonos">Kimonos</a>
-<a data-en="Hoodies" data-pt="Hoodies" href="produtos.html#hoodies">Hoodies</a>
-<a data-en="Rashguards" data-pt="Rashguards" href="produtos.html#rashguards">Rashguards</a>
 </div>
 </div>
 <div class="nav-item nav-item-dropdown locations-menu" data-nav-dropdown="" data-nav-section="locations">
@@ -116,11 +228,7 @@
 <p class="eyebrow" data-en="OFFICIAL COLLECTION" data-pt="COLEÇÃO OFICIAL">COLEÇÃO OFICIAL</p>
 <h1 data-en="Choose your equipment." data-pt="Escolhe o teu equipamento.">Escolhe o teu equipamento.</h1>
 </div>
-<div class="products-hero-side reveal"><p class="internal-hero-copy" data-en="Discover Focus gis, hoodies and rashguards. Hoodies and rashguards are available exclusively in black." data-pt="Descobre os kimonos, hoodies e rashguards Focus. Os hoodies e as rashguards estão disponíveis exclusivamente em preto.">Descobre os kimonos, hoodies e rashguards Focus. Os hoodies e as rashguards estão disponíveis exclusivamente em preto.</p><nav aria-label="Categorias de produtos" class="product-category-nav product-category-nav-dark">
-<a data-en="Gis" data-pt="Kimonos" href="#kimonos">Kimonos</a>
-<a data-en="Hoodies" data-pt="Hoodies" href="#hoodies">Hoodies</a>
-<a data-en="Rashguards" data-pt="Rashguards" href="#rashguards">Rashguards</a>
-</nav></div></div>
+<div class="products-hero-side reveal"><p class="internal-hero-copy" data-en="Discover the Focus gi collection, available in white and black." data-pt="Descobre a coleção de kimonos Focus, disponível em branco e preto.">Descobre a coleção de kimonos Focus, disponível em branco e preto.</p></div></div>
 </section>
 <section class="product-category section-light" id="kimonos">
 <div class="section-shell">
@@ -131,9 +239,13 @@
 </div>
 <p data-en="Focus gi models available in white and black." data-pt="Modelos de kimono Focus disponíveis em branco e preto.">Modelos de kimono Focus disponíveis em branco e preto.</p>
 </div>
-<div class="product-grid"><article class="product-card reveal" data-product-card="">
-<div class="product-image">
-<img alt="Balístico preto" data-fallback="assets/images/product-placeholder.svg" data-product-image="" decoding="async" loading="lazy" src="assets/images/products/balistico-preto.jpg"/>
+<div class="product-grid"><article class="product-card reveal" data-product-card="" data-product-gallery="" data-product-model="Balístico">
+<div aria-label="Fotografias do Balístico" class="product-image" data-gallery-stage="" role="group">
+<img alt="Balístico preto — fotografia 1 de 3" data-product-image="" decoding="async" id="balistico-product-image" loading="lazy" src="assets/images/products/balistico-preto-frente.jpg"/>
+<button aria-controls="balistico-product-image" aria-label="Fotografia anterior do Balístico" class="product-gallery-arrow product-gallery-arrow-prev" data-gallery-step="-1" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button aria-controls="balistico-product-image" aria-label="Fotografia seguinte do Balístico" class="product-gallery-arrow product-gallery-arrow-next" data-gallery-step="1" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></button>
+<span aria-hidden="true" class="product-gallery-counter" data-gallery-counter="">1 / 3</span>
+<span aria-atomic="true" aria-live="polite" class="sr-only" data-gallery-status=""></span>
 </div>
 <div class="product-card-content">
 <div>
@@ -141,14 +253,18 @@
 <h3>Balístico</h3>
 </div>
 <div aria-label="Cores disponíveis" class="product-colors">
-<button aria-label="Balístico branco" aria-pressed="false" class="product-color product-color-white" data-alt="Balístico branco" data-image="assets/images/products/balistico-branco.jpg" data-product-color="" type="button"></button>
-<button aria-label="Balístico preto" aria-pressed="true" class="product-color product-color-black is-active" data-alt="Balístico preto" data-image="assets/images/products/balistico-preto.jpg" data-product-color="" type="button"></button>
+<button aria-label="Balístico branco" aria-pressed="false" class="product-color product-color-white" data-color-en="White Balístico" data-color-pt="Balístico branco" data-gallery-color="" data-images="assets/images/products/balistico-branco-frente.jpg|assets/images/products/balistico-branco-lado.jpg|assets/images/products/balistico-branco-costas.jpg" type="button"></button>
+<button aria-label="Balístico preto" aria-pressed="true" class="product-color product-color-black is-active" data-color-en="Black Balístico" data-color-pt="Balístico preto" data-gallery-color="" data-images="assets/images/products/balistico-preto-frente.jpg|assets/images/products/balistico-preto-lado.jpg|assets/images/products/balistico-preto-costas.jpg" type="button"></button>
 </div>
 </div>
 </article>
-<article class="product-card reveal" data-product-card="">
-<div class="product-image">
-<img alt="Comp preto" data-fallback="assets/images/product-placeholder.svg" data-product-image="" decoding="async" loading="lazy" src="assets/images/products/comp-preto.jpg"/>
+<article class="product-card reveal" data-product-card="" data-product-gallery="" data-product-model="Comp">
+<div aria-label="Fotografias do Comp" class="product-image" data-gallery-stage="" role="group">
+<img alt="Comp preto — fotografia 1 de 3" data-product-image="" decoding="async" id="comp-product-image" loading="lazy" src="assets/images/products/comp-preto-frente.jpg"/>
+<button aria-controls="comp-product-image" aria-label="Fotografia anterior do Comp" class="product-gallery-arrow product-gallery-arrow-prev" data-gallery-step="-1" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button aria-controls="comp-product-image" aria-label="Fotografia seguinte do Comp" class="product-gallery-arrow product-gallery-arrow-next" data-gallery-step="1" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></button>
+<span aria-hidden="true" class="product-gallery-counter" data-gallery-counter="">1 / 3</span>
+<span aria-atomic="true" aria-live="polite" class="sr-only" data-gallery-status=""></span>
 </div>
 <div class="product-card-content">
 <div>
@@ -156,14 +272,18 @@
 <h3>Comp</h3>
 </div>
 <div aria-label="Cores disponíveis" class="product-colors">
-<button aria-label="Comp branco" aria-pressed="false" class="product-color product-color-white" data-alt="Comp branco" data-image="assets/images/products/comp-branco.jpg" data-product-color="" type="button"></button>
-<button aria-label="Comp preto" aria-pressed="true" class="product-color product-color-black is-active" data-alt="Comp preto" data-image="assets/images/products/comp-preto.jpg" data-product-color="" type="button"></button>
+<button aria-label="Comp branco" aria-pressed="false" class="product-color product-color-white" data-color-en="White Comp" data-color-pt="Comp branco" data-gallery-color="" data-images="assets/images/products/comp-branco-frente.jpg|assets/images/products/comp-branco-lado.jpg|assets/images/products/comp-branco-costas.jpg" type="button"></button>
+<button aria-label="Comp preto" aria-pressed="true" class="product-color product-color-black is-active" data-color-en="Black Comp" data-color-pt="Comp preto" data-gallery-color="" data-images="assets/images/products/comp-preto-frente.jpg|assets/images/products/comp-preto-lado.jpg|assets/images/products/comp-preto-costas.jpg" type="button"></button>
 </div>
 </div>
 </article>
-<article class="product-card reveal" data-product-card="">
-<div class="product-image">
-<img alt="Kore preto" data-fallback="assets/images/product-placeholder.svg" data-product-image="" decoding="async" loading="lazy" src="assets/images/products/kore-preto.jpg"/>
+<article class="product-card reveal" data-product-card="" data-product-gallery="" data-product-model="Kore">
+<div aria-label="Fotografias do Kore" class="product-image" data-gallery-stage="" role="group">
+<img alt="Kore preto — fotografia 1 de 3" data-product-image="" decoding="async" id="kore-product-image" loading="lazy" src="assets/images/products/kore-preto-frente.jpg"/>
+<button aria-controls="kore-product-image" aria-label="Fotografia anterior do Kore" class="product-gallery-arrow product-gallery-arrow-prev" data-gallery-step="-1" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button aria-controls="kore-product-image" aria-label="Fotografia seguinte do Kore" class="product-gallery-arrow product-gallery-arrow-next" data-gallery-step="1" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></button>
+<span aria-hidden="true" class="product-gallery-counter" data-gallery-counter="">1 / 3</span>
+<span aria-atomic="true" aria-live="polite" class="sr-only" data-gallery-status=""></span>
 </div>
 <div class="product-card-content">
 <div>
@@ -171,14 +291,18 @@
 <h3>Kore</h3>
 </div>
 <div aria-label="Cores disponíveis" class="product-colors">
-<button aria-label="Kore branco" aria-pressed="false" class="product-color product-color-white" data-alt="Kore branco" data-image="assets/images/products/kore-branco.jpg" data-product-color="" type="button"></button>
-<button aria-label="Kore preto" aria-pressed="true" class="product-color product-color-black is-active" data-alt="Kore preto" data-image="assets/images/products/kore-preto.jpg" data-product-color="" type="button"></button>
+<button aria-label="Kore branco" aria-pressed="false" class="product-color product-color-white" data-color-en="White Kore" data-color-pt="Kore branco" data-gallery-color="" data-images="assets/images/products/kore-branco-frente.jpg|assets/images/products/kore-branco-costas.jpg" type="button"></button>
+<button aria-label="Kore preto" aria-pressed="true" class="product-color product-color-black is-active" data-color-en="Black Kore" data-color-pt="Kore preto" data-gallery-color="" data-images="assets/images/products/kore-preto-frente.jpg|assets/images/products/kore-preto-lado.jpg|assets/images/products/kore-preto-costas.jpg" type="button"></button>
 </div>
 </div>
 </article>
-<article class="product-card reveal" data-product-card="">
-<div class="product-image">
-<img alt="Nano preto" data-fallback="assets/images/product-placeholder.svg" data-product-image="" decoding="async" loading="lazy" src="assets/images/products/nano-preto.jpg"/>
+<article class="product-card reveal" data-product-card="" data-product-gallery="" data-product-model="Nano">
+<div aria-label="Fotografias do Nano" class="product-image" data-gallery-stage="" role="group">
+<img alt="Nano preto — fotografia 1 de 3" data-product-image="" decoding="async" id="nano-product-image" loading="lazy" src="assets/images/products/nano-preto-frente.jpg"/>
+<button aria-controls="nano-product-image" aria-label="Fotografia anterior do Nano" class="product-gallery-arrow product-gallery-arrow-prev" data-gallery-step="-1" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button aria-controls="nano-product-image" aria-label="Fotografia seguinte do Nano" class="product-gallery-arrow product-gallery-arrow-next" data-gallery-step="1" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></button>
+<span aria-hidden="true" class="product-gallery-counter" data-gallery-counter="">1 / 3</span>
+<span aria-atomic="true" aria-live="polite" class="sr-only" data-gallery-status=""></span>
 </div>
 <div class="product-card-content">
 <div>
@@ -186,14 +310,18 @@
 <h3>Nano</h3>
 </div>
 <div aria-label="Cores disponíveis" class="product-colors">
-<button aria-label="Nano branco" aria-pressed="false" class="product-color product-color-white" data-alt="Nano branco" data-image="assets/images/products/nano-branco.jpg" data-product-color="" type="button"></button>
-<button aria-label="Nano preto" aria-pressed="true" class="product-color product-color-black is-active" data-alt="Nano preto" data-image="assets/images/products/nano-preto.jpg" data-product-color="" type="button"></button>
+<button aria-label="Nano branco" aria-pressed="false" class="product-color product-color-white" data-color-en="White Nano" data-color-pt="Nano branco" data-gallery-color="" data-images="assets/images/products/nano-branco-frente.jpg|assets/images/products/nano-branco-lado.jpg|assets/images/products/nano-branco-costas.jpg" type="button"></button>
+<button aria-label="Nano preto" aria-pressed="true" class="product-color product-color-black is-active" data-color-en="Black Nano" data-color-pt="Nano preto" data-gallery-color="" data-images="assets/images/products/nano-preto-frente.jpg|assets/images/products/nano-preto-lado.jpg|assets/images/products/nano-preto-costas.jpg" type="button"></button>
 </div>
 </div>
 </article>
-<article class="product-card reveal" data-product-card="">
-<div class="product-image">
-<img alt="Ultra Light preto" data-fallback="assets/images/product-placeholder.svg" data-product-image="" decoding="async" loading="lazy" src="assets/images/products/ultra-light-preto.jpg"/>
+<article class="product-card reveal" data-product-card="" data-product-gallery="" data-product-model="Ultra Light">
+<div aria-label="Fotografias do Ultra Light" class="product-image" data-gallery-stage="" role="group">
+<img alt="Ultra Light preto — fotografia 1 de 2" data-product-image="" decoding="async" id="ultra-light-product-image" loading="lazy" src="assets/images/products/ultra-light-preto-lado.jpg"/>
+<button aria-controls="ultra-light-product-image" aria-label="Fotografia anterior do Ultra Light" class="product-gallery-arrow product-gallery-arrow-prev" data-gallery-step="-1" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button aria-controls="ultra-light-product-image" aria-label="Fotografia seguinte do Ultra Light" class="product-gallery-arrow product-gallery-arrow-next" data-gallery-step="1" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></button>
+<span aria-hidden="true" class="product-gallery-counter" data-gallery-counter="">1 / 2</span>
+<span aria-atomic="true" aria-live="polite" class="sr-only" data-gallery-status=""></span>
 </div>
 <div class="product-card-content">
 <div>
@@ -201,77 +329,11 @@
 <h3>Ultra Light</h3>
 </div>
 <div aria-label="Cores disponíveis" class="product-colors">
-<button aria-label="Ultra Light branco" aria-pressed="false" class="product-color product-color-white" data-alt="Ultra Light branco" data-image="assets/images/products/ultra-light-branco.jpg" data-product-color="" type="button"></button>
-<button aria-label="Ultra Light preto" aria-pressed="true" class="product-color product-color-black is-active" data-alt="Ultra Light preto" data-image="assets/images/products/ultra-light-preto.jpg" data-product-color="" type="button"></button>
+<button aria-label="Ultra Light branco" aria-pressed="false" class="product-color product-color-white" data-color-en="White Ultra Light" data-color-pt="Ultra Light branco" data-gallery-color="" data-images="assets/images/products/ultra-light-branco-frente.jpg|assets/images/products/ultra-light-branco-costas.jpg" type="button"></button>
+<button aria-label="Ultra Light preto" aria-pressed="true" class="product-color product-color-black is-active" data-color-en="Black Ultra Light" data-color-pt="Ultra Light preto" data-gallery-color="" data-images="assets/images/products/ultra-light-preto-lado.jpg|assets/images/products/ultra-light-preto-costas.jpg" type="button"></button>
 </div>
 </div>
 </article></div>
-</div>
-</section>
-<section class="product-category section-light" id="hoodies">
-<div class="section-shell">
-<div class="product-category-heading reveal">
-<div>
-<p class="eyebrow" data-en="APPAREL" data-pt="VESTUÁRIO">VESTUÁRIO</p>
-<h2 data-en="Hoodies." data-pt="Hoodies.">Hoodies.</h2>
-</div>
-<p data-en="The official Focus hoodie, available exclusively in black." data-pt="O hoodie oficial Focus, disponível exclusivamente em preto.">O hoodie oficial Focus, disponível exclusivamente em preto.</p>
-</div>
-<div class="product-grid product-grid-small"><article class="product-card reveal" data-product-card="">
-<div class="product-image">
-<img alt="Hoodie Focus preto" data-fallback="assets/images/product-placeholder.svg" data-product-image="" decoding="async" loading="lazy" src="assets/images/products/hoodie-preto.jpg"/>
-</div>
-<div class="product-card-content">
-<div>
-<p class="product-kicker" data-en="HOODIE" data-pt="HOODIE">HOODIE</p>
-<h3 data-en="Focus Hoodie" data-pt="Hoodie Focus">Hoodie Focus</h3>
-</div>
-<div aria-label="Cor disponível" class="product-colors">
-<button aria-label="Hoodie Focus preto" aria-pressed="true" class="product-color product-color-black is-active" data-alt="Hoodie Focus preto" data-image="assets/images/products/hoodie-preto.jpg" data-product-color="" type="button"></button>
-</div>
-</div>
-</article></div>
-</div>
-</section>
-<section class="product-category section-light" id="rashguards">
-<div class="section-shell">
-<div class="product-category-heading reveal">
-<div>
-<p class="eyebrow" data-en="NO-GI" data-pt="NO-GI">NO-GI</p>
-<h2 data-en="Rashguards." data-pt="Rashguards.">Rashguards.</h2>
-</div>
-<p data-en="Available exclusively in black, with short-sleeve and long-sleeve options." data-pt="Disponíveis exclusivamente em preto, com opção de manga curta ou manga longa.">Disponíveis exclusivamente em preto, com opção de manga curta ou manga longa.</p>
-</div>
-<div class="product-grid product-grid-rashguards">
-<article class="product-card reveal" data-product-card="">
-<div class="product-image">
-<img alt="Rashguard Manga Curta preta" data-fallback="assets/images/product-placeholder.svg" data-product-image="" decoding="async" loading="lazy" src="assets/images/products/rash-manga-curta-preta.jpg"/>
-</div>
-<div class="product-card-content">
-<div>
-<p class="product-kicker" data-en="RASHGUARD" data-pt="RASHGUARD">RASHGUARD</p>
-<h3 data-en="Short-Sleeve Rashguard" data-pt="Rashguard Manga Curta">Rashguard Manga Curta</h3>
-</div>
-<div aria-label="Cor disponível" class="product-colors">
-<button aria-label="Rashguard Manga Curta preta" aria-pressed="true" class="product-color product-color-black is-active" data-alt="Rashguard Manga Curta preta" data-image="assets/images/products/rash-manga-curta-preta.jpg" data-product-color="" type="button"></button>
-</div>
-</div>
-</article>
-<article class="product-card reveal" data-product-card="">
-<div class="product-image">
-<img alt="Rashguard Manga Longa preta" data-fallback="assets/images/product-placeholder.svg" data-product-image="" decoding="async" loading="lazy" src="assets/images/products/rash-manga-longa-preta.jpg"/>
-</div>
-<div class="product-card-content">
-<div>
-<p class="product-kicker" data-en="RASHGUARD" data-pt="RASHGUARD">RASHGUARD</p>
-<h3 data-en="Long-Sleeve Rashguard" data-pt="Rashguard Manga Longa">Rashguard Manga Longa</h3>
-</div>
-<div aria-label="Cor disponível" class="product-colors">
-<button aria-label="Rashguard Manga Longa preta" aria-pressed="true" class="product-color product-color-black is-active" data-alt="Rashguard Manga Longa preta" data-image="assets/images/products/rash-manga-longa-preta.jpg" data-product-color="" type="button"></button>
-</div>
-</div>
-</article>
-</div>
 </div>
 </section>
 </main>
@@ -319,6 +381,7 @@
 <span aria-hidden="true">↗</span>
 <span data-en="Trial class" data-pt="Aula experimental">Aula experimental</span>
 </a>
-<script defer src="js/main.js?v=20260801-50"></script>
+<script defer src="js/main.js?v=20260810-51"></script>
+<script defer src="js/product-gallery.js?v=20260810-51"></script>
 </body>
 </html>
