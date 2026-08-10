@@ -1,21 +1,547 @@
 <!DOCTYPE html>
-
 <html lang="pt">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Conheça a história, a evolução e as conquistas da Focus Jiu-Jitsu Headquarters." name="description"/>
+<meta content="A história da Focus Jiu-Jitsu: das origens no Norte de Portugal à expansão internacional, passando pelos principais marcos competitivos e resultados coletivos da equipa." name="description"/>
 <meta content="#050505" name="theme-color"/>
 <title>História &amp; Conquistas | Focus Jiu-Jitsu Headquarters</title>
 <link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="css/style.css?v=20260801-50" rel="stylesheet"/>
+<link href="css/style.css?v=20260807-51" rel="stylesheet"/>
 <link href="css/v54.css?v=20260804-54" rel="stylesheet"/>
+
+<style>
+/* História & Conquistas — layout editorial v2
+   CSS scoped to this page to avoid affecting other pages. */
+
+.history-v2 {
+  --history-rule-light: rgba(5, 5, 5, 0.16);
+  --history-rule-dark: rgba(255, 255, 255, 0.16);
+}
+
+.history-v2 .history-origin {
+  padding: clamp(96px, 12vw, 176px) 0;
+}
+
+.history-origin-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .72fr) minmax(360px, 1.28fr);
+  gap: clamp(56px, 10vw, 150px);
+  align-items: start;
+}
+
+.history-origin-heading h2,
+.history-timeline-heading h2,
+.history-milestones-heading h2,
+.history-team-results-heading h2,
+.history-network-heading h2,
+.history-closing h2 {
+  margin: 16px 0 0;
+  font-size: clamp(3.1rem, 6vw, 6.7rem);
+  line-height: .94;
+  letter-spacing: -.04em;
+}
+
+.history-origin-copy {
+  max-width: 720px;
+  padding-top: 12px;
+}
+
+.history-origin-copy p {
+  margin: 0;
+  color: #41413e;
+  font-size: clamp(1rem, 1.18vw, 1.12rem);
+  line-height: 1.84;
+}
+
+.history-origin-copy p + p {
+  margin-top: 28px;
+}
+
+.history-founder {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: clamp(48px, 7vw, 84px);
+  padding-top: 28px;
+  border-top: 1px solid var(--history-rule-light);
+}
+
+.history-founder strong {
+  font-family: var(--display);
+  font-size: clamp(2rem, 3.2vw, 3.8rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.history-founder span {
+  color: var(--grey-dark);
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.history-timeline {
+  padding: clamp(100px, 12vw, 176px) 0;
+}
+
+.history-timeline-heading {
+  max-width: 980px;
+  margin-bottom: clamp(68px, 9vw, 116px);
+}
+
+.history-timeline-list {
+  border-top: 1px solid var(--history-rule-dark);
+}
+
+.history-timeline-item {
+  display: grid;
+  grid-template-columns: minmax(120px, .28fr) minmax(220px, .52fr) minmax(0, 1.2fr);
+  gap: clamp(26px, 5vw, 78px);
+  align-items: start;
+  padding: clamp(30px, 4vw, 52px) 0;
+  border-bottom: 1px solid var(--history-rule-dark);
+}
+
+.history-year {
+  font-family: var(--display);
+  font-size: clamp(2.7rem, 5vw, 5.6rem);
+  line-height: .9;
+  letter-spacing: -.04em;
+}
+
+.history-timeline-item h3 {
+  margin: 0;
+  font-size: clamp(1.7rem, 2.7vw, 3rem);
+  line-height: .98;
+}
+
+.history-timeline-item p {
+  max-width: 690px;
+  margin: 0;
+  color: rgba(255,255,255,.66);
+  line-height: 1.76;
+}
+
+.history-focus-name {
+  margin-top: clamp(56px, 8vw, 100px);
+  padding: clamp(40px, 5vw, 68px) 0 0;
+  border-top: 1px solid var(--history-rule-dark);
+}
+
+.history-focus-word {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(5.4rem, 17vw, 15rem);
+  line-height: .78;
+  letter-spacing: -.055em;
+  text-transform: uppercase;
+}
+
+.history-focus-name p {
+  max-width: 690px;
+  margin: clamp(36px, 5vw, 58px) 0 0 auto;
+  color: rgba(255,255,255,.68);
+  font-size: clamp(1rem, 1.3vw, 1.16rem);
+  line-height: 1.78;
+}
+
+.history-milestones {
+  padding: clamp(100px, 12vw, 176px) 0;
+}
+
+.history-milestones-heading {
+  max-width: 980px;
+  margin-bottom: clamp(62px, 9vw, 110px);
+}
+
+.history-milestones-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  border-top: 1px solid var(--history-rule-light);
+  border-left: 1px solid var(--history-rule-light);
+}
+
+.history-athlete {
+  min-width: 0;
+  padding: clamp(32px, 4.6vw, 64px);
+  border-right: 1px solid var(--history-rule-light);
+  border-bottom: 1px solid var(--history-rule-light);
+}
+
+.history-athlete-kicker {
+  margin: 0 0 clamp(54px, 7vw, 92px);
+  color: var(--grey-dark);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.history-athlete h3 {
+  max-width: 600px;
+  margin: 0;
+  font-size: clamp(2.7rem, 5vw, 5.5rem);
+  line-height: .9;
+  letter-spacing: -.04em;
+}
+
+.history-athlete > p {
+  max-width: 590px;
+  margin: 28px 0 0;
+  color: #4b4b47;
+  line-height: 1.78;
+}
+
+.history-athlete-results {
+  margin: clamp(42px, 6vw, 68px) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--history-rule-light);
+  list-style: none;
+}
+
+.history-athlete-results li {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 22px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--history-rule-light);
+}
+
+.history-athlete-results strong {
+  font-family: var(--display);
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.history-athlete-results span {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.history-team-results {
+  padding: clamp(100px, 12vw, 176px) 0;
+}
+
+.history-team-results-heading {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(300px,.52fr);
+  gap: clamp(48px, 9vw, 140px);
+  align-items: end;
+  margin-bottom: clamp(58px, 8vw, 100px);
+}
+
+.history-team-results-heading .eyebrow,
+.history-team-results-heading h2 {
+  grid-column: 1;
+}
+
+.history-team-results-heading > p:last-child {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  margin: 0;
+  color: rgba(255,255,255,.66);
+  line-height: 1.76;
+}
+
+.history-results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  border-top: 1px solid var(--history-rule-dark);
+  border-left: 1px solid var(--history-rule-dark);
+}
+
+.history-result {
+  min-height: 330px;
+  padding: clamp(28px, 3.5vw, 48px);
+  border-right: 1px solid var(--history-rule-dark);
+  border-bottom: 1px solid var(--history-rule-dark);
+}
+
+.history-result strong {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(4.5rem, 8vw, 8rem);
+  line-height: .8;
+  letter-spacing: -.05em;
+}
+
+.history-result h3 {
+  margin: clamp(64px, 8vw, 100px) 0 0;
+  font-size: clamp(1.7rem, 2.4vw, 2.8rem);
+  line-height: .98;
+}
+
+.history-result p {
+  margin: 16px 0 0;
+  color: rgba(255,255,255,.58);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.history-network {
+  padding: clamp(100px, 12vw, 176px) 0;
+}
+
+.history-network-heading {
+  max-width: 980px;
+}
+
+.history-network-heading > p:last-child {
+  max-width: 690px;
+  margin: 36px 0 0;
+  color: #41413e;
+  line-height: 1.8;
+}
+
+.history-countries {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  margin-top: clamp(68px, 9vw, 112px);
+  border-top: 1px solid var(--history-rule-light);
+}
+
+.history-country {
+  padding: clamp(34px, 4vw, 54px) 0;
+  border-bottom: 1px solid var(--history-rule-light);
+}
+
+.history-country + .history-country {
+  padding-left: clamp(24px, 4vw, 54px);
+  border-left: 1px solid var(--history-rule-light);
+}
+
+.history-country span {
+  color: var(--grey-dark);
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.history-country strong {
+  display: block;
+  margin-top: 18px;
+  font-family: var(--display);
+  font-size: clamp(2.3rem, 4vw, 4.8rem);
+  line-height: .9;
+  text-transform: uppercase;
+}
+
+.history-network-link {
+  margin-top: 40px;
+}
+
+.history-closing-wrap {
+  padding: clamp(100px, 12vw, 176px) 0;
+}
+
+.history-closing {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.history-closing h2 {
+  max-width: 920px;
+}
+
+.history-closing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.history-closing-actions .button {
+  margin-top: 0;
+}
+
+@media (max-width: 1000px) {
+  .history-origin-grid,
+  .history-team-results-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .history-team-results-heading > p:last-child {
+    grid-column: 1;
+    grid-row: auto;
+    max-width: 720px;
+  }
+
+  .history-results-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .history-origin,
+  .history-timeline,
+  .history-milestones,
+  .history-team-results,
+  .history-network,
+  .history-closing-wrap {
+    padding: 82px 0 96px;
+  }
+
+  .history-origin-grid {
+    gap: 38px;
+  }
+
+  .history-founder {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .history-founder span {
+    text-align: left;
+  }
+
+  .history-timeline-item {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .history-year {
+    margin-bottom: 8px;
+  }
+
+  .history-milestones-grid,
+  .history-results-grid,
+  .history-countries {
+    grid-template-columns: 1fr;
+  }
+
+  .history-athlete {
+    padding: 34px 22px 44px;
+  }
+
+  .history-country + .history-country {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .history-result {
+    min-height: 0;
+  }
+
+  .history-closing {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .history-closing-actions {
+    width: 100%;
+  }
+}
+
+.history-media-slot {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  background: #d9d9d4;
+}
+
+.history-media-slot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+}
+
+.history-media-slot::after {
+  content: attr(data-placeholder);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  color: rgba(5,5,5,.46);
+  border: 1px dashed rgba(5,5,5,.28);
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .11em;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.history-media-slot.has-image::after {
+  display: none;
+}
+
+.history-media-slot-dark {
+  background: #111;
+}
+
+.history-media-slot-dark::after {
+  color: rgba(255,255,255,.46);
+  border-color: rgba(255,255,255,.22);
+}
+
+.history-origin-media {
+  margin-top: clamp(52px, 7vw, 90px);
+  aspect-ratio: 16 / 9;
+}
+
+.history-timeline-media {
+  margin-top: clamp(64px, 8vw, 104px);
+  aspect-ratio: 16 / 8;
+}
+
+.history-athlete-media {
+  margin: calc(clamp(32px, 4.6vw, 64px) * -1);
+  margin-bottom: clamp(34px, 5vw, 58px);
+  aspect-ratio: 4 / 3;
+}
+
+.history-athlete-media img {
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+}
+
+.history-results-media,
+.history-network-media {
+  margin-top: clamp(64px, 8vw, 104px);
+  aspect-ratio: 16 / 8;
+}
+
+@media (max-width: 760px) {
+  .history-origin-media,
+  .history-timeline-media,
+  .history-results-media,
+  .history-network-media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .history-media-slot {
+    min-height: 260px;
+  }
+
+  .history-athlete-media {
+    margin: -34px -22px 34px;
+  }
+}
+
+</style>
 </head>
-<body class="internal-page" data-page="academy-history-achievements">
+
+<body class="internal-page history-v2" data-page="academy-history-achievements">
 <a class="skip-link" data-en="Skip to content" data-pt="Saltar para o conteúdo" href="#history-achievements-main">Saltar para o conteúdo</a>
+
 <header class="site-header" id="top">
 <nav aria-label="Navegação principal" class="main-nav" id="main-navigation">
 <div class="nav-item nav-item-dropdown academy-menu" data-nav-dropdown="" data-nav-section="academy">
@@ -34,6 +560,7 @@
 <a class="whatsapp-link" data-whatsapp="" data-en="Book a Trial Class" data-pt="Marcar Aula Experimental" href="https://wa.me/351932665662?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20uma%20aula%20experimental." rel="noopener noreferrer" target="_blank">Marcar Aula Experimental</a>
 </div>
 </div>
+
 <div class="nav-item nav-item-dropdown programs-menu" data-nav-dropdown="" data-nav-section="programs">
 <div class="nav-academy-control">
 <a class="nav-parent-link" data-en="Programs" data-pt="Programas" href="index.html#programs">Programas</a>
@@ -59,7 +586,9 @@
 </div>
 </div>
 </div>
+
 <a class="nav-direct-link" data-en="Schedule" data-nav-section="schedule" data-pt="Horários" href="horarios.html">Horários</a>
+
 <div class="nav-item nav-item-dropdown products-menu" data-nav-dropdown="" data-nav-section="products">
 <div class="nav-academy-control">
 <a class="nav-parent-link" data-en="Products" data-pt="Produtos" href="produtos.html">Produtos</a>
@@ -75,6 +604,7 @@
 <a data-en="Rashguards" data-pt="Rashguards" href="produtos.html#rashguards">Rashguards</a>
 </div>
 </div>
+
 <div class="nav-item nav-item-dropdown locations-menu" data-nav-dropdown="" data-nav-section="locations">
 <div class="nav-academy-control">
 <a class="nav-parent-link" data-en="Locations" data-pt="Filiais" href="filiais.html">Filiais</a>
@@ -92,6 +622,7 @@
 </div>
 <a class="nav-contact-link" data-en="Contact" data-pt="Contacto" href="index.html#footer-contact">Contacto</a>
 </nav>
+
 <div class="header-actions">
 <a aria-label="Abrir Focus Jiu Jitsu Online" class="online-portal-link" href="https://site.focusjiujitsu.pt/" rel="noopener noreferrer" target="_blank">
 <span class="online-label-full">Focus Jiu Jitsu Online</span>
@@ -104,65 +635,360 @@
 <button aria-pressed="false" class="language-button" data-language="en" type="button">EN</button>
 </div>
 </div>
+
 <button aria-controls="main-navigation" aria-expanded="false" class="menu-button" type="button">
-<span></span>
-<span></span>
+<span></span><span></span>
 <span class="sr-only" data-en="Open menu" data-pt="Abrir menu">Abrir menu</span>
 </button>
 </header>
+
 <main id="history-achievements-main">
+
 <section class="internal-hero section-dark">
-<div class="section-shell internal-hero-grid"><nav aria-label="Breadcrumb" class="page-breadcrumb"><a data-en="Home" data-pt="Início" href="index.html">Início</a><span aria-hidden="true" class="breadcrumb-separator">/</span><a data-en="The Academy" data-pt="A Academia" href="index.html">A Academia</a><span aria-hidden="true" class="breadcrumb-separator">/</span><span aria-current="page" data-en="History &amp; Achievements" data-pt="História &amp; Conquistas">História &amp; Conquistas</span></nav>
+<div class="section-shell internal-hero-grid">
+<nav aria-label="Breadcrumb" class="page-breadcrumb">
+<a data-en="Home" data-pt="Início" href="index.html">Início</a>
+<span aria-hidden="true" class="breadcrumb-separator">/</span>
+<a data-en="The Academy" data-pt="A Academia" href="index.html">A Academia</a>
+<span aria-hidden="true" class="breadcrumb-separator">/</span>
+<span aria-current="page" data-en="History &amp; Achievements" data-pt="História &amp; Conquistas">História &amp; Conquistas</span>
+</nav>
 <div class="reveal">
 <p class="eyebrow" data-en="HISTORY &amp; ACHIEVEMENTS" data-pt="HISTÓRIA &amp; CONQUISTAS">HISTÓRIA &amp; CONQUISTAS</p>
-<h1 data-en="The story we built. The results that represent us." data-pt="A história que construímos. Os resultados que nos representam.">A história que construímos. Os resultados que nos representam.</h1>
+<h1 data-en="From Northern Portugal to the world." data-pt="Do Norte de Portugal para o mundo.">Do Norte de Portugal para o mundo.</h1>
 </div>
-<p class="internal-hero-copy reveal" data-en="From the origins of the team to the milestones that define Focus Jiu-Jitsu Headquarters." data-pt="Da origem da equipa aos marcos que definem a Focus Jiu-Jitsu Headquarters.">Da origem da equipa aos marcos que definem a Focus Jiu-Jitsu Headquarters.</p>
+<p class="internal-hero-copy reveal"
+   data-en="A story built on the mat, from the first steps of the team in the early 2000s to the Focus Jiu-Jitsu of today."
+   data-pt="Uma história construída no tatami, desde os primeiros passos da equipa no início dos anos 2000 até à Focus Jiu-Jitsu de hoje.">
+Uma história construída no tatami, desde os primeiros passos da equipa no início dos anos 2000 até à Focus Jiu-Jitsu de hoje.
+</p>
 </div>
 </section>
-<section class="academy-page-section history-story section-light" id="historia">
-<div class="section-shell history-story-grid">
-<header class="history-story-heading reveal">
-<p class="eyebrow" data-en="HISTORY" data-pt="HISTÓRIA">HISTÓRIA</p>
-<h2 data-en="Built on the mat. Grown as a team." data-pt="Construída no tatami. Desenvolvida como equipa.">Construída no tatami. Desenvolvida como equipa.</h2>
+
+<!-- Sources used for historical dates: BJJ Heroes profiles for Manoel Neto and Pedro Ramalho;
+     IBJJF athlete/news/rankings for Davi Vetoraci and team results. -->
+<section class="history-origin section-light" id="origens">
+<div class="section-shell history-origin-grid">
+<header class="history-origin-heading reveal">
+<p class="eyebrow" data-en="THE ORIGINS" data-pt="AS ORIGENS">AS ORIGENS</p>
+<h2 data-en="Where it all began." data-pt="Onde tudo começou.">Onde tudo começou.</h2>
 </header>
-<div class="history-story-copy reveal">
-<p data-en="Focus Jiu-Jitsu grew from a simple idea: to create a place where technical teaching, discipline and team spirit would be treated with the same level of commitment. From the beginning, the development of every student has been at the centre of the project — from the person stepping onto the mat for the first time to the athlete preparing to compete." data-pt="A Focus Jiu-Jitsu cresceu a partir de uma ideia simples: criar um espaço onde o ensino técnico, a disciplina e o espírito de equipa fossem tratados com o mesmo nível de exigência. Desde o início, a evolução de cada aluno esteve no centro do projeto — desde quem entra no tatami pela primeira vez até ao atleta que se prepara para competir.">A Focus Jiu-Jitsu cresceu a partir de uma ideia simples: criar um espaço onde o ensino técnico, a disciplina e o espírito de equipa fossem tratados com o mesmo nível de exigência. Desde o início, a evolução de cada aluno esteve no centro do projeto — desde quem entra no tatami pela primeira vez até ao atleta que se prepara para competir.</p>
-<p data-en="Through the daily work of its instructors and athletes, the team developed a clear teaching culture, welcomed practitioners of different ages and levels and built a community united inside and outside the academy. The current Headquarters in Matosinhos Sul represents that evolution: 2,500 m² dedicated to Jiu-Jitsu, physical preparation and the progress of everyone who trains with us." data-pt="Com o trabalho diário dos professores e atletas, a equipa consolidou uma cultura de ensino clara, recebeu praticantes de diferentes idades e níveis e construiu uma comunidade unida dentro e fora da academia. A atual Headquarters, em Matosinhos Sul, representa essa evolução: 2.500 m² dedicados ao Jiu-Jitsu, à preparação física e ao desenvolvimento de todos os que treinam connosco.">Com o trabalho diário dos professores e atletas, a equipa consolidou uma cultura de ensino clara, recebeu praticantes de diferentes idades e níveis e construiu uma comunidade unida dentro e fora da academia. A atual Headquarters, em Matosinhos Sul, representa essa evolução: 2.500 m² dedicados ao Jiu-Jitsu, à preparação física e ao desenvolvimento de todos os que treinam connosco.</p>
-<p data-en="Today, Focus brings together Adults, Kids, Women’s and Competition programs and a network of academies in Portugal, Spain and the Netherlands. The scale has grown, but the identity remains the same: technical rigour, respect, mutual support and the ambition to keep improving." data-pt="Hoje, a Focus reúne programas de Adultos, Kids, Feminino e Competição e uma rede de academias em Portugal, Espanha e Países Baixos. A dimensão cresceu, mas a identidade mantém-se: rigor técnico, respeito, entreajuda e ambição para continuar a evoluir.">Hoje, a Focus reúne programas de Adultos, Kids, Feminino e Competição e uma rede de academias em Portugal, Espanha e Países Baixos. A dimensão cresceu, mas a identidade mantém-se: rigor técnico, respeito, entreajuda e ambição para continuar a evoluir.</p>
+
+<div class="history-origin-copy reveal">
+<p
+data-en="In 2001, Manoel Neto left Brazil and settled in Northern Portugal, at a time when Brazilian Jiu-Jitsu was still taking its first steps in the country. In 2003 he began teaching and, in 2006, already a black belt, created Team Manoel Neto — the foundation of the team that would later become Focus Jiu-Jitsu."
+data-pt="Em 2001, Manoel Neto deixou o Brasil e estabeleceu-se no Norte de Portugal, numa altura em que o Brazilian Jiu-Jitsu ainda dava os primeiros passos no país. Em 2003 começou a ensinar e, em 2006, já faixa preta, criou a Team Manoel Neto — a base da equipa que mais tarde se tornaria Focus Jiu-Jitsu.">
+Em 2001, Manoel Neto deixou o Brasil e estabeleceu-se no Norte de Portugal, numa altura em que o Brazilian Jiu-Jitsu ainda dava os primeiros passos no país. Em 2003 começou a ensinar e, em 2006, já faixa preta, criou a Team Manoel Neto — a base da equipa que mais tarde se tornaria Focus Jiu-Jitsu.
+</p>
+<p
+data-en="From the beginning, the project was built around teaching, technical development, competition and the creation of a team culture capable of growing with each new generation."
+data-pt="Desde o início, o projeto foi construído em torno do ensino, da evolução técnica, da competição e da criação de uma cultura de equipa capaz de crescer com cada nova geração.">
+Desde o início, o projeto foi construído em torno do ensino, da evolução técnica, da competição e da criação de uma cultura de equipa capaz de crescer com cada nova geração.
+</p>
+
+<div class="history-founder">
+<strong>Manoel Neto</strong>
+<span data-en="Founder · Focus Jiu-Jitsu" data-pt="Fundador · Focus Jiu-Jitsu">Fundador · Focus Jiu-Jitsu</span>
+</div>
+<figure class="history-media-slot history-origin-media" data-placeholder="Imagem histórica · Manoel Neto / primeiros anos · assets/images/history/manoel-origens.jpg">
+<img alt="Manoel Neto e os primeiros anos da equipa" loading="lazy" src="assets/images/history/manoel-origens.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
 </div>
 </div>
 </section>
-<section class="academy-page-section history-achievements section-dark" id="conquistas">
+
+<section class="history-timeline section-dark" id="timeline">
 <div class="section-shell">
-<header class="history-achievements-heading reveal">
-<p class="eyebrow" data-en="ACHIEVEMENTS" data-pt="CONQUISTAS">CONQUISTAS</p>
-<h2 data-en="Results are part of the journey. Development is the objective." data-pt="Os resultados fazem parte do caminho. A evolução é o objetivo.">Os resultados fazem parte do caminho. A evolução é o objetivo.</h2>
-<p data-en="Focus achievements are measured in titles and podiums, but also in the students and athletes who progress every day, represent the team and pass its values on to the next generation." data-pt="As conquistas da Focus medem-se em títulos e pódios, mas também nos alunos e atletas que evoluem diariamente, representam a equipa e transmitem os seus valores à geração seguinte.">As conquistas da Focus medem-se em títulos e pódios, mas também nos alunos e atletas que evoluem diariamente, representam a equipa e transmitem os seus valores à geração seguinte.</p>
+<header class="history-timeline-heading reveal">
+<p class="eyebrow" data-en="THE JOURNEY" data-pt="A EVOLUÇÃO">A EVOLUÇÃO</p>
+<h2 data-en="From Team Manoel Neto to Focus Jiu-Jitsu." data-pt="Da Team Manoel Neto à Focus Jiu-Jitsu.">Da Team Manoel Neto à Focus Jiu-Jitsu.</h2>
 </header>
-<div class="history-achievements-grid">
-<article class="history-achievement-card reveal"><span>01</span><h3 data-en="National and international results" data-pt="Resultados nacionais e internacionais">Resultados nacionais e internacionais</h3><p data-en="Focus instructors and athletes regularly represent the team in national and international competitions, from regional Opens to the major stages of Jiu-Jitsu." data-pt="Professores e atletas Focus representam regularmente a equipa em competições nacionais e internacionais, desde Opens regionais aos grandes palcos do Jiu-Jitsu.">Professores e atletas Focus representam regularmente a equipa em competições nacionais e internacionais, desde Opens regionais aos grandes palcos do Jiu-Jitsu.</p></article>
-<article class="history-achievement-card reveal"><span>02</span><h3 data-en="World and European titles" data-pt="Títulos mundiais e europeus">Títulos mundiais e europeus</h3><p data-en="The coaching team includes World and European champions, combining competitive experience with the ability to teach and develop each student." data-pt="A equipa técnica integra campeões mundiais e europeus, reunindo experiência competitiva e capacidade para ensinar e desenvolver cada aluno.">A equipa técnica integra campeões mundiais e europeus, reunindo experiência competitiva e capacidade para ensinar e desenvolver cada aluno.</p></article>
-<article class="history-achievement-card reveal"><span>03</span><h3 data-en="Athlete development" data-pt="Formação de atletas">Formação de atletas</h3><p data-en="From the first class to high-level competition, Focus provides structured paths for Kids, adults and competitors to progress with consistency." data-pt="Da primeira aula à competição de alto nível, a Focus cria percursos estruturados para que crianças, adultos e competidores evoluam com consistência.">Da primeira aula à competição de alto nível, a Focus cria percursos estruturados para que crianças, adultos e competidores evoluam com consistência.</p></article>
-<article class="history-achievement-card reveal"><span>04</span><h3 data-en="An international team" data-pt="Uma equipa internacional">Uma equipa internacional</h3><p data-en="The Focus network now extends across Portugal, Spain and the Netherlands, sharing the same identity, teaching standards and team culture." data-pt="A rede Focus estende-se hoje por Portugal, Espanha e Países Baixos, partilhando a mesma identidade, exigência no ensino e cultura de equipa.">A rede Focus estende-se hoje por Portugal, Espanha e Países Baixos, partilhando a mesma identidade, exigência no ensino e cultura de equipa.</p></article>
+
+<div class="history-timeline-list">
+
+<article class="history-timeline-item reveal">
+<div class="history-year">2001</div>
+<h3 data-en="Portugal" data-pt="Portugal">Portugal</h3>
+<p data-en="Manoel Neto settles in Northern Portugal and begins a new chapter in a country where Brazilian Jiu-Jitsu was still developing."
+   data-pt="Manoel Neto estabelece-se no Norte de Portugal e inicia um novo capítulo num país onde o Brazilian Jiu-Jitsu ainda estava em desenvolvimento.">
+Manoel Neto estabelece-se no Norte de Portugal e inicia um novo capítulo num país onde o Brazilian Jiu-Jitsu ainda estava em desenvolvimento.
+</p>
+</article>
+
+<article class="history-timeline-item reveal">
+<div class="history-year">2003</div>
+<h3 data-en="The first classes" data-pt="Os primeiros treinos">Os primeiros treinos</h3>
+<p data-en="Manoel begins his path as an instructor in Northern Portugal."
+   data-pt="Manoel inicia o seu percurso como professor no Norte de Portugal.">
+Manoel inicia o seu percurso como professor no Norte de Portugal.
+</p>
+</article>
+
+<article class="history-timeline-item reveal">
+<div class="history-year">2006</div>
+<h3>Team Manoel Neto</h3>
+<p data-en="The team takes on its first independent identity in the same year Manoel receives his black belt."
+   data-pt="A equipa assume a sua primeira identidade própria, no mesmo ano em que Manoel recebe a faixa preta.">
+A equipa assume a sua primeira identidade própria, no mesmo ano em que Manoel recebe a faixa preta.
+</p>
+</article>
+
+<article class="history-timeline-item reveal">
+<div class="history-year">2010–11</div>
+<h3 data-en="Academia Workout · Matosinhos" data-pt="Academia Workout · Matosinhos">Academia Workout · Matosinhos</h3>
+<p data-en="A new phase of growth begins in Matosinhos, creating a stronger base for training, athlete development and the expansion of the team."
+   data-pt="Começa em Matosinhos uma nova fase de crescimento, criando uma base mais forte para o treino, a formação de atletas e a expansão da equipa.">
+Começa em Matosinhos uma nova fase de crescimento, criando uma base mais forte para o treino, a formação de atletas e a expansão da equipa.
+</p>
+</article>
+
+<article class="history-timeline-item reveal">
+<div class="history-year">2015</div>
+<h3 data-en="A first major international milestone" data-pt="Um primeiro grande marco internacional">Um primeiro grande marco internacional</h3>
+<p data-en="Pedro “Paquito” Ramalho wins the IBJJF World Championship, the European Championship and the Abu Dhabi World Professional at purple belt, taking the team to a new international level."
+   data-pt="Pedro “Paquito” Ramalho conquista o Mundial IBJJF, o Europeu e o Abu Dhabi World Professional enquanto faixa roxa, levando a equipa a um novo patamar internacional.">
+Pedro “Paquito” Ramalho conquista o Mundial IBJJF, o Europeu e o Abu Dhabi World Professional enquanto faixa roxa, levando a equipa a um novo patamar internacional.
+</p>
+</article>
+
+<article class="history-timeline-item reveal">
+<div class="history-year">2016</div>
+<h3 data-en="Focus Jiu-Jitsu is born" data-pt="Nasce a Focus Jiu-Jitsu">Nasce a Focus Jiu-Jitsu</h3>
+<p data-en="On 23 June 2016, Team Manoel Neto officially becomes Focus Jiu-Jitsu. By then, the project had already grown to a network of 15 affiliated academies in Portugal."
+   data-pt="A 23 de junho de 2016, a Team Manoel Neto passa oficialmente a chamar-se Focus Jiu-Jitsu. Nessa altura, o projeto já tinha crescido para uma rede de 15 academias afiliadas em Portugal.">
+A 23 de junho de 2016, a Team Manoel Neto passa oficialmente a chamar-se Focus Jiu-Jitsu. Nessa altura, o projeto já tinha crescido para uma rede de 15 academias afiliadas em Portugal.
+</p>
+</article>
+
+<article class="history-timeline-item reveal">
+<div class="history-year">2021</div>
+<h3 data-en="A new international generation" data-pt="Uma nova geração internacional">Uma nova geração internacional</h3>
+<p data-en="Davi Vetoraci moves to Portugal and joins Focus, continuing his development within the team and becoming one of its main international competitive references."
+   data-pt="Davi Vetoraci muda-se para Portugal e integra a Focus, continuando a sua evolução dentro da equipa e tornando-se uma das suas principais referências competitivas internacionais.">
+Davi Vetoraci muda-se para Portugal e integra a Focus, continuando a sua evolução dentro da equipa e tornando-se uma das suas principais referências competitivas internacionais.
+</p>
+</article>
+
+<article class="history-timeline-item reveal">
+<div class="history-year">2025</div>
+<h3 data-en="European black belt champion" data-pt="Campeão Europeu de faixa preta">Campeão Europeu de faixa preta</h3>
+<p data-en="Davi Vetoraci wins the IBJJF European Championship at adult black belt — his first major title as a black belt."
+   data-pt="Davi Vetoraci conquista o Campeonato Europeu IBJJF Adulto de faixa preta — o seu primeiro major enquanto faixa preta.">
+Davi Vetoraci conquista o Campeonato Europeu IBJJF Adulto de faixa preta — o seu primeiro major enquanto faixa preta.
+</p>
+</article>
+
+<article class="history-timeline-item reveal">
+<div class="history-year">2025–26</div>
+<h3 data-en="Team results" data-pt="Resultados por equipas">Resultados por equipas</h3>
+<p data-en="Focus reaches 1st place overall at the Portugal Grand Slam in consecutive editions, reinforcing the collective strength of the team."
+   data-pt="A Focus alcança o 1.º lugar overall no Portugal Grand Slam em edições consecutivas, reforçando a força coletiva da equipa.">
+A Focus alcança o 1.º lugar overall no Portugal Grand Slam em edições consecutivas, reforçando a força coletiva da equipa.
+</p>
+</article>
+
 </div>
-<div class="history-cta reveal">
-<div><p class="eyebrow" data-en="YOUR FIRST STEP" data-pt="O TEU PRIMEIRO PASSO">O TEU PRIMEIRO PASSO</p><h2 data-en="Become part of the next chapter." data-pt="Faz parte do próximo capítulo.">Faz parte do próximo capítulo.</h2></div>
-<a class="button button-light whatsapp-link" data-whatsapp="" data-en="Book a Trial Class" data-pt="Marcar Aula Experimental" href="https://wa.me/351932665662?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20uma%20aula%20experimental." rel="noopener noreferrer" target="_blank">Marcar Aula Experimental</a>
+
+<figure class="history-media-slot history-timeline-media history-media-slot-dark" data-placeholder="Imagem histórica · Academia Workout / Team Manoel Neto / nascimento Focus · assets/images/history/workout-focus.jpg">
+<img alt="Academia Workout e evolução para Focus Jiu-Jitsu" loading="lazy" src="assets/images/history/workout-focus.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+
+<div class="history-focus-name reveal">
+<span class="history-focus-word">FOCUS</span>
+<p data-en="A name chosen to represent a central characteristic of Manoel Neto’s approach and of the culture he wanted to pass on to the team: focus on the process, on training and on constant development."
+   data-pt="Um nome escolhido para representar uma característica central da abordagem de Manoel Neto e da cultura que procurava transmitir à equipa: foco no processo, no treino e na evolução constante.">
+Um nome escolhido para representar uma característica central da abordagem de Manoel Neto e da cultura que procurava transmitir à equipa: foco no processo, no treino e na evolução constante.
+</p>
 </div>
 </div>
 </section>
+
+<section class="history-milestones section-light" id="marcos-competitivos">
+<div class="section-shell">
+<header class="history-milestones-heading reveal">
+<p class="eyebrow" data-en="COMPETITIVE MILESTONES" data-pt="MARCOS COMPETITIVOS">MARCOS COMPETITIVOS</p>
+<h2 data-en="Results that marked generations." data-pt="Resultados que marcaram gerações.">Resultados que marcaram gerações.</h2>
+</header>
+
+<div class="history-milestones-grid">
+
+<article class="history-athlete reveal">
+<figure class="history-media-slot history-athlete-media" data-placeholder="Foto · Pedro “Paquito” Ramalho · assets/images/history/paquito-2015.jpg">
+<img alt="Pedro Paquito Ramalho" loading="lazy" src="assets/images/history/paquito-2015.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+<p class="history-athlete-kicker" data-en="FIRST INTERNATIONAL GENERATION" data-pt="PRIMEIRA GERAÇÃO INTERNACIONAL">PRIMEIRA GERAÇÃO INTERNACIONAL</p>
+<h3>Pedro “Paquito” Ramalho</h3>
+<p data-en="Developed by Manoel Neto from white belt to black belt, Paquito became one of the first major international references produced by the team."
+   data-pt="Formado por Manoel Neto desde faixa branca até à faixa preta, Paquito tornou-se uma das primeiras grandes referências internacionais produzidas pela equipa.">
+Formado por Manoel Neto desde faixa branca até à faixa preta, Paquito tornou-se uma das primeiras grandes referências internacionais produzidas pela equipa.
+</p>
+<ul class="history-athlete-results">
+<li><strong>2015</strong><span>IBJJF World Champion</span></li>
+<li><strong>2015</strong><span>Abu Dhabi World Pro Champion</span></li>
+<li><strong>2015</strong><span>IBJJF European Champion</span></li>
+<li><strong>2016</strong><span>IBJJF European Champion</span></li>
+<li><strong>2020</strong><span>European Black Belt Silver</span></li>
+</ul>
+</article>
+
+<article class="history-athlete reveal">
+<figure class="history-media-slot history-athlete-media" data-placeholder="Foto · Davi Vetoraci · European 2025 · assets/images/history/davi-european-2025.jpg">
+<img alt="Davi Vetoraci campeão europeu IBJJF 2025" loading="lazy" src="assets/images/history/davi-european-2025.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+<p class="history-athlete-kicker" data-en="NEW INTERNATIONAL GENERATION" data-pt="NOVA GERAÇÃO INTERNACIONAL">NOVA GERAÇÃO INTERNACIONAL</p>
+<h3>Davi Vetoraci</h3>
+<p data-en="After moving to Portugal in 2021, Davi continued his international career with Focus and reached one of the most important individual milestones in the recent history of the team."
+   data-pt="Depois de se mudar para Portugal em 2021, Davi continuou o seu percurso internacional com a Focus e alcançou um dos marcos individuais mais importantes da história recente da equipa.">
+Depois de se mudar para Portugal em 2021, Davi continuou o seu percurso internacional com a Focus e alcançou um dos marcos individuais mais importantes da história recente da equipa.
+</p>
+<ul class="history-athlete-results">
+<li><strong>2025</strong><span>IBJJF European Adult Black Belt Champion</span></li>
+<li><strong>2025</strong><span data-en="First major title at black belt" data-pt="Primeiro major enquanto faixa preta">Primeiro major enquanto faixa preta</span></li>
+</ul>
+</article>
+
+</div>
+</div>
+</section>
+
+<section class="history-team-results section-dark" id="resultados-equipa">
+<div class="section-shell">
+
+<header class="history-team-results-heading reveal">
+<p class="eyebrow" data-en="TEAM RESULTS" data-pt="RESULTADOS DA EQUIPA">RESULTADOS DA EQUIPA</p>
+<h2 data-en="One team. Collective results." data-pt="Uma equipa. Resultados coletivos.">Uma equipa. Resultados coletivos.</h2>
+<p data-en="Beyond individual titles, Focus has built a consistent collective presence in major competitions, with recurring team results."
+   data-pt="Para além dos títulos individuais, a Focus construiu uma presença coletiva consistente nas principais competições, com resultados recorrentes por equipas.">
+Para além dos títulos individuais, a Focus construiu uma presença coletiva consistente nas principais competições, com resultados recorrentes por equipas.
+</p>
+</header>
+
+<div class="history-results-grid">
+<article class="history-result reveal">
+<strong>1.º</strong>
+<h3>Portugal Grand Slam 2025</h3>
+<p>Overall</p>
+</article>
+
+<article class="history-result reveal">
+<strong>1.º</strong>
+<h3>Portugal Grand Slam 2026</h3>
+<p>Overall</p>
+</article>
+
+<article class="history-result reveal">
+<strong>2.º</strong>
+<h3>Nacional Open Portugal 2025</h3>
+<p>Overall</p>
+</article>
+
+<article class="history-result reveal">
+<strong>2.º</strong>
+<h3>Lisbon International Open 2025</h3>
+<p>Overall</p>
+</article>
+</div>
+
+<figure class="history-media-slot history-results-media history-media-slot-dark" data-placeholder="Foto de equipa / competição · assets/images/history/equipa-competicao.jpg">
+<img alt="Equipa Focus Jiu-Jitsu em competição" loading="lazy" src="assets/images/history/equipa-competicao.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+
+</div>
+</section>
+
+<section class="history-network section-light" id="rede-internacional">
+<div class="section-shell">
+
+<header class="history-network-heading reveal">
+<p class="eyebrow" data-en="FOCUS TODAY" data-pt="FOCUS HOJE">FOCUS HOJE</p>
+<h2 data-en="An identity that crosses borders." data-pt="Uma identidade que atravessa fronteiras.">Uma identidade que atravessa fronteiras.</h2>
+<p data-en="What began in Northern Portugal has evolved from a local team into a network of academies connected by the same identity, technical standards and team culture."
+   data-pt="O que começou no Norte de Portugal evoluiu de uma equipa local para uma rede de academias ligadas pela mesma identidade, exigência técnica e cultura de equipa.">
+O que começou no Norte de Portugal evoluiu de uma equipa local para uma rede de academias ligadas pela mesma identidade, exigência técnica e cultura de equipa.
+</p>
+</header>
+
+<div class="history-countries reveal">
+<div class="history-country"><span>01</span><strong>Portugal</strong></div>
+<div class="history-country"><span>02</span><strong data-en="Spain" data-pt="Espanha">Espanha</strong></div>
+<div class="history-country"><span>03</span><strong data-en="Netherlands" data-pt="Países Baixos">Países Baixos</strong></div>
+</div>
+
+<figure class="history-media-slot history-network-media" data-placeholder="Foto de seminário / filiais / equipa internacional · assets/images/history/rede-internacional.jpg">
+<img alt="Rede internacional Focus Jiu-Jitsu" loading="lazy" src="assets/images/history/rede-internacional.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+
+<div class="history-network-link reveal">
+<a class="text-link" href="filiais.html">
+<span data-en="View all locations" data-pt="Ver todas as filiais">Ver todas as filiais</span>
+<span aria-hidden="true">↗</span>
+</a>
+</div>
+
+</div>
+</section>
+
+<section class="history-closing-wrap section-dark">
+<div class="section-shell history-closing reveal">
+<div>
+<p class="eyebrow">FOCUS JIU-JITSU</p>
+<h2 data-en="The story continues to be written on the mat." data-pt="A história continua a ser escrita no tatami.">A história continua a ser escrita no tatami.</h2>
+</div>
+
+<div class="history-closing-actions">
+<a class="button button-light" data-en="Meet the team" data-pt="Conhecer a equipa" href="equipa.html">Conhecer a equipa</a>
+<a class="button button-light" data-en="Visit Focus HQ" data-pt="Visitar a Focus HQ" href="visitar.html">Visitar a Focus HQ</a>
+</div>
+</div>
+</section>
+
 </main>
+
 <footer class="site-footer" id="footer-contact">
 <div class="footer-single-row section-shell">
-<div class="footer-identity"><a aria-label="Focus Jiu-Jitsu Headquarters" class="footer-logo-link" href="index.html"><img alt="Focus Jiu-Jitsu" class="footer-logo" src="assets/images/focus-logo.png"/></a></div>
-<div class="footer-detail"><span data-en="Address" data-pt="Morada">Morada</span><address>Rua Dr. Afonso Cordeiro, 711<br/>4450-007 Matosinhos</address></div>
-<div class="footer-detail"><span data-en="Phone" data-pt="Telefone">Telefone</span><a href="tel:+351932665662">+351 932 665 662</a></div>
-<div class="footer-detail"><span>Email</span><a href="mailto:focusjiujitsuhq@gmail.com">focusjiujitsuhq@gmail.com</a></div>
-<div class="footer-detail footer-social-detail"><span data-en="Social" data-pt="Redes">Redes</span><div class="footer-social-links"><a class="footer-social-link" href="https://www.instagram.com/focusjiujitsuhq/" rel="noopener noreferrer" target="_blank"><span>Instagram</span><svg aria-hidden="true" class="external-link-icon" fill="none" viewbox="0 0 24 24"><path d="M7 17L17 7"></path><path d="M9 7H17V15"></path></svg></a><a class="footer-social-link" href="https://www.youtube.com/results?search_query=Focus+Jiu+Jitsu+HQ" rel="noopener noreferrer" target="_blank"><span>YouTube</span><svg aria-hidden="true" class="external-link-icon" fill="none" viewbox="0 0 24 24"><path d="M7 17L17 7"></path><path d="M9 7H17V15"></path></svg></a></div></div>
+<div class="footer-identity">
+<a aria-label="Focus Jiu-Jitsu Headquarters" class="footer-logo-link" href="index.html">
+<img alt="Focus Jiu-Jitsu" class="footer-logo" src="assets/images/focus-logo.png"/>
+</a>
+</div>
+<div class="footer-detail">
+<span data-en="Address" data-pt="Morada">Morada</span>
+<address>Rua Dr. Afonso Cordeiro, 711<br/>4450-007 Matosinhos</address>
+</div>
+<div class="footer-detail">
+<span data-en="Phone" data-pt="Telefone">Telefone</span>
+<a href="tel:+351932665662">+351 932 665 662</a>
+</div>
+<div class="footer-detail">
+<span>Email</span>
+<a href="mailto:focusjiujitsuhq@gmail.com">focusjiujitsuhq@gmail.com</a>
+</div>
+<div class="footer-detail footer-social-detail">
+<span data-en="Social" data-pt="Redes">Redes</span>
+<div class="footer-social-links">
+<a class="footer-social-link" href="https://www.instagram.com/focusjiujitsuhq/" rel="noopener noreferrer" target="_blank">
+<span>Instagram</span>
+<svg aria-hidden="true" class="external-link-icon" fill="none" viewbox="0 0 24 24"><path d="M7 17L17 7"></path><path d="M9 7H17V15"></path></svg>
+</a>
+<a class="footer-social-link" href="https://www.youtube.com/results?search_query=Focus+Jiu+Jitsu+HQ" rel="noopener noreferrer" target="_blank">
+<span>YouTube</span>
+<svg aria-hidden="true" class="external-link-icon" fill="none" viewbox="0 0 24 24"><path d="M7 17L17 7"></path><path d="M9 7H17V15"></path></svg>
+</a>
+</div>
+</div>
 </div>
 </footer>
-<a aria-label="Marcar aula experimental gratuita no WhatsApp" class="floating-whatsapp whatsapp-link" data-whatsapp="" href="https://wa.me/351932665662?text=Ol%C3%A1%21%20Gostaria%20de%20marcar%20uma%20aula%20experimental%20na%20Focus%20Jiu-Jitsu%20HQ" rel="noopener noreferrer" target="_blank"><span aria-hidden="true">↗</span><span data-en="Trial class" data-pt="Aula experimental">Aula experimental</span></a>
+
+<a aria-label="Marcar aula experimental gratuita no WhatsApp"
+   class="floating-whatsapp whatsapp-link"
+   data-whatsapp=""
+   href="https://wa.me/351932665662?text=Ol%C3%A1%21%20Gostaria%20de%20marcar%20uma%20aula%20experimental%20na%20Focus%20Jiu-Jitsu%20HQ"
+   rel="noopener noreferrer"
+   target="_blank">
+<span aria-hidden="true">↗</span>
+<span data-en="Trial class" data-pt="Aula experimental">Aula experimental</span>
+</a>
+
 <script defer src="js/main.js?v=20260804-54"></script>
 </body>
 </html>
