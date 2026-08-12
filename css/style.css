@@ -4032,6 +4032,11 @@ body[data-page="academy-visitar"] .visit-page-hero {
   text-transform: uppercase;
 }
 
+body[data-page="programs-adults"] .program-pathway-title-long .program-pathway-core h3 {
+  font-size: clamp(2.8rem, 4.8vw, 5.4rem);
+  line-height: 0.96;
+}
+
 .program-pathway-lead {
   max-width: 680px;
   margin: clamp(28px, 3vw, 42px) 0 0;
@@ -4125,6 +4130,10 @@ body[data-page="academy-visitar"] .visit-page-hero {
     gap: 34px;
   }
 
+  .program-pathway-info-single {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .program-pathway-block + .program-pathway-block {
     margin-top: 0;
     padding-top: 0;
@@ -4173,6 +4182,10 @@ body[data-page="academy-visitar"] .visit-page-hero {
 
   .program-pathway-core h3 {
     font-size: clamp(3.2rem, 17vw, 5rem);
+  }
+
+  body[data-page="programs-adults"] .program-pathway-title-long .program-pathway-core h3 {
+    font-size: clamp(2.6rem, 14vw, 4.3rem);
   }
 
   .program-pathway-lead {
