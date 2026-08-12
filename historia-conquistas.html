@@ -27,10 +27,7 @@
 }
 
 .history-origin-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(48px, 7vw, 104px);
-  align-items: start;
+  display: block;
 }
 
 .history-origin-heading h2,
@@ -46,13 +43,21 @@
 }
 
 .history-origin-copy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(36px, 6vw, 92px);
   min-width: 0;
-  max-width: 720px;
-  padding-top: 12px;
+  max-width: none;
 }
 
 .history-origin-heading {
   min-width: 0;
+  max-width: 980px;
+  margin-bottom: clamp(54px, 7vw, 96px);
+}
+
+.history-origin-content {
+  display: block;
 }
 
 .history-origin-copy p {
@@ -63,7 +68,7 @@
 }
 
 .history-origin-copy p + p {
-  margin-top: 28px;
+  margin-top: 0;
 }
 
 .history-founder {
@@ -393,10 +398,6 @@
 }
 
 @media (max-width: 1000px) {
-  .history-origin-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
   .history-results-grid {
     grid-template-columns: repeat(2, minmax(0,1fr));
   }
@@ -422,8 +423,13 @@
     padding: 82px 0 96px;
   }
 
-  .history-origin-grid {
-    gap: 38px;
+  .history-origin-heading {
+    margin-bottom: 42px;
+  }
+
+  .history-origin-copy {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .history-founder {
@@ -522,6 +528,19 @@
   aspect-ratio: 16 / 9;
 }
 
+.history-origin-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 24px);
+  margin: clamp(26px, 3.5vw, 44px) 0 0;
+}
+
+.history-origin-gallery .history-origin-media {
+  min-height: 0;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+}
+
 .history-athlete-media {
   margin: calc(clamp(32px, 4.6vw, 64px) * -1);
   margin-bottom: clamp(34px, 5vw, 58px);
@@ -540,6 +559,10 @@
 }
 
 @media (max-width: 760px) {
+  .history-origin-gallery {
+    grid-template-columns: 1fr;
+  }
+
   .history-origin-media,
   .history-results-media,
   .history-network-media {
@@ -693,6 +716,7 @@ Uma história construída no tatami, desde os primeiros passos da equipa no iní
 <h2 data-en="Where it all began." data-pt="Onde tudo começou.">Onde tudo começou.</h2>
 </header>
 
+<div class="history-origin-content">
 <div class="history-origin-copy reveal">
 <p
 data-en="In 2001, Manoel Neto left Brazil and settled in Northern Portugal, at a time when Brazilian Jiu-Jitsu was still taking its first steps in the country. In 2003 he began teaching and, in 2006, already a black belt, created Team Manoel Neto — the foundation of the team that would later become Focus Jiu-Jitsu."
@@ -704,14 +728,19 @@ data-en="From the beginning, the project was built around teaching, technical de
 data-pt="Desde o início, o projeto foi construído em torno do ensino, da evolução técnica, da competição e da criação de uma cultura de equipa capaz de crescer com cada nova geração.">
 Desde o início, o projeto foi construído em torno do ensino, da evolução técnica, da competição e da criação de uma cultura de equipa capaz de crescer com cada nova geração.
 </p>
-
+</div>
 <div class="history-founder">
 <strong>Manoel Neto</strong>
 <span data-en="Founder · Focus Jiu-Jitsu" data-pt="Fundador · Focus Jiu-Jitsu">Fundador · Focus Jiu-Jitsu</span>
 </div>
+<div class="history-origin-gallery">
 <figure class="history-media-slot history-origin-media" data-placeholder="Imagem histórica · Manoel Neto / primeiros anos · assets/images/history/manoel-origens.jpg">
 <img alt="Manoel Neto e os primeiros anos da equipa" loading="lazy" src="assets/images/history/manoel-origens.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
 </figure>
+<figure class="history-media-slot history-origin-media" data-placeholder="Segunda imagem histórica · Manoel Neto / equipa · assets/images/history/manoel-origens-02.jpg">
+<img alt="Manoel Neto com a equipa nos primeiros anos" loading="lazy" src="assets/images/history/manoel-origens-02.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -782,8 +811,8 @@ Começa em Matosinhos uma nova fase de crescimento, criando uma base mais forte 
 </article>
 
 <article class="history-timeline-card reveal">
-<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Fotografia de 2015 · Paquito · assets/images/history/2015-paquito.jpg">
-<img alt="Pedro Paquito Ramalho no marco internacional de 2015" loading="lazy" src="assets/images/history/2015-paquito.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Retrato · Pedro Paquito Ramalho · assets/images/team/pedro-paquito-ramalho.jpg">
+<img alt="Pedro Paquito Ramalho, atleta e professor da Focus Jiu-Jitsu" loading="lazy" src="assets/images/team/pedro-paquito-ramalho.jpg" style="object-position: 50% 30%;" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
 </figure>
 <div class="history-timeline-card-copy">
 <div class="history-year">2015</div>
@@ -810,29 +839,29 @@ A 23 de junho de 2016, a Team Manoel Neto passa oficialmente a chamar-se Focus J
 </article>
 
 <article class="history-timeline-card reveal">
-<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Fotografia de 2021 · Nova geração · assets/images/history/2021-davi-focus.jpg">
-<img alt="Davi Vetoraci na Focus Jiu-Jitsu em 2021" loading="lazy" src="assets/images/history/2021-davi-focus.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Davi Vetoraci e Manoel Neto · assets/images/history/davi-focus-2021-2026.jpg">
+<img alt="Davi Vetoraci com Manoel Neto durante a sua passagem pela Focus Jiu-Jitsu" data-source="https://www.instagram.com/davivetoracibjj/p/DV9SaiwiFBW/" loading="lazy" src="assets/images/history/davi-focus-2021-2026.jpg" style="object-position: 50% 46%;" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
 </figure>
 <div class="history-timeline-card-copy">
-<div class="history-year">2021</div>
-<h3 data-en="A new international generation" data-pt="Uma nova geração internacional">Uma nova geração internacional</h3>
-<p data-en="Davi Vetoraci moves to Portugal and joins Focus, continuing his development within the team and becoming one of its main international competitive references."
-   data-pt="Davi Vetoraci muda-se para Portugal e integra a Focus, continuando a sua evolução dentro da equipa e tornando-se uma das suas principais referências competitivas internacionais.">
-Davi Vetoraci muda-se para Portugal e integra a Focus, continuando a sua evolução dentro da equipa e tornando-se uma das suas principais referências competitivas internacionais.
+<div class="history-year">2021–2026</div>
+<h3 data-en="An international chapter of excellence" data-pt="Uma etapa de excelência internacional">Uma etapa de excelência internacional</h3>
+<p data-en="At the end of 2021, Davi Vetoraci moved to Portugal and joined Focus. During the period in which he represented the team, he became one of the academy's leading international competitors."
+   data-pt="No final de 2021, Davi Vetoraci mudou-se para Portugal e integrou a Focus. Durante o período em que representou a equipa, afirmou-se como uma das principais referências competitivas internacionais da academia.">
+No final de 2021, Davi Vetoraci mudou-se para Portugal e integrou a Focus. Durante o período em que representou a equipa, afirmou-se como uma das principais referências competitivas internacionais da academia.
 </p>
 </div>
 </article>
 
 <article class="history-timeline-card reveal">
-<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Fotografia de 2025 · Davi campeão europeu · assets/images/history/2025-davi-europeu.jpg">
-<img alt="Davi Vetoraci campeão europeu IBJJF de faixa preta em 2025" loading="lazy" src="assets/images/history/2025-davi-europeu.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+<figure class="history-media-slot history-media-slot-dark history-timeline-card-media" data-placeholder="Davi campeão europeu em 2025 · assets/images/history/davi-european-2025.jpg">
+<img alt="Davi Vetoraci com a medalha de campeão europeu IBJJF de faixa preta em 2025" data-source="https://www.instagram.com/davivetoracibjj/p/DFTHMNxtM8L/" loading="lazy" src="assets/images/history/davi-european-2025.jpg" style="object-position: 50% 37%;" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
 </figure>
 <div class="history-timeline-card-copy">
 <div class="history-year">2025</div>
 <h3 data-en="European black belt champion" data-pt="Campeão Europeu de faixa preta">Campeão Europeu de faixa preta</h3>
-<p data-en="Davi Vetoraci wins the IBJJF European Championship at adult black belt — his first major title as a black belt."
-   data-pt="Davi Vetoraci conquista o Campeonato Europeu IBJJF Adulto de faixa preta — o seu primeiro major enquanto faixa preta.">
-Davi Vetoraci conquista o Campeonato Europeu IBJJF Adulto de faixa preta — o seu primeiro major enquanto faixa preta.
+<p data-en="Representing Focus, Davi Vetoraci wins the adult black belt IBJJF European Championship with three victories, conceding no points — his first major title at black belt."
+   data-pt="A representar a Focus, Davi Vetoraci conquista o Europeu IBJJF Adulto de faixa preta com três vitórias, sem ceder qualquer ponto — o seu primeiro major enquanto faixa preta.">
+A representar a Focus, Davi Vetoraci conquista o Europeu IBJJF Adulto de faixa preta com três vitórias, sem ceder qualquer ponto — o seu primeiro major enquanto faixa preta.
 </p>
 </div>
 </article>
@@ -862,37 +891,42 @@ A Focus alcança o 1.º lugar overall no Portugal Grand Slam em edições consec
 <div class="history-milestones-grid">
 
 <article class="history-athlete reveal">
-<figure class="history-media-slot history-athlete-media" data-placeholder="Foto · Pedro “Paquito” Ramalho · assets/images/history/paquito-2015.jpg">
-<img alt="Pedro Paquito Ramalho" loading="lazy" src="assets/images/history/paquito-2015.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+<figure class="history-media-slot history-athlete-media" data-placeholder="Paquito campeão do Abu Dhabi World Pro 2023 · assets/images/history/paquito-world-pro-2023.jpg">
+<img alt="Pedro Paquito Ramalho campeão do Abu Dhabi World Pro em 2023" data-source="https://www.instagram.com/pedropaquitoramalho/p/CzgyRukpKls/" loading="lazy" src="assets/images/history/paquito-world-pro-2023.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
 </figure>
-<p class="history-athlete-kicker" data-en="FIRST INTERNATIONAL GENERATION" data-pt="PRIMEIRA GERAÇÃO INTERNACIONAL">PRIMEIRA GERAÇÃO INTERNACIONAL</p>
+<p class="history-athlete-kicker" data-en="FROM DEVELOPMENT TO THE HIGHEST LEVEL" data-pt="DA FORMAÇÃO AO MAIS ALTO NÍVEL">DA FORMAÇÃO AO MAIS ALTO NÍVEL</p>
 <h3>Pedro “Paquito” Ramalho</h3>
-<p data-en="Developed by Manoel Neto from white belt to black belt, Paquito became one of the first major international references produced by the team."
-   data-pt="Formado por Manoel Neto desde faixa branca até à faixa preta, Paquito tornou-se uma das primeiras grandes referências internacionais produzidas pela equipa.">
-Formado por Manoel Neto desde faixa branca até à faixa preta, Paquito tornou-se uma das primeiras grandes referências internacionais produzidas pela equipa.
+<p data-en="Developed by Manoel Neto from white belt to black belt, Paquito became one of the team's first major international references and continues to represent Focus as an athlete and coach."
+   data-pt="Formado por Manoel Neto desde faixa branca até à faixa preta, Paquito tornou-se uma das primeiras grandes referências internacionais da equipa e continua a representar a Focus como atleta e professor.">
+Formado por Manoel Neto desde faixa branca até à faixa preta, Paquito tornou-se uma das primeiras grandes referências internacionais da equipa e continua a representar a Focus como atleta e professor.
 </p>
 <ul class="history-athlete-results">
-<li><strong>2015</strong><span>IBJJF World Champion</span></li>
-<li><strong>2015</strong><span>Abu Dhabi World Pro Champion</span></li>
-<li><strong>2015</strong><span>IBJJF European Champion</span></li>
-<li><strong>2016</strong><span>IBJJF European Champion</span></li>
-<li><strong>2020</strong><span>European Black Belt Silver</span></li>
+<li><strong>2015</strong><span data-en="IBJJF World & European Champion · Purple belt" data-pt="Campeão Mundial e Europeu IBJJF · faixa roxa">Campeão Mundial e Europeu IBJJF · faixa roxa</span></li>
+<li><strong>2015</strong><span data-en="Abu Dhabi World Pro Champion · Purple belt" data-pt="Campeão Abu Dhabi World Pro · faixa roxa">Campeão Abu Dhabi World Pro · faixa roxa</span></li>
+<li><strong>2016</strong><span data-en="IBJJF European Champion · Brown belt" data-pt="Campeão Europeu IBJJF · faixa castanha">Campeão Europeu IBJJF · faixa castanha</span></li>
+<li><strong>2022</strong><span data-en="JJIF World Champion · −77 kg" data-pt="Campeão Mundial JJIF · −77 kg">Campeão Mundial JJIF · −77 kg</span></li>
+<li><strong>2023</strong><span data-en="Abu Dhabi World Pro Champion · Black belt 77 kg" data-pt="Campeão Abu Dhabi World Pro · faixa preta 77 kg">Campeão Abu Dhabi World Pro · faixa preta 77 kg</span></li>
+<li><strong>2025</strong><span data-en="World Games Silver · −85 kg" data-pt="Prata nos Jogos Mundiais · −85 kg">Prata nos Jogos Mundiais · −85 kg</span></li>
 </ul>
 </article>
 
 <article class="history-athlete reveal">
-<figure class="history-media-slot history-athlete-media" data-placeholder="Foto · Davi Vetoraci · European 2025 · assets/images/history/davi-european-2025.jpg">
-<img alt="Davi Vetoraci campeão europeu IBJJF 2025" loading="lazy" src="assets/images/history/davi-european-2025.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+<figure class="history-media-slot history-athlete-media" data-placeholder="Davi no Madrid Open 2026 · assets/images/history/davi-madrid-open-2026.jpg">
+<img alt="Davi Vetoraci com as medalhas de ouro de peso e absoluto do Madrid Open IBJJF 2026" data-source="https://www.instagram.com/davivetoracibjj/p/DVmYo2iCDOD/" loading="lazy" src="assets/images/history/davi-madrid-open-2026.jpg" style="object-position: 50% 68%;" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
 </figure>
-<p class="history-athlete-kicker" data-en="NEW INTERNATIONAL GENERATION" data-pt="NOVA GERAÇÃO INTERNACIONAL">NOVA GERAÇÃO INTERNACIONAL</p>
+<p class="history-athlete-kicker" data-en="FOCUS CHAPTER · 2021–MARCH 2026" data-pt="ETAPA FOCUS · 2021–MARÇO 2026">ETAPA FOCUS · 2021–MARÇO 2026</p>
 <h3>Davi Vetoraci</h3>
-<p data-en="After moving to Portugal in 2021, Davi continued his international career with Focus and reached one of the most important individual milestones in the recent history of the team."
-   data-pt="Depois de se mudar para Portugal em 2021, Davi continuou o seu percurso internacional com a Focus e alcançou um dos marcos individuais mais importantes da história recente da equipa.">
-Depois de se mudar para Portugal em 2021, Davi continuou o seu percurso internacional com a Focus e alcançou um dos marcos individuais mais importantes da história recente da equipa.
+<p data-en="From the end of 2021 to March 2026, Davi represented Focus on the international circuit. His time with the team included the 2025 European title and ended with double gold at the 2026 Madrid Open."
+   data-pt="Entre o final de 2021 e março de 2026, Davi representou a Focus no circuito internacional. A sua passagem incluiu o título europeu de 2025 e terminou com o duplo ouro no Madrid Open de 2026.">
+Entre o final de 2021 e março de 2026, Davi representou a Focus no circuito internacional. A sua passagem incluiu o título europeu de 2025 e terminou com o duplo ouro no Madrid Open de 2026.
 </p>
 <ul class="history-athlete-results">
-<li><strong>2025</strong><span>IBJJF European Adult Black Belt Champion</span></li>
-<li><strong>2025</strong><span data-en="First major title at black belt" data-pt="Primeiro major enquanto faixa preta">Primeiro major enquanto faixa preta</span></li>
+<li><strong>2023</strong><span data-en="Lisbon Open IBJJF · Weight & open-class gold" data-pt="Lisbon Open IBJJF · ouro no peso e absoluto">Lisbon Open IBJJF · ouro no peso e absoluto</span></li>
+<li><strong>2024</strong><span data-en="IBJJF European Championship · Black belt bronze" data-pt="Europeu IBJJF · bronze faixa preta">Europeu IBJJF · bronze faixa preta</span></li>
+<li><strong>2024</strong><span data-en="Portugal National Open · Open-class champion" data-pt="Nacional Open Portugal · campeão absoluto">Nacional Open Portugal · campeão absoluto</span></li>
+<li><strong>2025</strong><span data-en="IBJJF European Champion · Black belt" data-pt="Campeão Europeu IBJJF · faixa preta">Campeão Europeu IBJJF · faixa preta</span></li>
+<li><strong>2025</strong><span data-en="Brazilian Championship IBJJF · Black belt silver" data-pt="Campeonato Brasileiro IBJJF · prata faixa preta">Campeonato Brasileiro IBJJF · prata faixa preta</span></li>
+<li><strong>2026</strong><span data-en="Madrid Open IBJJF · Weight & open-class gold" data-pt="Madrid Open IBJJF · ouro no peso e absoluto">Madrid Open IBJJF · ouro no peso e absoluto</span></li>
 </ul>
 </article>
 
@@ -963,8 +997,8 @@ O que começou no Norte de Portugal evoluiu de uma equipa local para uma rede de
 <div class="history-country"><span>03</span><strong data-en="Netherlands" data-pt="Países Baixos">Países Baixos</strong></div>
 </div>
 
-<figure class="history-media-slot history-network-media" data-placeholder="Foto de seminário / filiais / equipa internacional · assets/images/history/rede-internacional.jpg">
-<img alt="Rede internacional Focus Jiu-Jitsu" loading="lazy" src="assets/images/history/rede-internacional.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
+<figure class="history-media-slot history-network-media" data-placeholder="Equipa e filiais Focus Jiu-Jitsu · assets/images/history/focus-network-team.jpg">
+<img alt="Alunos, professores e filiais da Focus Jiu-Jitsu reunidos no tatami" loading="lazy" src="assets/images/history/focus-network-team.jpg" onload="this.parentElement.classList.add('has-image')" onerror="this.remove()"/>
 </figure>
 
 <div class="history-network-link reveal">
