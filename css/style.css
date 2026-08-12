@@ -3133,7 +3133,7 @@ body[data-page^="locations"] .locations-menu .nav-dropdown-trigger {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: saturate(0.72) contrast(1.04);
+  filter: saturate(1) contrast(1.02);
 }
 
 .facilities-hero-shade {
@@ -3271,7 +3271,7 @@ body[data-page^="locations"] .locations-menu .nav-dropdown-trigger {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  filter: saturate(0.82);
+  filter: none;
 }
 
 .facilities-feature-copy h2 {
@@ -3436,14 +3436,14 @@ body[data-page^="locations"] .locations-menu .nav-dropdown-trigger {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .facilities-hero-video {
+  video.facilities-hero-video {
     display: none;
   }
 
   .facilities-hero {
     background:
       linear-gradient(to top, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.22)),
-      url("../assets/images/facility-mats.jpg") center/cover;
+      url("../assets/images/facilities/gym-panorama-color.jpg") center/cover;
   }
 }
 

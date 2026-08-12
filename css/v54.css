@@ -276,7 +276,8 @@
   margin-bottom: clamp(64px, 8vw, 112px);
 }
 
-.facilities-tour-player video {
+.facilities-tour-player video,
+.facilities-tour-player > img {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -316,7 +317,7 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  filter: saturate(0.82);
+  filter: none;
 }
 
 .facilities-gallery-card-wide img {
