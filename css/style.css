@@ -4074,6 +4074,23 @@ body[data-page="programs-adults"] .program-pathway-title-long .program-pathway-c
   line-height: 1.68;
 }
 
+body[data-page^="programs-"] .program-pathway-about {
+  max-width: 680px;
+  margin: clamp(28px, 3vw, 42px) 0 0;
+}
+
+body[data-page^="programs-"] .program-pathway-about p {
+  margin: 0;
+  color: #41413d;
+  font-size: 0.96rem;
+  line-height: 1.68;
+}
+
+body[data-page^="programs-"] .program-pathway-summary .program-pathway-lead {
+  max-width: none;
+  margin: 0;
+}
+
 .program-pathway-points {
   margin: 0;
   padding: 0;
