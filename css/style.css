@@ -4191,9 +4191,13 @@ body[data-page="academy-equipa"] .leadership-title {
 }
 
 body[data-page="academy-equipa"] .leadership-title-founder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 3px 6px;
   background: #b5121b;
   color: #fff;
+  text-align: center;
 }
 
 body[data-page="academy-equipa"] .leadership-kicker {
