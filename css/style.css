@@ -4177,6 +4177,24 @@ body[data-page="academy-equipa"] .leadership-content {
   border-top: 1px solid var(--line-dark);
 }
 
+body[data-page="academy-equipa"] .leadership-title {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 0 20px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+body[data-page="academy-equipa"] .leadership-title-founder {
+  padding: 10px 14px;
+  background: #b5121b;
+  color: #fff;
+}
+
 body[data-page="academy-equipa"] .leadership-kicker {
   margin: 0 0 15px;
   color: rgba(255, 255, 255, 0.58);
