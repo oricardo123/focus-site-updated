@@ -2940,6 +2940,10 @@ body[data-page^="locations"] .locations-menu .nav-dropdown-trigger {
   padding: clamp(92px, 11vw, 170px) 0 clamp(78px, 9vw, 132px);
 }
 
+.facilities-overview.facilities-overview-metrics-only {
+  padding: clamp(36px, 5vw, 64px) 0 0;
+}
+
 .facilities-overview-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.62fr);
@@ -2969,6 +2973,10 @@ body[data-page^="locations"] .locations-menu .nav-dropdown-trigger {
   margin-top: clamp(70px, 9vw, 124px);
   border-top: 1px solid var(--line-light);
   border-bottom: 1px solid var(--line-light);
+}
+
+.facilities-overview-metrics-only .facilities-metrics {
+  margin-top: 0;
 }
 
 .facilities-metric {
