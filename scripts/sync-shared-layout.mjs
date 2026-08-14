@@ -117,12 +117,17 @@ const imageDimensions = {
   'assets/images/adultos-program.jpg': [1200, 1800],
   'assets/images/program-kids.jpg': [1200, 1800],
   'assets/images/program-advanced.jpg': [1600, 1100],
+  'assets/images/program-adults-training.jpg': [1600, 1200],
   'assets/images/facility-mats.jpg': [1600, 1100],
   'assets/images/facility-shop.jpg': [1600, 1100],
+  'assets/images/facilities/academy-hero-poster.jpg': [1600, 900],
   'assets/images/facilities/gym-main-floor-color.jpg': [2200, 1470],
   'assets/images/facilities/gym-panorama-color.jpg': [2400, 1405],
   'assets/images/facilities/gym-free-weights-color.jpg': [1800, 1200],
   'assets/images/facilities/gym-conditioning-color.jpg': [2200, 1332],
+  'assets/images/facilities/pro-shop.jpg': [1600, 1200],
+  'assets/images/facilities/tatami-gallery.jpg': [2000, 1333],
+  'assets/images/facilities/tatami-main.jpg': [1920, 1200],
   'assets/images/team/team-placeholder.svg': [1200, 1500]
 };
 
@@ -141,13 +146,19 @@ const imageAltTranslations = {
 const optimizedMediaPaths = [
   'assets/images/adultos-program.jpg',
   'assets/images/program-kids.jpg',
+  'assets/images/program-adults-training.jpg',
+  'assets/images/facilities/academy-hero-poster.jpg',
+  'assets/images/facilities/pro-shop.jpg',
+  'assets/images/facilities/tatami-gallery.jpg',
+  'assets/images/facilities/tatami-main.jpg',
   'assets/images/team/henrique-soares.jpg',
   'assets/images/team/manoel-neto.jpg',
   'assets/images/team/pedro-paquito-ramalho.jpg',
   'assets/images/team/pedro-zogbi.jpg',
   'assets/images/team/ricardo-almeida.jpg',
   'assets/images/team/thallyson-vasconcelos.jpg',
-  'assets/videos/home.mp4'
+  'assets/videos/home.mp4',
+  'assets/videos/academy-hero.mp4'
 ];
 
 function addImageDimensions(markup) {
