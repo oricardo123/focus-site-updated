@@ -35,8 +35,8 @@ const pageMetadata = {
   'adultos.html': {
     titlePt: 'Adultos | Focus Jiu-Jitsu Headquarters',
     titleEn: 'Adults | Focus Jiu-Jitsu Headquarters',
-    descriptionPt: 'Programa de Jiu-Jitsu para Adultos da Focus Jiu-Jitsu Headquarters, com seis tipos de aulas para todos os níveis.',
-    descriptionEn: 'The Focus Jiu-Jitsu Headquarters Adults Program, with six class types for every level.'
+    descriptionPt: 'Programa de Jiu-Jitsu para Adultos da Focus Jiu-Jitsu Headquarters, com sete tipos de aulas para todos os níveis.',
+    descriptionEn: 'The Focus Jiu-Jitsu Headquarters Adults Program, with seven class types for every level.'
   },
   'equipa.html': {
     titlePt: 'Equipa | Focus Jiu-Jitsu Headquarters',
@@ -241,11 +241,11 @@ for (const page of pages) {
   const withMetadata = metadata
     ? updated
       .replace(
-        /<meta\s+content="[^"]*"\s+name="description"\s*\/?>/,
+        /<meta\b(?=[^>]*\bname="description")[^>]*\/?>/,
         `<meta content="${metadata.descriptionPt}" data-content-en="${metadata.descriptionEn}" data-content-pt="${metadata.descriptionPt}" name="description"/>`
       )
       .replace(
-        /<title>[\s\S]*?<\/title>/,
+        /<title\b[^>]*>[\s\S]*?<\/title>/,
         `<title data-en="${metadata.titleEn}" data-pt="${metadata.titlePt}">${metadata.titlePt}</title>`
       )
     : updated;
