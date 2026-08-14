@@ -4170,9 +4170,10 @@ body[data-page="academy-equipa"] .leadership-card:hover .leadership-photo img:no
 }
 
 body[data-page="academy-equipa"] .leadership-content {
-  display: flex;
+  display: grid;
   flex: 1;
-  flex-direction: column;
+  grid-template-rows: 24px auto auto;
+  align-content: start;
   padding: clamp(30px, 4vw, 56px);
   border-top: 1px solid var(--line-dark);
 }
@@ -4180,7 +4181,7 @@ body[data-page="academy-equipa"] .leadership-content {
 body[data-page="academy-equipa"] .leadership-title {
   width: max-content;
   max-width: 100%;
-  margin: 0 0 20px;
+  margin: 0;
   color: rgba(255, 255, 255, 0.78);
   font-size: 0.68rem;
   font-weight: 700;
@@ -4190,13 +4191,13 @@ body[data-page="academy-equipa"] .leadership-title {
 }
 
 body[data-page="academy-equipa"] .leadership-title-founder {
-  padding: 6px 10px;
+  padding: 3px 6px;
   background: #b5121b;
   color: #fff;
 }
 
 body[data-page="academy-equipa"] .leadership-kicker {
-  margin: 0 0 15px;
+  margin: 14px 0 15px;
   color: rgba(255, 255, 255, 0.58);
   font-size: 0.64rem;
   font-weight: 700;
