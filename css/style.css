@@ -558,6 +558,104 @@ h3 {
   }
 }
 
+/* Local-only typography and text-size laboratory. */
+.typography-lab {
+  position: fixed;
+  z-index: 9998;
+  bottom: 18px;
+  left: 18px;
+  width: min(370px, calc(100vw - 36px));
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(5, 5, 5, 0.96);
+  color: #f7f7f4;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+.typography-lab summary {
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  list-style-position: inside;
+}
+
+.typography-lab label,
+.typography-lab-size {
+  display: grid;
+  gap: 7px;
+  margin-top: 13px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.typography-lab select {
+  width: 100%;
+  min-height: 40px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 0;
+  background: #171717;
+  color: #f7f7f4;
+  font: 500 0.76rem/1.2 "Inter", Arial, Helvetica, sans-serif;
+}
+
+.typography-lab-size > div {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1fr;
+}
+
+.typography-lab button {
+  min-height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: #171717;
+  color: #f7f7f4;
+  cursor: pointer;
+  font: 600 0.78rem/1 "Inter", Arial, Helvetica, sans-serif;
+}
+
+.typography-lab button + button {
+  border-left: 0;
+}
+
+.typography-lab button:hover,
+.typography-lab button:focus-visible {
+  background: #292929;
+}
+
+.typography-lab button:disabled {
+  color: rgba(255, 255, 255, 0.3);
+  cursor: default;
+}
+
+.typography-lab small {
+  display: block;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.65rem;
+  line-height: 1.4;
+}
+
+.typography-lab:not([open]) {
+  width: auto;
+}
+
+.typography-lab:not([open]) label,
+.typography-lab:not([open]) .typography-lab-size,
+.typography-lab:not([open]) small {
+  display: none;
+}
+
+@media (max-width: 620px) {
+  .typography-lab {
+    bottom: 76px;
+  }
+}
+
 @keyframes hero-in {
   from {
     opacity: 0;
@@ -1577,7 +1675,7 @@ body[data-page="products"] .products-menu .nav-dropdown-trigger {
 .philosophy-editorial-copy p {
   margin: 0;
   color: #252522;
-  font-size: clamp(1.05rem, 1.35vw, 1.24rem);
+  font-size: clamp(0.945rem, 1.215vw, 1.116rem);
   line-height: 1.75;
 }
 
@@ -1775,7 +1873,7 @@ body[data-page="products"] .products-menu .nav-dropdown-trigger {
   }
 
   .philosophy-editorial-copy p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.7;
   }
 
