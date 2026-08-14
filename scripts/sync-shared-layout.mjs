@@ -208,10 +208,10 @@ for (const page of pages) {
     /<header class="site-header" id="top">[\s\S]*?<\/header>/,
     header.trim()
   )
-    .replaceAll('href="index.html#programs">Programas</a>', 'href="programas.html">Programas</a>')
+    .replaceAll('href="programas.html">Programas</a>', 'href="index.html#programs">Programas</a>')
     .replaceAll(
-      '<a data-en="The Academy" data-pt="A Academia" href="index.html">A Academia</a>',
-      '<a data-en="The Academy" data-pt="A Academia" href="academia.html">A Academia</a>'
+      '<a data-en="The Academy" data-pt="A Academia" href="academia.html">A Academia</a>',
+      '<a data-en="The Academy" data-pt="A Academia" href="index.html">A Academia</a>'
     )
     .replaceAll(
       '<nav aria-label="Breadcrumb" class="page-breadcrumb">',
