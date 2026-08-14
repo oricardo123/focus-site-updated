@@ -116,7 +116,9 @@ const imageDimensions = {
   'assets/images/focus-logo.png': [1536, 1024],
   'assets/images/adultos-program.jpg': [1200, 1800],
   'assets/images/program-kids.jpg': [1200, 1800],
+  'assets/images/program-kids-training.jpg': [1600, 1200],
   'assets/images/program-advanced.jpg': [1600, 1100],
+  'assets/images/program-adults-class.jpg': [1600, 1200],
   'assets/images/program-adults-training.jpg': [1600, 1200],
   'assets/images/facility-mats.jpg': [1600, 1100],
   'assets/images/facility-shop.jpg': [1600, 1100],
@@ -147,6 +149,8 @@ const imageAltTranslations = {
 const optimizedMediaPaths = [
   'assets/images/adultos-program.jpg',
   'assets/images/program-kids.jpg',
+  'assets/images/program-kids-training.jpg',
+  'assets/images/program-adults-class.jpg',
   'assets/images/program-adults-training.jpg',
   'assets/images/facilities/academy-hero-poster.jpg',
   'assets/images/facilities/pro-shop.jpg',
