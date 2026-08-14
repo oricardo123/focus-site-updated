@@ -5,7 +5,7 @@ import path from 'node:path';
 const scriptsDirectory = path.dirname(fileURLToPath(import.meta.url));
 const rootDirectory = path.resolve(scriptsDirectory, '..');
 const partialsDirectory = path.join(rootDirectory, 'partials');
-const assetVersion = '20260814-7';
+const assetVersion = '20260814-8';
 
 const [header, footer, floatingWhatsApp, entries] = await Promise.all([
   readFile(path.join(partialsDirectory, 'header.html'), 'utf8'),
@@ -127,6 +127,7 @@ const imageDimensions = {
   'assets/images/facilities/gym-conditioning-color.jpg': [2200, 1332],
   'assets/images/facilities/pro-shop.jpg': [1600, 1200],
   'assets/images/facilities/tatami-gallery.jpg': [2000, 1333],
+  'assets/images/facilities/tatami-gallery-updated.jpg': [1320, 864],
   'assets/images/facilities/tatami-main.jpg': [1920, 1200],
   'assets/images/team/team-placeholder.svg': [1200, 1500]
 };
@@ -150,6 +151,7 @@ const optimizedMediaPaths = [
   'assets/images/facilities/academy-hero-poster.jpg',
   'assets/images/facilities/pro-shop.jpg',
   'assets/images/facilities/tatami-gallery.jpg',
+  'assets/images/facilities/tatami-gallery-updated.jpg',
   'assets/images/facilities/tatami-main.jpg',
   'assets/images/team/henrique-soares.jpg',
   'assets/images/team/manoel-neto.jpg',

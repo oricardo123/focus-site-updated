@@ -87,6 +87,10 @@
   aspect-ratio: 16 / 8;
 }
 
+.facilities-gallery-image-tatami {
+  object-position: 50% 62%;
+}
+
 .facilities-gallery-card figcaption {
   padding-top: 16px;
   color: rgba(255, 255, 255, 0.63);
@@ -128,6 +132,10 @@
   .facilities-gallery-card-wide img,
   .facilities-gallery-card img {
     aspect-ratio: 4 / 3;
+  }
+
+  .facilities-gallery-image-tatami {
+    object-position: 50% 50%;
   }
 
   .facilities-tour-caption {
