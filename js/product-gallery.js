@@ -94,20 +94,6 @@
         card.classList.add('is-gallery-ready');
       };
 
-      const preloadAdjacentPhotos = () => {
-        const photos = getPhotos();
-        if (photos.length < 2) return;
-
-        const indexes = new Set([
-          normaliseIndex(currentIndex - 1, photos.length),
-          normaliseIndex(currentIndex + 1, photos.length)
-        ]);
-        indexes.forEach((index) => {
-          const preload = new Image();
-          preload.src = photos[index];
-        });
-      };
-
       const showPhoto = (index, { announce = true } = {}) => {
         const photos = getPhotos();
         if (photos.length === 0) return;
@@ -125,7 +111,6 @@
           requestedIndex = targetIndex;
           card.removeAttribute('aria-busy');
           updateGalleryText(announce);
-          preloadAdjacentPhotos();
         };
 
         if (image.src === targetUrl) {
