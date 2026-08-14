@@ -236,7 +236,26 @@
         { value: 'league-source', label: '11 · League Gothic + Source Sans 3', display: '"League Gothic", "Arial Narrow", Arial, sans-serif', body: '"Source Sans 3", Arial, Helvetica, sans-serif' },
         { value: 'teko-montserrat', label: '12 · Teko + Montserrat', display: '"Teko", "Arial Narrow", Arial, sans-serif', body: '"Montserrat", Arial, Helvetica, sans-serif' },
         { value: 'archivo-family', label: '13 · Archivo Narrow + Archivo', display: '"Archivo Narrow", "Arial Narrow", Arial, sans-serif', body: '"Archivo", Arial, Helvetica, sans-serif' },
-        { value: 'fjalla-lato', label: '14 · Fjalla One + Lato', display: '"Fjalla One", "Arial Narrow", Arial, sans-serif', body: '"Lato", Arial, Helvetica, sans-serif' }
+        { value: 'fjalla-lato', label: '14 · Fjalla One + Lato', display: '"Fjalla One", "Arial Narrow", Arial, sans-serif', body: '"Lato", Arial, Helvetica, sans-serif' },
+        { value: 'barlow-semi', label: '15 · Barlow Semi Condensed + Barlow', display: '"Barlow Semi Condensed", "Arial Narrow", Arial, sans-serif', body: '"Barlow", Arial, Helvetica, sans-serif' },
+        { value: 'saira-inter', label: '16 · Saira Condensed + Inter', display: '"Saira Condensed", "Arial Narrow", Arial, sans-serif', body: '"Inter", Arial, Helvetica, sans-serif' },
+        { value: 'big-shoulders-manrope', label: '17 · Big Shoulders Display + Manrope', display: '"Big Shoulders Display", "Arial Narrow", Arial, sans-serif', body: '"Manrope", Arial, Helvetica, sans-serif' },
+        { value: 'alumni-manrope', label: '18 · Alumni Sans + Manrope', display: '"Alumni Sans", "Arial Narrow", Arial, sans-serif', body: '"Manrope", Arial, Helvetica, sans-serif' },
+        { value: 'titillium-source', label: '19 · Titillium Web + Source Sans 3', display: '"Titillium Web", "Arial Narrow", Arial, sans-serif', body: '"Source Sans 3", Arial, Helvetica, sans-serif' },
+        { value: 'rajdhani-inter', label: '20 · Rajdhani + Inter', display: '"Rajdhani", "Arial Narrow", Arial, sans-serif', body: '"Inter", Arial, Helvetica, sans-serif' },
+        { value: 'encode-open', label: '21 · Encode Sans Condensed + Open Sans', display: '"Encode Sans Condensed", "Arial Narrow", Arial, sans-serif', body: '"Open Sans", Arial, Helvetica, sans-serif' },
+        { value: 'pt-family', label: '22 · PT Sans Narrow + PT Sans', display: '"PT Sans Narrow", "Arial Narrow", Arial, sans-serif', body: '"PT Sans", Arial, Helvetica, sans-serif' },
+        { value: 'yanone-lato', label: '23 · Yanone Kaffeesatz + Lato', display: '"Yanone Kaffeesatz", "Arial Narrow", Arial, sans-serif', body: '"Lato", Arial, Helvetica, sans-serif' },
+        { value: 'ubuntu-family', label: '24 · Ubuntu Condensed + Ubuntu', display: '"Ubuntu Condensed", "Arial Narrow", Arial, sans-serif', body: '"Ubuntu", Arial, Helvetica, sans-serif' },
+        { value: 'fira-family', label: '25 · Fira Sans Condensed + Fira Sans', display: '"Fira Sans Condensed", "Arial Narrow", Arial, sans-serif', body: '"Fira Sans", Arial, Helvetica, sans-serif' },
+        { value: 'asap-family', label: '26 · Asap Condensed + Asap', display: '"Asap Condensed", "Arial Narrow", Arial, sans-serif', body: '"Asap", Arial, Helvetica, sans-serif' },
+        { value: 'plex-family', label: '27 · IBM Plex Sans Condensed + Sans', display: '"IBM Plex Sans Condensed", "Arial Narrow", Arial, sans-serif', body: '"IBM Plex Sans", Arial, Helvetica, sans-serif' },
+        { value: 'dm-inter', label: '28 · DM Sans + Inter', display: '"DM Sans", Arial, sans-serif', body: '"Inter", Arial, Helvetica, sans-serif' },
+        { value: 'syne-inter', label: '29 · Syne + Inter', display: '"Syne", Arial, sans-serif', body: '"Inter", Arial, Helvetica, sans-serif' },
+        { value: 'michroma-logo', label: '30 · Michroma + Inter · estilo logótipo', display: '"Michroma", "Arial Wide", Arial, sans-serif', body: '"Inter", Arial, Helvetica, sans-serif', tracking: '0.04em' },
+        { value: 'syncopate-logo', label: '31 · Syncopate + Inter · estilo logótipo', display: '"Syncopate", "Arial Wide", Arial, sans-serif', body: '"Inter", Arial, Helvetica, sans-serif', tracking: '0.05em' },
+        { value: 'orbitron-logo', label: '32 · Orbitron + Inter · estilo logótipo', display: '"Orbitron", "Arial Wide", Arial, sans-serif', body: '"Inter", Arial, Helvetica, sans-serif', tracking: '0.025em' },
+        { value: 'general-sans-local', label: '33 · General Sans Bold · recomendação local', display: '"General Sans", Arial, sans-serif', body: '"General Sans", Arial, sans-serif' }
       ];
       const fontMap = new Map(fonts.map((font) => [font.value, font]));
       const scopes = [
@@ -246,6 +265,7 @@
         { value: 'navigation', label: 'Navegação', selector: '.site-header a, .site-header button, .breadcrumb a, .breadcrumb span' },
         { value: 'controls', label: 'Botões e etiquetas', selector: 'main a, main button, .floating-whatsapp' },
         { value: 'footer', label: 'Rodapé', selector: '.site-footer p, .site-footer a, .site-footer span, .site-footer li' },
+        { value: 'academy-title', label: 'A Academia · título', selector: '.philosophy-editorial-heading h2' },
         { value: 'academy', label: 'A Academia · texto', selector: '.philosophy-editorial-copy p' }
       ];
       const scopeOrder = scopes.map((scope) => scope.value);
@@ -253,16 +273,16 @@
       const allElements = [...new Set(scopes.flatMap((scope) => scopeElements.get(scope.value)))];
       const originalStyles = new WeakMap(allElements.map((element) => [element, {
         fontFamily: element.style.fontFamily,
-        fontSize: element.style.fontSize
+        fontSize: element.style.fontSize,
+        letterSpacing: element.style.letterSpacing
       }]));
       const configurations = Object.fromEntries(scopes.map((scope) => [scope.value, { font: null, scale: null }]));
-
       try {
-        const storedConfigurations = JSON.parse(localStorage.getItem('focus-typography-lab-v2') || '{}');
+        const storedConfigurations = JSON.parse(localStorage.getItem('focus-typography-lab-v4') || '{}');
         scopes.forEach(({ value }) => {
           const stored = storedConfigurations[value];
           if (!stored || typeof stored !== 'object') return;
-          if (fontMap.has(stored.font)) configurations[value].font = stored.font;
+          if (stored.font === null || fontMap.has(stored.font)) configurations[value].font = stored.font;
           if (Number.isFinite(stored.scale)) configurations[value].scale = Math.min(1.2, Math.max(0.8, stored.scale));
         });
       } catch {
@@ -271,7 +291,7 @@
 
       const saveConfigurations = () => {
         try {
-          localStorage.setItem('focus-typography-lab-v2', JSON.stringify(configurations));
+          localStorage.setItem('focus-typography-lab-v4', JSON.stringify(configurations));
         } catch {
           // The laboratory remains usable when storage is unavailable.
         }
@@ -282,6 +302,7 @@
           const original = originalStyles.get(element);
           element.style.fontFamily = original.fontFamily;
           element.style.fontSize = original.fontSize;
+          element.style.letterSpacing = original.letterSpacing;
         });
 
         scopeOrder.forEach((scopeValue) => {
@@ -291,6 +312,9 @@
           scopeElements.get(scopeValue).forEach((element) => {
             const usesDisplayFont = element.matches('h1, h2, h3, h4');
             element.style.fontFamily = usesDisplayFont ? font.display : font.body;
+            element.style.letterSpacing = usesDisplayFont && font.tracking
+              ? font.tracking
+              : originalStyles.get(element).letterSpacing;
           });
         });
 
@@ -306,10 +330,21 @@
         });
       };
 
-      const fontStylesheet = document.createElement('link');
-      fontStylesheet.rel = 'stylesheet';
-      fontStylesheet.href = 'https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Bebas+Neue&family=Fjalla+One&family=IBM+Plex+Sans:wght@400;500;600;700&family=Lato:wght@400;700&family=League+Gothic&family=Manrope:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@500;600;700&family=Sora:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Teko:wght@500;600;700&display=swap';
-      document.head.append(fontStylesheet);
+      const localFontStylesheet = document.createElement('style');
+      localFontStylesheet.textContent = '@font-face { font-family: "General Sans"; src: url("assets/fonts/local/GeneralSans-Variable.woff2") format("woff2"); font-style: normal; font-weight: 200 700; font-display: swap; }';
+      document.head.append(localFontStylesheet);
+
+      const fontStylesheets = [
+        'https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Bebas+Neue&family=Fjalla+One&family=IBM+Plex+Sans:wght@400;500;600;700&family=Lato:wght@400;700&family=League+Gothic&family=Manrope:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@500;600;700&family=Sora:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Teko:wght@500;600;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@500;600;700&family=Asap:wght@400;500;600;700&family=Asap+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700&family=Big+Shoulders+Display:wght@500;600;700&family=DM+Sans:wght@500;600;700&family=Encode+Sans+Condensed:wght@500;600;700&family=Fira+Sans:wght@400;500;600;700&family=Fira+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&family=PT+Sans:wght@400;700&family=PT+Sans+Narrow:wght@400;700&family=Rajdhani:wght@500;600;700&family=Saira+Condensed:wght@500;600;700&family=Syne:wght@500;600;700&family=Titillium+Web:wght@500;600;700&family=Ubuntu:wght@400;500;700&family=Ubuntu+Condensed&family=Yanone+Kaffeesatz:wght@500;600;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Michroma&family=Orbitron:wght@500;600;700&family=Syncopate:wght@400;700&display=swap'
+      ];
+      fontStylesheets.forEach((href) => {
+        const stylesheet = document.createElement('link');
+        stylesheet.rel = 'stylesheet';
+        stylesheet.href = href;
+        document.head.append(stylesheet);
+      });
 
       const control = document.createElement('details');
       control.className = 'typography-lab';
