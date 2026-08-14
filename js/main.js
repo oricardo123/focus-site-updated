@@ -11,9 +11,11 @@
     primaryNavigationItems: '[data-nav-section]',
     languageButtons: '.language-button',
     translatableElements: '[data-pt][data-en]',
+    translatableAriaLabels: '[data-aria-pt][data-aria-en]',
+    translatableAltText: '[data-alt-pt][data-alt-en]',
+    translatableContent: '[data-content-pt][data-content-en]',
     whatsappLinks: '[data-whatsapp]',
-    revealElements: '.reveal',
-    trackedSections: 'main section[id]'
+    revealElements: '.reveal'
   };
 
   const WHATSAPP_URLS = {
@@ -41,28 +43,7 @@
     }
   }
 
-  function restoreVisitFocusLinks() {
-    queryAll('.academy-menu .nav-dropdown a').forEach((link) => {
-      const replacedByTrialLink =
-        link.dataset.pt === 'Marcar Aula Experimental' ||
-        link.dataset.en === 'Book a Trial Class' ||
-        link.href.includes('wa.me/351932665662');
-
-      if (!replacedByTrialLink) return;
-
-      link.classList.remove('whatsapp-link');
-      delete link.dataset.whatsapp;
-      link.dataset.pt = 'Visitar Focus Jiu-Jitsu HQ';
-      link.dataset.en = 'Visit Focus Jiu-Jitsu HQ';
-      link.href = 'visitar.html';
-      link.removeAttribute('target');
-      link.removeAttribute('rel');
-      link.textContent = link.dataset.pt;
-    });
-  }
-
   function initialiseWebsite() {
-    restoreVisitFocusLinks();
     const elements = {
       header: document.querySelector(SELECTORS.header),
       menuButton: document.querySelector(SELECTORS.menuButton),
@@ -73,18 +54,33 @@
       primaryNavigationItems: queryAll(SELECTORS.primaryNavigationItems),
       languageButtons: queryAll(SELECTORS.languageButtons),
       translatableElements: queryAll(SELECTORS.translatableElements),
+      translatableAriaLabels: queryAll(SELECTORS.translatableAriaLabels),
+      translatableAltText: queryAll(SELECTORS.translatableAltText),
+      translatableContent: queryAll(SELECTORS.translatableContent),
       whatsappLinks: queryAll(SELECTORS.whatsappLinks),
-      revealElements: queryAll(SELECTORS.revealElements),
-      trackedSections: queryAll(SELECTORS.trackedSections)
+      revealElements: queryAll(SELECTORS.revealElements)
     };
 
     function setLanguage(language) {
       const safeLanguage = language === 'en' ? 'en' : 'pt';
+      const languageSuffix = safeLanguage === 'en' ? 'En' : 'Pt';
       document.documentElement.lang = safeLanguage;
 
       elements.translatableElements.forEach((element) => {
         const translatedText = element.dataset[safeLanguage];
         if (typeof translatedText === 'string') element.textContent = translatedText;
+      });
+
+      elements.translatableAriaLabels.forEach((element) => {
+        element.setAttribute('aria-label', element.dataset[`aria${languageSuffix}`]);
+      });
+
+      elements.translatableAltText.forEach((element) => {
+        element.alt = element.dataset[`alt${languageSuffix}`];
+      });
+
+      elements.translatableContent.forEach((element) => {
+        element.content = element.dataset[`content${languageSuffix}`];
       });
 
       elements.whatsappLinks.forEach((link) => {
@@ -146,21 +142,6 @@
 
         if (isCurrent) primaryLink.setAttribute('aria-current', 'page');
         else primaryLink.removeAttribute('aria-current');
-      });
-    }
-
-    function updateActiveSectionNavigation() {
-      let currentId = '';
-      const activationPoint = window.scrollY + window.innerHeight * 0.38;
-
-      elements.trackedSections.forEach((section) => {
-        if (section.offsetTop <= activationPoint) currentId = section.id;
-      });
-
-      elements.navigationLinks.forEach((link) => {
-        const href = link.getAttribute('href') || '';
-        const isActiveLocalLink = href.startsWith('#') && href === `#${currentId}`;
-        link.classList.toggle('is-active', isActiveLocalLink);
       });
     }
 
@@ -229,9 +210,11 @@
       elements.revealElements.forEach((element) => observer.observe(element));
     }
 
-    function initialiseCurrentYear() {
-      queryAll('[data-current-year]').forEach((element) => {
-        element.textContent = String(new Date().getFullYear());
+    function respectReducedMotion() {
+      if (!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+      queryAll('.hero video[autoplay]').forEach((video) => {
+        video.removeAttribute('autoplay');
+        video.pause();
       });
     }
 
@@ -241,7 +224,6 @@
       scrollFrameRequested = true;
       requestAnimationFrame(() => {
         updateHeader();
-        updateActiveSectionNavigation();
         scrollFrameRequested = false;
       });
     }
@@ -250,17 +232,13 @@
     initialiseDropdowns();
     initialiseMobileMenu();
     initialiseRevealAnimations();
-    initialiseCurrentYear();
+    respectReducedMotion();
 
     updateHeader();
     updateCurrentPrimaryNavigation();
-    updateActiveSectionNavigation();
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('hashchange', () => {
-      updateCurrentPrimaryNavigation();
-      updateActiveSectionNavigation();
-    });
+    window.addEventListener('hashchange', updateCurrentPrimaryNavigation);
     window.addEventListener('resize', () => {
       if (window.innerWidth > DESKTOP_BREAKPOINT) closeMenu();
     });
