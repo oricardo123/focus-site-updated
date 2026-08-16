@@ -5,7 +5,7 @@ import path from 'node:path';
 const scriptsDirectory = path.dirname(fileURLToPath(import.meta.url));
 const rootDirectory = path.resolve(scriptsDirectory, '..');
 const partialsDirectory = path.join(rootDirectory, 'partials');
-const assetVersion = '20260816-1';
+const assetVersion = '20260816-2';
 
 const [header, footer, floatingWhatsApp, entries] = await Promise.all([
   readFile(path.join(partialsDirectory, 'header.html'), 'utf8'),
