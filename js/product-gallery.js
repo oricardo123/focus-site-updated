@@ -21,6 +21,11 @@
 
       if (!image || !stage || colourButtons.length === 0 || arrowButtons.length !== 2) return;
 
+      const photosByColour = new Map(colourButtons.map((button) => [
+        button,
+        (button.dataset.images || '').split('|').filter(Boolean)
+      ]));
+
       let currentIndex = 0;
       let requestedIndex = 0;
       let loadSequence = 0;
@@ -29,9 +34,7 @@
         colourButtons.find((button) => button.classList.contains('is-active')) || colourButtons[0]
       );
 
-      const getPhotos = () => (
-        (getActiveColour().dataset.images || '').split('|').filter(Boolean)
-      );
+      const getPhotos = () => photosByColour.get(getActiveColour()) || [];
 
       const getColourName = () => {
         const language = getLanguage();
@@ -90,7 +93,6 @@
         }
         if (announce && status) status.textContent = photoLabel;
 
-        updateSwatchLabels();
         card.classList.add('is-gallery-ready');
       };
 
@@ -148,13 +150,16 @@
             otherButton.classList.toggle('is-active', isSelected);
             otherButton.setAttribute('aria-pressed', String(isSelected));
           });
-          requestedIndex = 0;
           showPhoto(0);
         });
       });
 
-      const updateLanguage = () => updateGalleryText(false);
+      const updateLanguage = () => {
+        updateGalleryText(false);
+        updateSwatchLabels();
+      };
       galleryUpdates.push(updateLanguage);
+      updateSwatchLabels();
       showPhoto(0, { announce: false });
     });
 

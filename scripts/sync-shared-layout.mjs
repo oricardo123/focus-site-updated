@@ -5,7 +5,7 @@ import path from 'node:path';
 const scriptsDirectory = path.dirname(fileURLToPath(import.meta.url));
 const rootDirectory = path.resolve(scriptsDirectory, '..');
 const partialsDirectory = path.join(rootDirectory, 'partials');
-const assetVersion = '20260814-8';
+const assetVersion = '20260816-1';
 
 const [header, footer, floatingWhatsApp, entries] = await Promise.all([
   readFile(path.join(partialsDirectory, 'header.html'), 'utf8'),
@@ -117,18 +117,13 @@ const imageDimensions = {
   'assets/images/adultos-program.jpg': [1200, 1800],
   'assets/images/program-kids.jpg': [1200, 1800],
   'assets/images/program-kids-training.jpg': [1600, 1200],
-  'assets/images/program-advanced.jpg': [1600, 1100],
   'assets/images/program-adults-class.jpg': [1600, 1200],
-  'assets/images/program-adults-training.jpg': [1600, 1200],
-  'assets/images/facility-mats.jpg': [1600, 1100],
-  'assets/images/facility-shop.jpg': [1600, 1100],
   'assets/images/facilities/academy-hero-poster.jpg': [1600, 900],
   'assets/images/facilities/gym-main-floor-color.jpg': [2200, 1470],
   'assets/images/facilities/gym-panorama-color.jpg': [2400, 1405],
   'assets/images/facilities/gym-free-weights-color.jpg': [1800, 1200],
   'assets/images/facilities/gym-conditioning-color.jpg': [2200, 1332],
   'assets/images/facilities/pro-shop.jpg': [1600, 1200],
-  'assets/images/facilities/tatami-gallery.jpg': [2000, 1333],
   'assets/images/facilities/tatami-gallery-updated.jpg': [1320, 864],
   'assets/images/facilities/tatami-main.jpg': [1920, 1200],
   'assets/images/team/team-placeholder.svg': [1200, 1500]
@@ -151,10 +146,8 @@ const optimizedMediaPaths = [
   'assets/images/program-kids.jpg',
   'assets/images/program-kids-training.jpg',
   'assets/images/program-adults-class.jpg',
-  'assets/images/program-adults-training.jpg',
   'assets/images/facilities/academy-hero-poster.jpg',
   'assets/images/facilities/pro-shop.jpg',
-  'assets/images/facilities/tatami-gallery.jpg',
   'assets/images/facilities/tatami-gallery-updated.jpg',
   'assets/images/facilities/tatami-main.jpg',
   'assets/images/team/henrique-soares.jpg',
@@ -168,6 +161,20 @@ const optimizedMediaPaths = [
   'assets/videos/home.mp4',
   'assets/videos/academy-hero.mp4'
 ];
+
+const versionedAssetPaths = [
+  'css/style.css',
+  'css/v54.css',
+  'js/main.js',
+  'js/product-gallery.js',
+  ...optimizedMediaPaths
+];
+const versionedAssetPattern = new RegExp(
+  `(${versionedAssetPaths
+    .map((assetPath) => assetPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .join('|')})(?:\\?v=[^"'| )]+)?`,
+  'g'
+);
 
 function addImageDimensions(markup) {
   return markup.replace(/<img\b[^>]*>/g, (tag) => {
@@ -203,21 +210,10 @@ function addImageAltTranslations(markup) {
 }
 
 function normalizeAssetVersions(markup) {
-  let updated = markup
-    .replace(/css\/style\.css(?:\?v=[^"']+)?/g, `css/style.css?v=${assetVersion}`)
-    .replace(/css\/v54\.css(?:\?v=[^"']+)?/g, `css/v54.css?v=${assetVersion}`)
-    .replace(/js\/main\.js(?:\?v=[^"']+)?/g, `js/main.js?v=${assetVersion}`)
-    .replace(/js\/product-gallery\.js(?:\?v=[^"']+)?/g, `js/product-gallery.js?v=${assetVersion}`);
-
-  for (const mediaPath of optimizedMediaPaths) {
-    const escapedPath = mediaPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    updated = updated.replace(
-      new RegExp(`${escapedPath}(?:\\?v=[^"'| )]+)?`, 'g'),
-      `${mediaPath}?v=${assetVersion}`
-    );
-  }
-
-  return updated;
+  return markup.replace(
+    versionedAssetPattern,
+    (_match, assetPath) => `${assetPath}?v=${assetVersion}`
+  );
 }
 
 for (const page of pages) {

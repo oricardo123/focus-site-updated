@@ -26,6 +26,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Verify generated pages
+        run: |
+          node scripts/sync-shared-layout.mjs
+          git diff --exit-code
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

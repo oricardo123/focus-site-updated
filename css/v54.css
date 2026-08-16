@@ -38,8 +38,7 @@
   margin-bottom: clamp(64px, 8vw, 112px);
 }
 
-.facilities-tour-player video,
-.facilities-tour-player > img {
+.facilities-tour-player video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
