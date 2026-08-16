@@ -126,6 +126,7 @@ const imageDimensions = {
   'assets/images/facilities/pro-shop.jpg': [1600, 1200],
   'assets/images/facilities/tatami-gallery-updated.jpg': [1320, 864],
   'assets/images/facilities/tatami-main.jpg': [1920, 1200],
+  'assets/images/team/vasco-leal.jpg': [1024, 1536],
   'assets/images/team/team-placeholder.svg': [1200, 1500]
 };
 
@@ -158,6 +159,7 @@ const optimizedMediaPaths = [
   'assets/images/team/francisco-rocha.jpg',
   'assets/images/team/ricardo-almeida.jpg',
   'assets/images/team/thallyson-vasconcelos.jpg',
+  'assets/images/team/vasco-leal.jpg',
   'assets/videos/home.mp4',
   'assets/videos/academy-hero.mp4'
 ];
