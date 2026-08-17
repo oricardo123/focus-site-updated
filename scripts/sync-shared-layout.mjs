@@ -8,7 +8,7 @@ const partialsDirectory = path.join(rootDirectory, 'partials');
 const assetVersion = '20260816-3';
 const assetVersionOverrides = {
   'assets/images/program-adults-class.jpg': '20260817-1',
-  'assets/images/program-kids-training.jpg': '20260817-1'
+  'assets/images/program-kids-training.jpg': '20260817-2'
 };
 
 const [header, footer, floatingWhatsApp, entries] = await Promise.all([
