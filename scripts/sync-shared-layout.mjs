@@ -6,6 +6,10 @@ const scriptsDirectory = path.dirname(fileURLToPath(import.meta.url));
 const rootDirectory = path.resolve(scriptsDirectory, '..');
 const partialsDirectory = path.join(rootDirectory, 'partials');
 const assetVersion = '20260816-3';
+const assetVersionOverrides = {
+  'assets/images/program-adults-class.jpg': '20260817-1',
+  'assets/images/program-kids-training.jpg': '20260817-1'
+};
 
 const [header, footer, floatingWhatsApp, entries] = await Promise.all([
   readFile(path.join(partialsDirectory, 'header.html'), 'utf8'),
@@ -214,7 +218,8 @@ function addImageAltTranslations(markup) {
 function normalizeAssetVersions(markup) {
   return markup.replace(
     versionedAssetPattern,
-    (_match, assetPath) => `${assetPath}?v=${assetVersion}`
+    (_match, assetPath) =>
+      `${assetPath}?v=${assetVersionOverrides[assetPath] ?? assetVersion}`
   );
 }
 
