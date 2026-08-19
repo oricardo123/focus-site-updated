@@ -5,16 +5,13 @@ import path from 'node:path';
 const scriptsDirectory = path.dirname(fileURLToPath(import.meta.url));
 const rootDirectory = path.resolve(scriptsDirectory, '..');
 const partialsDirectory = path.join(rootDirectory, 'partials');
-const assetVersion = '20260816-3';
-const assetVersionOverrides = {
-  'assets/images/program-adults-class.jpg': '20260817-1',
-  'assets/images/program-kids-training.jpg': '20260817-2'
-};
+const assetVersion = '20260819-8';
 
-const [header, footer, floatingWhatsApp, entries] = await Promise.all([
+const [header, footer, floatingWhatsApp, floatingVisit, entries] = await Promise.all([
   readFile(path.join(partialsDirectory, 'header.html'), 'utf8'),
   readFile(path.join(partialsDirectory, 'footer.html'), 'utf8'),
   readFile(path.join(partialsDirectory, 'floating-whatsapp.html'), 'utf8'),
+  readFile(path.join(partialsDirectory, 'floating-visit.html'), 'utf8'),
   readdir(rootDirectory, { withFileTypes: true })
 ]);
 
@@ -93,8 +90,8 @@ const pageMetadata = {
   'kids.html': {
     titlePt: 'Kids | Focus Jiu-Jitsu Headquarters',
     titleEn: 'Kids | Focus Jiu-Jitsu Headquarters',
-    descriptionPt: 'Programa de Jiu-Jitsu Kids da Focus Jiu-Jitsu Headquarters em Matosinhos.',
-    descriptionEn: 'The Kids Jiu-Jitsu Program at Focus Jiu-Jitsu Headquarters in Matosinhos.'
+    descriptionPt: 'Programa de Jiu-Jitsu Kids em Matosinhos para crianças dos 4 aos 14 anos, incluindo Kids 3 dos 10 aos 14 anos.',
+    descriptionEn: 'Kids Jiu-Jitsu in Matosinhos for children aged 4 to 14, including Kids 3 for ages 10 to 14.'
   },
   'produtos.html': {
     titlePt: 'Produtos | Focus Jiu-Jitsu Headquarters',
@@ -111,8 +108,8 @@ const pageMetadata = {
   'visitar.html': {
     titlePt: 'Visitar | Focus Jiu-Jitsu Headquarters',
     titleEn: 'Visit | Focus Jiu-Jitsu Headquarters',
-    descriptionPt: 'Visite a Focus Jiu-Jitsu Headquarters em Matosinhos Sul e conheça os planos turísticos de treino.',
-    descriptionEn: 'Visit Focus Jiu-Jitsu Headquarters in Matosinhos Sul and discover the training options for visitors.'
+    descriptionPt: 'Treina na Focus Jiu-Jitsu Headquarters durante a tua visita a Matosinhos: consulta horários, regras e preços dos planos turísticos. Não é necessária marcação.',
+    descriptionEn: 'Train at Focus Jiu-Jitsu Headquarters while visiting Matosinhos: see schedules, rules and tourist-plan prices. No booking is required.'
   }
 };
 
@@ -218,8 +215,31 @@ function addImageAltTranslations(markup) {
 function normalizeAssetVersions(markup) {
   return markup.replace(
     versionedAssetPattern,
-    (_match, assetPath) =>
-      `${assetPath}?v=${assetVersionOverrides[assetPath] ?? assetVersion}`
+    (_match, assetPath) => `${assetPath}?v=${assetVersion}`
+  );
+}
+
+function addSocialMetadata(markup, metadata, canonicalUrl) {
+  const withoutPreviousSocialMetadata = markup.replace(
+    /<meta\b(?=[^>]*(?:property="og:[^"]+"|name="twitter:[^"]+"))[^>]*\/?>(?:\r?\n)?/gi,
+    ''
+  );
+  const socialMetadata = [
+    '<meta content="website" property="og:type"/>',
+    '<meta content="Focus Jiu-Jitsu Headquarters" property="og:site_name"/>',
+    '<meta content="pt_PT" property="og:locale"/>',
+    '<meta content="en_GB" property="og:locale:alternate"/>',
+    `<meta content="${metadata.titlePt}" property="og:title"/>`,
+    `<meta content="${metadata.descriptionPt}" property="og:description"/>`,
+    `<meta content="${canonicalUrl}" property="og:url"/>`,
+    '<meta content="summary" name="twitter:card"/>',
+    `<meta content="${metadata.titlePt}" name="twitter:title"/>`,
+    `<meta content="${metadata.descriptionPt}" name="twitter:description"/>`
+  ].join('\n');
+
+  return withoutPreviousSocialMetadata.replace(
+    /(<link\b(?=[^>]*\brel="canonical")[^>]*\/?>)/,
+    `$1\n${socialMetadata}`
   );
 }
 
@@ -251,12 +271,13 @@ for (const page of pages) {
       /aria-label="MAT 3 — horário mobile" class="schedule-mobile-list"(?! data-aria)/g,
       'aria-label="MAT 3 — horário mobile" class="schedule-mobile-list" data-aria-en="Mat 3 mobile schedule" data-aria-pt="MAT 3 — horário mobile"'
     );
+  const pageFloatingAction = page === 'visitar.html' ? floatingVisit : floatingWhatsApp;
   const updated = withHeader.replace(
     /<footer class="site-footer" id="footer-contact">[\s\S]*?<\/footer>/,
     footer.trim()
   ).replace(
-    /<a(?=[^>]*class="floating-whatsapp whatsapp-link")[^>]*>[\s\S]*?<\/a\s*>/,
-    floatingWhatsApp.trim()
+    /<a(?=[^>]*class="[^"]*\bfloating-whatsapp\b[^"]*")[^>]*>[\s\S]*?<\/a\s*>/,
+    pageFloatingAction.trim()
   );
 
   const metadata = pageMetadata[page];
@@ -271,7 +292,19 @@ for (const page of pages) {
         `<title data-en="${metadata.titleEn}" data-pt="${metadata.titlePt}">${metadata.titlePt}</title>`
       )
     : updated;
-  const withDimensions = addImageDimensions(withMetadata);
+  const canonicalUrl = page === 'index.html'
+    ? 'https://focusjiujitsu.pt/'
+    : `https://focusjiujitsu.pt/${page}`;
+  const withCanonical = withMetadata
+    .replace(/<link\b(?=[^>]*\brel="canonical")[^>]*\/?>(?:\r?\n)?/g, '')
+    .replace(
+      /(<meta\b(?=[^>]*\bname="description")[^>]*\/?>)/,
+      `$1\n<link href="${canonicalUrl}" rel="canonical"/>`
+    );
+  const withSocialMetadata = metadata
+    ? addSocialMetadata(withCanonical, metadata, canonicalUrl)
+    : withCanonical;
+  const withDimensions = addImageDimensions(withSocialMetadata);
   const withAccessibleImages = addImageAltTranslations(withDimensions);
   const withNormalizedVersions = normalizeAssetVersions(withAccessibleImages);
 

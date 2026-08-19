@@ -26,10 +26,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Verify generated pages
+      - name: Verify and build public site
         run: |
           node scripts/sync-shared-layout.mjs
           git diff --exit-code
+          node scripts/validate-site.mjs
+          node scripts/build-publish-package.mjs
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -38,7 +40,7 @@ jobs:
         id: artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: dist/publish
 
       - name: Deploy to GitHub Pages
         id: deployment
