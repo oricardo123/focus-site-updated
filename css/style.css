@@ -234,6 +234,8 @@ address {
 }
 
 .language-button {
+  min-width: 24px;
+  min-height: 24px;
   padding: 4px;
   border: 0;
   color: rgba(255, 255, 255, 0.45);
@@ -987,7 +989,7 @@ h3 {
   }
 
   .internal-hero-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 36px;
   }
 }
@@ -1010,6 +1012,12 @@ h3 {
     font-size: clamp(3.4rem, 16vw, 5.4rem);
   }
 
+}
+
+@media (max-width: 360px) {
+  .internal-hero h1 {
+    font-size: clamp(2.75rem, 14.5vw, 3.4rem);
+  }
 }
 
 /* =========================================================
@@ -1957,6 +1965,10 @@ body[data-page="products"] .products-menu .nav-dropdown-trigger {
     padding: 0 16px;
     font-size: 0.62rem;
     white-space: nowrap;
+  }
+
+  body[data-page="academy-visitar"] .floating-whatsapp {
+    display: none;
   }
 }
 
@@ -3240,6 +3252,213 @@ body[data-page="academy-visitar"] .visit-page-hero {
   line-height: 1.68;
 }
 
+.visit-walkin-panel,
+.visit-pricing {
+  margin-top: clamp(58px, 7vw, 96px);
+  padding: clamp(34px, 5vw, 68px);
+  border: 1px solid var(--line-light);
+}
+
+.visit-walkin-panel {
+  color: var(--white);
+  background: var(--black);
+}
+
+.visit-walkin-heading,
+.visit-pricing-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.62fr);
+  gap: clamp(38px, 7vw, 110px);
+  align-items: end;
+}
+
+.visit-walkin-heading h3,
+.visit-pricing-heading h3 {
+  max-width: 780px;
+  margin: 18px 0 0;
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 5vw, 5.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.visit-walkin-heading > p,
+.visit-pricing-heading > p {
+  margin: 0;
+  color: inherit;
+  font-size: clamp(0.96rem, 1.05vw, 1.04rem);
+  line-height: 1.7;
+}
+
+.visit-walkin-heading > p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.visit-walkin-steps {
+  margin: clamp(38px, 5vw, 68px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  list-style: none;
+}
+
+.visit-walkin-steps li {
+  min-width: 0;
+  padding: 28px clamp(18px, 2.6vw, 36px) 0;
+}
+
+.visit-walkin-steps li:first-child {
+  padding-left: 0;
+}
+
+.visit-walkin-steps li + li {
+  border-left: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.visit-walkin-steps span {
+  display: block;
+  color: rgba(255, 255, 255, 0.54);
+  font-family: var(--display);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.visit-walkin-steps strong {
+  display: block;
+  margin-top: 22px;
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.visit-walkin-steps p {
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.92rem;
+  line-height: 1.62;
+}
+
+.visit-pricing {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.visit-day-pass {
+  margin-top: clamp(38px, 5vw, 62px);
+  padding: clamp(24px, 3vw, 38px);
+  display: grid;
+  grid-template-columns: minmax(220px, 0.58fr) minmax(280px, 1fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+  color: var(--white);
+  background: var(--black);
+}
+
+.visit-day-pass > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.visit-day-pass span {
+  font-family: var(--display);
+  font-size: clamp(1.55rem, 2.8vw, 2.8rem);
+  font-weight: 700;
+}
+
+.visit-day-pass strong {
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 4vw, 4rem);
+}
+
+.visit-day-pass p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+}
+
+.visit-price-groups {
+  margin-top: clamp(30px, 4vw, 50px);
+  display: grid;
+  gap: clamp(34px, 5vw, 64px);
+  min-width: 0;
+}
+
+.visit-price-group {
+  min-width: 0;
+}
+
+.visit-price-group h4 {
+  margin: 0 0 18px;
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.visit-price-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line-light);
+}
+
+.visit-price-table-scroll:focus-visible {
+  outline: 3px solid var(--signal);
+  outline-offset: 3px;
+}
+
+.visit-price-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  color: var(--black);
+}
+
+.visit-price-table th,
+.visit-price-table td {
+  padding: 18px clamp(14px, 2vw, 28px);
+  border: 1px solid var(--line-light);
+  text-align: center;
+}
+
+.visit-price-table thead th {
+  color: var(--white);
+  background: var(--black);
+  font-family: var(--display);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.visit-price-table thead th:first-child,
+.visit-price-table tbody th {
+  width: 52%;
+  text-align: left;
+}
+
+.visit-price-table tbody th {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.visit-price-table td {
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.visit-price-note {
+  max-width: 900px;
+  margin: 28px 0 0;
+  color: #565651;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
 .visit-concise-cta {
   padding-top: clamp(34px, 4vw, 52px);
   display: flex;
@@ -3288,6 +3507,37 @@ body[data-page="academy-visitar"] .visit-page-hero {
     border-left: 0;
     border-top: 1px solid var(--line-light);
   }
+
+  .visit-walkin-heading,
+  .visit-pricing-heading {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .visit-walkin-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .visit-walkin-steps li {
+    padding: 28px 24px 30px 0;
+  }
+
+  .visit-walkin-steps li + li {
+    border-left: 0;
+  }
+
+  .visit-walkin-steps li:nth-child(even) {
+    padding-left: 24px;
+    border-left: 1px solid rgba(255, 255, 255, 0.24);
+  }
+
+  .visit-walkin-steps li:nth-child(n + 3) {
+    border-top: 1px solid rgba(255, 255, 255, 0.24);
+  }
+
+  .visit-day-pass {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 680px) {
@@ -3321,6 +3571,46 @@ body[data-page="academy-visitar"] .visit-page-hero {
   .visit-concise-cta .button {
     width: 100%;
     justify-content: space-between;
+  }
+
+  .visit-walkin-panel,
+  .visit-pricing {
+    margin-inline: -18px;
+    padding: 32px 18px 38px;
+  }
+
+  .visit-walkin-heading h3,
+  .visit-pricing-heading h3 {
+    font-size: clamp(2.6rem, 13vw, 4rem);
+  }
+
+  .visit-walkin-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-walkin-steps li,
+  .visit-walkin-steps li:first-child,
+  .visit-walkin-steps li:nth-child(even) {
+    padding: 24px 0 28px;
+    border-left: 0;
+  }
+
+  .visit-walkin-steps li + li {
+    border-top: 1px solid rgba(255, 255, 255, 0.24);
+  }
+
+  .visit-day-pass {
+    padding: 24px 20px;
+  }
+
+  .visit-day-pass > div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .visit-price-table {
+    min-width: 680px;
   }
 }
 

@@ -14,14 +14,17 @@
     translatableAriaLabels: '[data-aria-pt][data-aria-en]',
     translatableAltText: '[data-alt-pt][data-alt-en]',
     translatableContent: '[data-content-pt][data-content-en]',
+    bookingLinks: '[data-booking]',
     whatsappLinks: '[data-whatsapp]',
     revealElements: '.reveal'
   };
 
   const WHATSAPP_URLS = {
-    pt: 'https://wa.me/351932665662?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20uma%20aula%20experimental.',
-    en: 'https://wa.me/351932665662?text=Hello%2C%20I%20would%20like%20to%20book%20a%20trial%20class.'
+    pt: 'https://wa.me/351932665662?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20op%C3%A7%C3%B5es%20para%20visitar%20e%20treinar%20na%20Focus%20Jiu%20Jitsu%20HQ.',
+    en: 'https://wa.me/351932665662?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20the%20options%20for%20visiting%20and%20training%20at%20Focus%20Jiu%20Jitsu%20HQ.'
   };
+
+  const BOOKING_URL = 'https://marcar.focusjiujitsu.pt/marcar';
 
   const DESKTOP_BREAKPOINT = 1120;
   const HEADER_SCROLL_THRESHOLD = 36;
@@ -58,9 +61,39 @@
       translatableAriaLabels: queryAll(SELECTORS.translatableAriaLabels),
       translatableAltText: queryAll(SELECTORS.translatableAltText),
       translatableContent: queryAll(SELECTORS.translatableContent),
+      bookingLinks: queryAll(SELECTORS.bookingLinks),
       whatsappLinks: queryAll(SELECTORS.whatsappLinks),
       revealElements: queryAll(SELECTORS.revealElements)
     };
+
+    function attributionSlug(value, fallback) {
+      const slug = String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '');
+      return slug || fallback;
+    }
+
+    function initialiseBookingLinks() {
+      const page = attributionSlug(document.body.dataset.page, 'website');
+
+      elements.bookingLinks.forEach((link) => {
+        const url = new URL(BOOKING_URL);
+        const programme = link.dataset.bookingProgramme;
+        const placement = attributionSlug(link.dataset.bookingContent, 'trial_cta');
+
+        if (['adult', 'kids1', 'kids2', 'kids3'].includes(programme)) {
+          url.searchParams.set('programme', programme);
+        }
+
+        url.searchParams.set('utm_source', 'focus_website');
+        url.searchParams.set('utm_medium', 'referral');
+        url.searchParams.set('utm_campaign', 'trial_always_on');
+        url.searchParams.set('utm_content', `site_${page}_${placement}`);
+        link.href = url.toString();
+      });
+    }
 
     function setLanguage(language) {
       const safeLanguage = language === 'en' ? 'en' : 'pt';
@@ -88,6 +121,13 @@
         link.href = WHATSAPP_URLS[safeLanguage];
       });
 
+      elements.bookingLinks.forEach((link) => {
+        const url = new URL(link.href);
+        if (safeLanguage === 'en') url.searchParams.set('lang', 'en');
+        else url.searchParams.delete('lang');
+        link.href = url.toString();
+      });
+
       elements.languageButtons.forEach((button) => {
         const isActive = button.dataset.language === safeLanguage;
         button.classList.toggle('is-active', isActive);
@@ -105,12 +145,13 @@
       });
     }
 
-    function closeMenu() {
+    function closeMenu({ restoreFocus = false } = {}) {
       if (!elements.menuButton || !elements.navigation) return;
       elements.navigation.classList.remove('is-open');
       document.body.classList.remove('menu-open');
       elements.menuButton.setAttribute('aria-expanded', 'false');
       closeDropdowns();
+      if (restoreFocus) elements.menuButton.focus();
     }
 
     let isHeaderScrolled = null;
@@ -179,18 +220,36 @@
     function initialiseMobileMenu() {
       if (!elements.menuButton || !elements.navigation) return;
 
-      elements.menuButton.addEventListener('click', () => {
+      function toggleMenu({ focusNavigation = false } = {}) {
         const isOpen = elements.navigation.classList.toggle('is-open');
         document.body.classList.toggle('menu-open', isOpen);
         elements.menuButton.setAttribute('aria-expanded', String(isOpen));
-        if (isOpen) elements.navigation.scrollTop = 0;
+        if (isOpen) {
+          elements.navigation.scrollTop = 0;
+          if (focusNavigation) {
+            setTimeout(() => elements.navigation.querySelector('a, button')?.focus(), 240);
+          }
+        }
+      }
+
+      elements.menuButton.addEventListener('click', (event) => {
+        toggleMenu({ focusNavigation: event.detail === 0 });
+      });
+
+      elements.menuButton.addEventListener('keydown', (event) => {
+        if (!['Enter', ' '].includes(event.key)) return;
+        event.preventDefault();
+        toggleMenu({ focusNavigation: true });
       });
 
       elements.navigationLinks.forEach((link) => link.addEventListener('click', closeMenu));
 
       document.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape') return;
-        closeMenu();
+        const openDropdown = elements.dropdownItems.find((item) => item.classList.contains('is-open'));
+        const restoreMenuButton = elements.navigation.classList.contains('is-open');
+        closeMenu({ restoreFocus: restoreMenuButton });
+        if (!restoreMenuButton) openDropdown?.querySelector(SELECTORS.dropdownTriggers)?.focus();
       });
     }
 
@@ -224,6 +283,7 @@
 
     function initialiseTypographyLab() {
       if (!['localhost', '127.0.0.1'].includes(window.location.hostname)) return;
+      if (new URLSearchParams(window.location.search).get('typographyLab') !== '1') return;
       const stylesheetUrl = new URL('../css/typography-lab.css', mainScriptUrl || window.location.href);
       const scriptUrl = new URL('typography-lab.js', mainScriptUrl || window.location.href);
       stylesheetUrl.search = mainScriptUrl?.search || '';
@@ -249,6 +309,7 @@
       });
     }
 
+    initialiseBookingLinks();
     initialiseLanguageSwitch();
     initialiseDropdowns();
     initialiseMobileMenu();
